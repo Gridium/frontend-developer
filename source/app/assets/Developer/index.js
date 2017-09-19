@@ -1,4 +1,4 @@
-let job = {
+const job = {
 	"headline": "Gridium Front-end Developer",
 	"essentials": {
 		"locations": "denver",
@@ -91,11 +91,11 @@ function TrainingType() { return enumerate("None", "Informal", "Formal", "Extern
 function PTO() { return enumerate("Accrued", "Unlimited") }
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
-function enumerate() { 
+function enumerate(){
 	let v=arguments;
 	let s={all:[],keys:v};
 	for(let i=v.length;i--;)s[v[i]]=s.all[i]=v[i];
-	return s 
-};
+	return s; 
+}
 
 module.exports = job;

@@ -6,6 +6,10 @@ Babel/Webpack/ES6
 Gulp/Jest
 ```
 
+./public/js/index.js has been moved into source/app/assets/Developer/index.js and slightly changed to adapt ES6 syntax and webpack module loading.
+
+A demo will be viewable at http://66.150.214.52/gridium/ when complete.
+
 ---
 
 # Gridium Developer Application

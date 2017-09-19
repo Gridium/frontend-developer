@@ -1,3 +1,13 @@
+To process the data from Gridium I am using the following:
+```
+React/React-Router/React-Vis/D3
+PUG/SASS/Bootstrap
+Babel/Webpack/ES6
+Gulp/Jest
+```
+
+---
+
 # Gridium Developer Application
 
 Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.

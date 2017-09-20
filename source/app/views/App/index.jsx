@@ -18,7 +18,6 @@ export default class App extends React.Component{
 		  developer: developer
 		};
 		routes = createRoutes(this);
-		console.log(this.state); //Debugging
 	}
 
 	generateNewApplicant() {
@@ -31,18 +30,24 @@ export default class App extends React.Component{
 
 	render(){
 		return(
-//<Router history={history}/>
 		<HashRouter>
 	      <div>
-	      	<div className="menu">
 	      		{links}
-	        </div>
-	        <div className="content">
 	        	{routes}
-	        </div>
 	      </div>
 	     </HashRouter>
-//</Router>
 		);
 	}
+
+	// render(){
+	// 	return(
+	// 		<Router history={history}>
+	// 			<div>
+	// 				{links}
+	// 				{routes}
+	// 			</div>
+	// 		</Router>
+	// 	);
+	// }
+	
 }

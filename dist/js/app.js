@@ -23907,7 +23907,6 @@ var App = function (_React$Component) {
 			developer: developer
 		};
 		routes = (0, _routes2.default)(_this);
-		console.log(_this.state); //Debugging
 		return _this;
 	}
 
@@ -23920,31 +23919,30 @@ var App = function (_React$Component) {
 			});
 			console.log(this.state); //Debugging
 		}
+
+		// render(){
+		// 	return(
+		// 	<HashRouter>
+		//       <div>
+		//       		{links}
+		//         	{routes}
+		//       </div>
+		//      </HashRouter>
+		// 	);
+		// }
+
 	}, {
 		key: 'render',
 		value: function render() {
-			return (
-				//<Router history={history}/>
+			return _react2.default.createElement(
+				_reactRouterDom.BrowserRouter,
+				{ history: _appHistory2.default },
 				_react2.default.createElement(
-					_reactRouterDom.HashRouter,
+					'div',
 					null,
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'div',
-							{ className: 'menu' },
-							links
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'content' },
-							routes
-						)
-					)
+					links,
+					routes
 				)
-				//</Router>
-
 			);
 		}
 	}]);

@@ -1,0 +1,22 @@
+.nav-bar {
+  border-radius: 0px; }
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%; }
+
+body {
+  background: #2c3742; }
+
+.content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 0 24px; }

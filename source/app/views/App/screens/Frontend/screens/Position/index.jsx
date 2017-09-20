@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default class About extends React.Component {
+export default class Position extends React.Component {
 
   constructor(props) {
     super(props);
@@ -11,12 +11,12 @@ export default class About extends React.Component {
   	return (
       <div className="container page">
         <h4>
-          About.
+          Position.
         </h4>
         <div className="row">
           <div className="col-md-12">
             <div className="col-md-6">
-             <p>This is about.</p>
+             <p>This is position.</p>
             </div>
           </div>
         </div>

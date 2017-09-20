@@ -1,0 +1,30 @@
+.nav-bar{
+  border-radius:0px;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+  background:#2c3742;
+}
+
+.content{
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    //padding: 0 24px;
+    margin-top: 72px;
+}
+
+.navbar .nav > li > a.active {
+    color: #1abc9c;
+}
+
+.navbar-default{
+	border-radius:0px;
+}

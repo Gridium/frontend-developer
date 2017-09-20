@@ -89,6 +89,9 @@ function Monitors() { return enumerate("Negotiable"); }
 function Level() { return enumerate("Familiar", "Good", "Expert"); }
 function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
 function PTO() { return enumerate("Accrued", "Unlimited") }
+function Framework() { return enumerate("react", "vue", "angular") }
+function TestingFramework(){ return enumerate("junit","mocha","jasmine","selenium") }
+function Names() { return enumerate("Eric", "Fred", "Kate") }
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate(){
@@ -98,14 +101,30 @@ function enumerate(){
 	return s; 
 }
 
-module.exports.job = job;
-module.exports.EmploymentType = EmploymentType;
-
-/*
-Proper way:
 module.exports = {
-    foo: foo,
-    bar: bar
+    job: job,
+	EmploymentType:EmploymentType,
+	ExperienceLevels:ExperienceLevels,
+	CompanySize:CompanySize,
+	VersionControlSystem:VersionControlSystem,
+	IssueTrackers:IssueTrackers,
+	BuildServers:BuildServers,
+	CodeAnalysisTools:CodeAnalysisTools,
+	KnowledgeRepos:KnowledgeRepos,
+	TravelOptions:TravelOptions,
+	ScheduleOptions:ScheduleOptions,
+	RemoteWorking:RemoteWorking,
+	RelocationPackages:RelocationPackages,
+	OperationSystems:OperationSystems,
+	MachineType:MachineType,
+	Monitors:Monitors,
+	Level:Level,
+	TrainingType:TrainingType,
+	PTO:PTO,
+	enumerate:enumerate,
+	Framework:Framework,
+	TestingFramework:TestingFramework,
+	Names:Names
 };
-*/
+
 

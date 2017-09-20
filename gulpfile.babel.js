@@ -32,6 +32,11 @@ gulp.task('bootstrap-fonts', () => { 
         .pipe(gulp.dest(`${dirs.dest}/fonts`)); 
 });
 
+gulp.task('flat-fonts', () => { 
+    return gulp.src(`${dirs.nodeDir}/flat-ui/fonts/**`) 
+        .pipe(gulp.dest(`${dirs.dest}/fonts`)); 
+});
+
 /*************************/
 //END VENDOR SPECIFIC
 
@@ -73,7 +78,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.js, ['webpack']);
 });
 
-gulp.task('build', ['bootstrap-fonts','sass','pug','webpack']);
+gulp.task('build', ['bootstrap-fonts','flat-fonts','sass','pug','webpack']);
 
 gulp.task('default', ['clean'], () => {
   gulp.start('build');

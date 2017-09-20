@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "animate.css": "^3.5.2",
+    "animated": "^0.2.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -21,10 +22,12 @@
     "bootstrap": "^3.3.7",
     "d3": "^4.10.2",
     "del": "^3.0.0",
+    "flat-ui": "^2.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-sass": "^3.1.0",
+    "history": "^4.7.2",
     "jest": "^21.1.0",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",
@@ -32,10 +35,10 @@
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.0",
     "react-vis": "^1.7.7",
     "webpack": "^3.6.0",
-    "webpack-stream": "^4.0.0",
-    "history": "^4.7.2"
+    "webpack-stream": "^4.0.0"
   },
   "dependencies": {
     "http-server": "^0.10.0"

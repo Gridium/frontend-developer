@@ -2,109 +2,63 @@ import Developer from 'assets/Developer';
 
 export default class generateDeveloper{
 	   constructor() {
-       		this.headline = Developer.job.headline;
-       		//this.randomVariable = Math.floor(Math.random() * 6) + 1; //Testing if new developer is generated
-      		//Example of pulling in enumerated keys - PTO().all[0]);
-      		//Developer.EmploymentType().all[0] should work in this case where 0 is a random number in between min-max for that function's enumeration.
-      		this.essentials = {
-      			locations: Developer.job.essentials.locations,
-      			employment: Developer.EmploymentType().Permanent
-      		}
+	   		let date = new Date(Developer.job.essentials.startdate + 12096e5); //Two weeks
+
+	   		this.applicant = {
+	   			"name": Developer.Names().all[Math.floor(Math.random() * 3)],
+	   			"technologies": {
+			        "css3": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "html5": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "javascript": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "node": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "rest": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "uiux": Developer.Level().all[Math.floor(Math.random() * 3)],
+			        "design": Developer.Level().all[Math.floor(Math.random() * 3)]
+	   			},
+	   			"testing": {
+	   				[Developer.TestingFramework().all[Math.floor(Math.random() * 3)]] : Developer.Level().all[Math.floor(Math.random() * 3)]
+	   			},
+	   			"framework":{
+	   				[Developer.Framework().all[Math.floor(Math.random() * 3)]] : Developer.Level().all[Math.floor(Math.random() * 3)]
+	   			},
+	   			"boardgames": Developer.Level().all[Math.floor(Math.random() * 3)],
+	   			"equipment":{
+	   				"operatingsystem" : Developer.OperationSystems().all[Math.floor(Math.random() * 4)],
+	   				"computer": Developer.MachineType().all[Math.floor(Math.random() * 2)]
+	   			}
+	   		};
+
+	   		this.position = {
+	   			"headline" : Developer.job.headline,
+	   			"essentials" : {
+	   				"location" : Developer.job.essentials.locations,
+	   				"experience" : Developer.ExperienceLevels().all[Math.floor(Math.random() * 4)],
+	   				"startdate" : [(date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()],
+	   				"teamsize" : Math.floor(Math.random() * 4)+1
+	   			},
+	   			"methodology" : {
+	   				"codereviews" : Developer.job.methodology.codereviews,
+	   				"prototyping" : Developer.job.methodology.prototyping,
+	   				"failfast" : Developer.job.methodology.failfast,
+	   				"unittests" : Developer.job.methodology.unittests,
+	   				"integrationtests" : Developer.job.methodology.integrationtests,
+	   				"buildserver" : Developer.BuildServers().all[Math.floor(Math.random() * 5)],
+	   				"staticcodeanalysis" : Developer.CodeAnalysisTools().all[Math.floor(Math.random() * 2)],
+	   				"versioncontrol" : Developer.VersionControlSystem().all[Math.floor(Math.random() * 3)],
+	   				"issuetracker" : Developer.IssueTrackers().all[Math.floor(Math.random() * 4)],
+	   				"standups" : true,
+	   				"quickstart" : true,
+	   				"commitondayone" : true
+	   			},
+	   			"specs" : {
+	   				"workload" : Developer.job.specs.workload,
+	   				"workweek" : Developer.job.specs.workweek,
+	   				"schedule" : Developer.ScheduleOptions().all[Math.floor(Math.random() * 2)],
+	   				"remote" : Developer.RemoteWorking().all[Math.floor(Math.random() * 3)],
+	   				"pto" : Developer.PTO().all[Math.floor(Math.random() * 2)]
+	   			}
+
+	   		}
+
    }
 }
-
-
-
-
-// const job = {
-// 	"headline": "Gridium Front-end Developer",
-// 	"essentials": {
-// 		"locations": "denver",
-//         "employment": EmploymentType().Permanent,
-//         "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-// 		"startdate": (new Date()).getTime(),
-// 		"companysize": CompanySize().TenToTwenty,
-// 		"teamsize": { "min": 1, "max": 6 },
-// 	},
-// 	"methodology": {
-// 		"codereviews": true,
-// 		"prototyping": true,
-// 		"failfast": true,
-// 		"unittests": true,
-// 		"integrationtests": true,
-// 		"buildserver": BuildServers().CircleCI,
-// 		"staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-// 		"versioncontrol": VersionControlSystem().Git,
-// 		"issuetracker": IssueTrackers().Tikkit,
-// 		"standups": true,
-// 		"quickstart": true,
-// 		"commitondayone": true,
-// 	},
-// 	"specs": {
-// 		"workload": 1.0,
-// 		"workweek": 40,
-//         "schedule": ScheduleOptions().Flexible,
-//         "remote": RemoteWorking().Required,
-//         "pto": PTO().Unlimited
-// 	},
-// 	"profile": {
-// 		"newfeatures": 50,
-// 		"clientsupport": 9,
-// 		"documentation": 10,
-// 		"maintenance": 30,
-// 		"meetings": 1,
-// 	},
-// 	"equipment": {
-// 		"operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-// 		"computer": MachineType().Laptop,
-// 	},
-// 	"technologies": {
-//         "css3": Level().Good,
-//         "html5": Level().Good,
-//         "javascript": Level().Good,
-//         "node": Level().Good,
-//         "rest": Level().Good,
-//         "uiux": Level().Familiar,
-//         "design": Level().Familiar,
-//         "testing": {
-//             "oneof": {
-//                 "junit": Level().Good,
-//                 "mocha": Level().Good,
-//                 "jasmine": Level().Good,
-//                 "selenium": Level().Good,
-//             }
-//         },
-//         "framework": {
-//             "oneof": {
-//                 "react": Level().Familiar,
-//                 "vue": Level().Familiar,
-//                 "angular": Level().Familiar,
-//             }
-//         },
-//         "boardgames": Level().Familiar,
-//     },
-// 	"other": [
-//         "we love technology",
-//         "we solve interesting problems"
-// 	]
-// }
-
-
-// function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); }
-// function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); }
-// function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); }
-// function VersionControlSystem() { return enumerate("NotYetChosen", "Git", "BitBucket"); }
-// function IssueTrackers() { return enumerate("NotYetChosen", "GitHub", "Jira", "Tikkit"); }
-// function BuildServers() { return enumerate("NotYetChosen", "Jenkins", "Travis", "Codeship", "CircleCI"); }
-// function CodeAnalysisTools() { return enumerate("NotYetChosen", "ESLint"); }
-// function KnowledgeRepos() { return enumerate("NotYetChosen", "GitHubWiki", "Confluence"); }
-// function TravelOptions() { return enumerate("None", "Possible", "Plentiful"); }
-// function ScheduleOptions() { return enumerate("Fixed", "Flexible"); }
-// function RemoteWorking() { return enumerate("No", "Negotiable", "Required"); }
-// function RelocationPackages() { return enumerate("Nonealse", "Negotiable"); }
-// function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Windows"); }
-// function MachineType() { return enumerate("Workstation", "Laptop"); }
-// function Monitors() { return enumerate("Negotiable"); }
-// function Level() { return enumerate("Familiar", "Good", "Expert"); }
-// function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
-// function PTO() { return enumerate("Accrued", "Unlimited") }

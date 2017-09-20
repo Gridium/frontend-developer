@@ -27432,8 +27432,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var generateDeveloper = function generateDeveloper() {
 		_classCallCheck(this, generateDeveloper);
 
-		var date = new Date(_Developer2.default.job.essentials.startdate + 12096e5); //Two weeks
-
 		this.applicant = {
 				"name": _Developer2.default.Names().all[Math.floor(Math.random() * 3)],
 				"technologies": {
@@ -27459,7 +27457,7 @@ var generateDeveloper = function generateDeveloper() {
 				"essentials": {
 						"location": _Developer2.default.job.essentials.locations,
 						"experience": _Developer2.default.ExperienceLevels().all[Math.floor(Math.random() * 4)],
-						"startdate": [date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()],
+						"startdate": _Developer2.default.job.essentials.startdate,
 						"teamsize": Math.floor(Math.random() * 4) + 1
 				},
 				"methodology": {

@@ -130,8 +130,66 @@ app.controller("HomeCtrl", function($scope) {
 
     $scope.job = job;
 
+    var compareApplicantWithGridium = function(applicant) {
+        var gridium = $scope.job;
+        // starting score for applicant
+        var score = 0;
+        if (gridium.essentials.employment === applicant.essentials.employment) {
+            score += 1;
+        } if (gridium.essentials.experience === applicant.essentials.experience) {
+            score += 1;
+        };
+        console.log("the applicant score is ", score);
+        return score;
+    };
+
+
+    // my profile
+    $scope.me = {
+        "name": "William O. Caldwell",
+        "essentials": {
+            "employment": EmploymentType().Permanent,
+            "experience": ExperienceLevels().Junior,
+        },
+        "specs": {
+            "schedule": ScheduleOptions().Flexible,
+            "remote": RemoteWorking().Required,
+            "pto": PTO().Unlimited,
+        },
+        "equipment": {
+            "operatingsystem": OperationSystems().MacOSX,
+            "computer": MachineType().Laptop,
+        },
+        "technologies": {
+            "css3": Level().Good,
+            "html5": Level().Good,
+            "javascript": Level().Good,
+            "node": Level().Good,
+            "rest": Level().Good,
+            "uiux": Level().Familiar,
+            "design": Level().Familiar,
+            "testing": {
+                "oneof": {
+                    "junit": Level().Familiar,
+                    "mocha": Level().Familiar,
+                    "jasmine": Level().Familiar,
+                    "selenium": Level().Familiar,
+                }
+            },
+            "framework": {
+                "oneof": {
+                    "react": Level().Familiar,
+                    "vue": Level().Familiar,
+                    "angular": Level().Familiar,
+                }
+            },
+            "boardgames": Level().Familiar,
+        }
+    };
+
     // make a random applicant profile
     $scope.randomApplicant = {
+        "name": getRandomElement(randomNamesArray),
         "essentials": {
             "employment": getRandomElement(EmploymentType().all),
             "experience": getRandomElement(ExperienceLevels().all)
@@ -168,7 +226,26 @@ app.controller("HomeCtrl", function($scope) {
                     "angular": getRandomElement(Level().all),
                 }
             },
-            "boardgames": getRandomElement(Level().all),
+            "boardgames": getRandomElement(Level().all)
         }
+    };
+
+    $scope.contestArray = [
+        $scope.me,
+        $scope.randomApplicant
+
+    ];
+
+    var myScore = compareApplicantWithGridium($scope.me);
+    var otherScore = compareApplicantWithGridium($scope.randomApplicant);
+
+    console.log("me ", myScore, " them ", otherScore);
+
+    if (myScore > otherScore) {
+        $scope.winner = $scope.me.name;
+    } if (otherScore > myScore) {
+        $scope.winner = $scope.randomApplicant.name;
+    } if (otherScore === myScore){
+        $scope.winner = "It's a tie! Hire us both!!"
     };
 });

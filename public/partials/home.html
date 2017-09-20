@@ -1,11 +1,29 @@
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3">{{job.headline}}</h1>
-            <div ng-repeat="statement in job.other">
-                <p class="lead">{{statement}}</p>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1 class="display-3">The {{job.headline}} challenge.</h1>
+            <p class="lead">Who's the better fit for Gridium, me or some rando? Let's find out!</p>
+        </div>
+    </div>
+    <h3>I've pitted myself up against another randomly-generated applicant and the winner is:</h3>
+    <h2 class="text-center">{{winner}}</h2>
+    <p>For each contestant, if what the applicant is seeking or their proficentcies matched that of Gridium, one point was awarded. The person with the most points wins!</p>
+    <img class="center-block" src="https://media.giphy.com/media/26ybxqF6r4w1pjjws/giphy.gif">
+    <p>Here's the stats:</p>
+    <div class="row">
+        <div ng-repeat="entity in contestArray">
+            <div class="col-sm-6">
+                <h4>{{entity.name}}</h4>
+                <div ng-repeat="(essential, quality) in entity.essentials">
+                    <p>{{essential}}: {{quality}}</p>
+                </div>
+                <div ng-repeat="(spec, quality) in entity.specs">
+                    <p>{{spec}}: {{quality}}</p>
+                </div>
+                <div ng-repeat="(type, component) in entity.equipment">
+                    <p>{{type}}: {{component}}</p>
+                </div>
             </div>
         </div>
     </div>
-    <h4>{{randomApplicant}}</h4>
 </div>

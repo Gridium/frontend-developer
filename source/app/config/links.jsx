@@ -12,7 +12,7 @@ const createLinks = () => (
 	        <ul className="nav navbar-nav">
 	          <li><NavLink to="/" activeClassName="active">One</NavLink></li>
 	          <li><NavLink to="/about" activeClassName="active">Two</NavLink></li>
-	          <li><NavLink to="/about" activeClassName="active">Three</NavLink></li>
+	          <li><NavLink to="/position" activeClassName="active">Three</NavLink></li>
 	        </ul>
 	     </div>
 	 </div>

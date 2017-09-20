@@ -57,7 +57,7 @@ gulp.task('pug', () => {
 gulp.task('webpack', () => {
   return gulp.src(`${paths.js}/app/index.jsx`)
     .pipe(webpack( require('./webpack.config.js') ))
-    .pipe(gulp.dest(`${paths.dest}/js/app.js`));
+    .pipe(gulp.dest(`${dirs.dest}`));
 });
 
 gulp.task('sass:watch', () => {

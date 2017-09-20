@@ -27396,7 +27396,7 @@ var createLinks = function createLinks() {
 						null,
 						_react2.default.createElement(
 							_reactRouterDom.NavLink,
-							{ to: '/about', activeClassName: 'active' },
+							{ to: '/position', activeClassName: 'active' },
 							'Three'
 						)
 					)

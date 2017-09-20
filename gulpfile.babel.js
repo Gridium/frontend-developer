@@ -50,7 +50,7 @@ gulp.task('pug', () => {
 });
 
 gulp.task('webpack', () => {
-  return gulp.src(`${paths.js}/app/index.js`)
+  return gulp.src(`${paths.js}/app/index.jsx`)
     .pipe(webpack( require('./webpack.config.js') ))
     .pipe(gulp.dest(`${paths.dest}/js/app.js`));
 });

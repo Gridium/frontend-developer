@@ -7,12 +7,10 @@ export default class About extends React.Component {
     super(props);
   }
 
-  componentDidMount(){}
-
   render(){
   	return (
 	  	<div className="col-md-12">
-	  		<p>This is home.</p>
+	  		<p>This is about.</p>
 	  	</div>
   	);
   }

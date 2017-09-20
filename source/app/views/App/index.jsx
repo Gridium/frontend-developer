@@ -1,50 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
+import history from 'appHistory';
+import createRoutes from 'routes';
+import createLinks from 'links';
+let routes = null; //Can't be const because we are actively passing the updated state
+const links = createLinks();
+import { BrowserRouter as Router,HashRouter as HashRouter, NavLink} from 'react-router-dom';
+//If testing via localhost, use HashRouter. If deploying/testing with a live server, use BrowserRouter and set history object
+
+import generateDeveloper from 'shared/components/generateDeveloper';
 
 export default class App extends React.Component{
+	constructor(props) {
+		super(props);
+		let developer = new generateDeveloper();
+		this.state = {
+		  developer: developer
+		};
+		routes = createRoutes(this);
+	}
+
+	generateNewApplicant() {
+		let developer = new generateDeveloper();
+		this.setState({
+			developer: developer
+		});
+		console.log(this.state); //Debugging
+	}
+
 	render(){
 		return(
+//<Router history={history}/>
+		<HashRouter>
 	      <div>
-	        <ul>
-	          <li><Link to="/" activeClassName="active">Welcome</Link></li>
-	          <li><Link to="/about" activeClassName="active">About</Link></li>
-	        </ul>
+	      	<div className="nav">
+	      		{links}
+	        </div>
 	        <div className="content">
-	          {this.props.children}
+	        	{routes}
 	        </div>
 	      </div>
+	     </HashRouter>
+//</Router>
 		);
 	}
 }
-
-
-//import Developer from 'assets/Developer';
-// //import config from 'config';
-// export default class App extends React.Component {
-//   render() {
-//   	console.log(Developer);
-//   	console.log(config);
-//     return (
-//      <div style={{textAlign: 'center'}}>
-//         <h1>Hello World</h1>
-//       </div>);
-//   }
-// }
-// // var App = React.createClass({
-// //   render: function() {
-// //     return (
-// //       <div>
-// //         <h1>Simple SPA</h1>
-// //         <ul className="header">
-// //           <li>Home</li>
-// //           <li>Stuff</li>
-// //           <li>Contact</li>
-// //         </ul>
-// //         <div className="content">
- 
-// //         </div>
-// //       </div>
-// //     )
-// //   }
-// // });

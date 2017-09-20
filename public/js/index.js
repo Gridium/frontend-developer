@@ -1,3 +1,4 @@
+
 var job = {
 	"headline": "Gridium Front-end Developer",
 	"essentials": {
@@ -92,3 +93,7 @@ function PTO() { return enumerate("Accrued", "Unlimited") }
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
+
+app.controller("HomeCtrl", function($scope) {
+    $scope.job = job;
+});

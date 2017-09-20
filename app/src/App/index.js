@@ -38,7 +38,7 @@ class App extends Component {
       );
   }
 
-  getData = (clear: bool, v, k = undefined) => {
+  getData = (clear: bool, v: mixed, k = undefined) => {
     if (!!clear) {
       this.newDetails = [];
     }

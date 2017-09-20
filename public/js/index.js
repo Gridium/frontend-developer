@@ -95,5 +95,52 @@ function PTO() { return enumerate("Accrued", "Unlimited") }
 function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
 
 app.controller("HomeCtrl", function($scope) {
+
+    var getRandomElement = function(elementList) {
+        var randomElement = elementList[Math.floor(Math.random() * elementList.length)];
+        return randomElement;
+    };
+
     $scope.job = job;
+
+    $scope.randomApplicant = {
+        "essentials": {
+            "employment": getRandomElement(EmploymentType().all),
+            "experience": getRandomElement(ExperienceLevels().all)
+        },
+        "specs": {
+            "schedule": getRandomElement(ScheduleOptions().all),
+            "remote": getRandomElement(RemoteWorking().all),
+            "pto": getRandomElement(PTO().all)
+        },
+        "equipment": {
+            "operatingsystem": getRandomElement(OperationSystems().all),
+            "computer": getRandomElement(MachineType().all),
+        },
+        "technologies": {
+            "css3": getRandomElement(Level().all),
+            "html5": getRandomElement(Level().all),
+            "javascript": getRandomElement(Level().all),
+            "node": getRandomElement(Level().all),
+            "rest": getRandomElement(Level().all),
+            "uiux": getRandomElement(Level().all),
+            "design": getRandomElement(Level().all),
+            "testing": {
+                "oneof": {
+                    "junit": getRandomElement(Level().all),
+                    "mocha": getRandomElement(Level().all),
+                    "jasmine": getRandomElement(Level().all),
+                    "selenium": getRandomElement(Level().all),
+                }
+            },
+            "framework": {
+                "oneof": {
+                    "react": getRandomElement(Level().all),
+                    "vue": getRandomElement(Level().all),
+                    "angular": getRandomElement(Level().all),
+                }
+            },
+            "boardgames": getRandomElement(Level().all),
+        }
+    };
 });

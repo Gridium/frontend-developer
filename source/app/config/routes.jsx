@@ -10,6 +10,7 @@ const createRoutes = (parentProps) => (
 		<Route path="/" exact render={(props) => (<Welcome parentContext={parentProps} {...props}/>)} />
 		<Route path="/about" exact render={(props) => (<About parentContext={parentProps} {...props}/>)} />
 		<Route path="/position" exact render={(props) => (<Position parentContext={parentProps} {...props}/>)} />
+		<Route render={(props) => (<Welcome parentContext={parentProps} {...props}/>)} />
     </Switch>
 );
 

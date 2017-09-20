@@ -23919,24 +23919,12 @@ var App = function (_React$Component) {
 			});
 			console.log(this.state); //Debugging
 		}
-
-		// render(){
-		// 	return(
-		// 	<HashRouter>
-		//       <div>
-		//       		{links}
-		//         	{routes}
-		//       </div>
-		//      </HashRouter>
-		// 	);
-		// }
-
 	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				_reactRouterDom.BrowserRouter,
-				{ history: _appHistory2.default },
+				_reactRouterDom.HashRouter,
+				null,
 				_react2.default.createElement(
 					'div',
 					null,
@@ -23945,6 +23933,18 @@ var App = function (_React$Component) {
 				)
 			);
 		}
+
+		// render(){
+		// 	return(
+		// 		<Router history={history}>
+		// 			<div>
+		// 				{links}
+		// 				{routes}
+		// 			</div>
+		// 		</Router>
+		// 	);
+		// }
+
 	}]);
 
 	return App;
@@ -24805,6 +24805,9 @@ var createRoutes = function createRoutes(parentProps) {
 												} }),
 								_react2.default.createElement(_reactRouterDom.Route, { path: '/position', exact: true, render: function render(props) {
 																return _react2.default.createElement(_Position2.default, _extends({ parentContext: parentProps }, props));
+												} }),
+								_react2.default.createElement(_reactRouterDom.Route, { render: function render(props) {
+																return _react2.default.createElement(_Welcome2.default, _extends({ parentContext: parentProps }, props));
 												} })
 				);
 };

@@ -91,18 +91,46 @@ function Level() { return enumerate("Familiar", "Good", "Expert"); }
 function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
 function PTO() { return enumerate("Accrued", "Unlimited") }
 
+console.log(PTO())
+
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
 
 app.controller("HomeCtrl", function($scope) {
 
-    var getRandomElement = function(elementList) {
-        var randomElement = elementList[Math.floor(Math.random() * elementList.length)];
+    // random names for an applicant
+    randomNamesArray = [
+        "Penelope Davenport",
+        "Kailyn Camacho",
+        "Kaley Luna",
+        "Jon Ortega",
+        "Anne Flowers",
+        "Hanna Cannon",
+        "Ean Rowland",
+        "Nathan Stanley",
+        "Caitlyn Walsh",
+        "Giuliana Stout",
+        "Jaylah Gutierrez",
+        "Addyson Ali",
+        "Bradyn Ferguson",
+        "Rory Clarke",
+        "Andres Hamilton",
+        "Jonas Massey",
+        "Jamar Weber",
+        "Ivy Odom",
+        "Douglas Pearson",
+        "Giancarlo Bentley"
+    ];
+
+    // function to pick an element from an array at random
+    var getRandomElement = function(elementArray) {
+        var randomElement = elementArray[Math.floor(Math.random() * elementArray.length)];
         return randomElement;
     };
 
     $scope.job = job;
 
+    // make a random applicant profile
     $scope.randomApplicant = {
         "essentials": {
             "employment": getRandomElement(EmploymentType().all),

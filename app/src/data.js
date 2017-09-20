@@ -1,4 +1,4 @@
-var job = {
+export const Job = {
   headline: 'Gridium Front-end Developer',
   essentials: {
     locations: 'denver',
@@ -95,20 +95,11 @@ function BuildServers() {
 function CodeAnalysisTools() {
   return enumerate('NotYetChosen', 'ESLint');
 }
-function KnowledgeRepos() {
-  return enumerate('NotYetChosen', 'GitHubWiki', 'Confluence');
-}
-function TravelOptions() {
-  return enumerate('None', 'Possible', 'Plentiful');
-}
 function ScheduleOptions() {
   return enumerate('Fixed', 'Flexible');
 }
 function RemoteWorking() {
   return enumerate('No', 'Negotiable', 'Required');
-}
-function RelocationPackages() {
-  return enumerate('Nonealse', 'Negotiable');
 }
 function OperationSystems() {
   return enumerate('MacOSX', 'CentOS', 'Ubuntu', 'Windows');
@@ -116,14 +107,8 @@ function OperationSystems() {
 function MachineType() {
   return enumerate('Workstation', 'Laptop');
 }
-function Monitors() {
-  return enumerate('Negotiable');
-}
 function Level() {
   return enumerate('Familiar', 'Good', 'Expert');
-}
-function TrainingType() {
-  return enumerate('None', 'Informal', 'Formal', 'External');
 }
 function PTO() {
   return enumerate('Accrued', 'Unlimited');
@@ -131,8 +116,8 @@ function PTO() {
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() {
-  v = arguments;
-  s = { all: [], keys: v };
-  for (i = v.length; i--; ) s[v[i]] = s.all[i] = v[i];
+  let v = arguments;
+  let s = { all: [], keys: v };
+  for (let i = v.length; i--; ) s[v[i]] = s.all[i] = v[i];
   return s;
 }

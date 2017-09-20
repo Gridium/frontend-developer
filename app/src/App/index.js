@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { Job } from '../data';
 import './App.css';
 
 class App extends Component {

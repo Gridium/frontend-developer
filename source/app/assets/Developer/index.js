@@ -98,4 +98,14 @@ function enumerate(){
 	return s; 
 }
 
-module.exports = job;
+module.exports.job = job;
+module.exports.EmploymentType = EmploymentType;
+
+/*
+Proper way:
+module.exports = {
+    foo: foo,
+    bar: bar
+};
+*/
+

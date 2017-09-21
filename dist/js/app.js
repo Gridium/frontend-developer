@@ -35949,34 +35949,65 @@ var Welcome = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).call(this, props));
 
     _this.generate = _this.generate.bind(_this);
+    _this.generateDone = _this.generateDone.bind(_this);
+    _this.handleAlertDismiss = _this.handleAlertDismiss.bind(_this);
     _this.state = {
       active: false,
-      initial: true
+      initial: true,
+      generated: false
     };
     return _this;
   }
 
   _createClass(Welcome, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      //This isn't standard - this is because of React-Bootstrap
+      _reactDom2.default.findDOMNode(this.button).addEventListener('animationend', this.generateDone);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _reactDom2.default.findDOMNode(this.button).removeEventListener('animationend', this.generateDone);
+    }
+  }, {
     key: 'generate',
     value: function generate() {
-      var currentState = this.state.active;
-      if (currentState) {
-        this.setState({
-          active: false
-        });
-      }
-
+      this.props.parentContext.generateNewApplicant();
       this.setState({
         active: true,
+        generated: true,
         initial: false
       });
-
-      this.props.parentContext.generateNewApplicant();
-      //this.setState({ active: !currentState });
+    }
+  }, {
+    key: 'generateDone',
+    value: function generateDone() {
+      this.setState({ active: false });
+    }
+  }, {
+    key: 'handleAlertDismiss',
+    value: function handleAlertDismiss() {
+      this.setState({ generated: false });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      var generated = this.state.generated;
+      var alert = null;
+      if (generated) {
+        alert = _react2.default.createElement(
+          _reactBootstrap.Alert,
+          { bsStyle: 'info', className: 'animated bounceIn', onDismiss: this.handleAlertDismiss },
+          _react2.default.createElement(
+            'p',
+            null,
+            'Generated!'
+          )
+        );
+      }
       return _react2.default.createElement(
         _reactBootstrap.Grid,
         { className: 'page' },
@@ -35986,6 +36017,7 @@ var Welcome = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { xs: 12 },
+            alert,
             _react2.default.createElement(
               'h4',
               { className: 'animated bounceInDown' },
@@ -36008,7 +36040,9 @@ var Welcome = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   _reactBootstrap.Button,
-                  { bsStyle: 'primary', className: 'btn-hg btn-center animated ' + (this.state.active ? "bounce" : "") + ' ' + (this.state.initial ? "fadeInRight" : "") + ' ', href: 'javascript:;', onClick: this.generate },
+                  { ref: function ref(button) {
+                      _this2.button = button;
+                    }, bsStyle: 'primary', className: 'btn-hg btn-center animated ' + (this.state.active ? "bounce" : "") + ' ' + (this.state.initial ? "fadeInRight" : "") + ' ', href: 'javascript:;', onClick: this.generate },
                   'Generate'
                 )
               )

@@ -1,9 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="">
 
+	<title>Gridium</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
-    <script type="text/javascript" src="./js/index.js"></script>
+<body ng-app="GridiumApp">
+	<div id="data_wrapper" class="container" ng-controller="GridiumController">
+		<div id="data_charts">
+			<div class="row">
+				<div id="chart_headline" class="col-xs-12"><h1>{{content.headline}}</h1></div>
+			</div>
+			<div class="row">
+				<div id="chart_essentials" class="chart_group col-xs-12 col-lg-6">
+					<div id="chart_essentials_inner" class="row">
+						<div class="chart_group_title col-xs-12"><h2>Essentials</h2></div>
+						<div id="chart_location" class="col-xs-12 col-sm-6" ng-controller="MapController">
+							<div class="chart_map">{{content.essentials.locations}}</div>
+						</div>
+						<div id="chart_essentials_data" class="col-xs-12 col-sm-6">
+							<div class="chart_item row" ng-repeat="(key, essential) in content.essentials">
+								<div ng-switch on="key">
+									<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-when="startdate">
+										{{essential | date:'mediumDate'}}
+									</div>
+									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-when="experience">
+										<ul class="chart_item_list">
+											<li ng-repeat="essentialItem in essential">{{essentialItem}}</li>
+										</ul>
+									</div>
+									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-when="teamsize">
+										{{essential.min}} to {{essential.max}}
+									</div>
+									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-when="companysize" ng-switch on="essential">
+										<div ng-switch-when="LessThanTen">Less than 10</div>
+										<div ng-switch-when="TenToTwenty">10 to 20</div>
+										<div ng-switch-when="TwentyToFifty">20 to 50</div>
+										<div ng-switch-when="FiftyToTwoHundred">50 to 200</div>
+										<div ng-switch-when="MoreThanTwoHundred">More than 200</div>
+									</div>
+									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-default>
+										{{essential}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="chart_methodology" class="chart_group col-xs-12 col-lg-6">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Medthodology</h2></div>
+						<div class="chart_item col-xs-12 col-sm-6" ng-repeat="(key, methodology) in content.methodology">
+							<div class="row">
+								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-if="methodology == true">
+									&#10004;
+								</div>
+								<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-if="methodology != true">
+									{{methodology}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="chart_specs" class="chart_group col-xs-12 col-sm-6 col-md-4">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Specs</h2></div>
+						<div class="chart_item col-xs-12" ng-repeat="(key, spec) in content.specs">
+							<div class="row">
+								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_value col-xs-6 col-md-8 col-lg-6">
+									{{spec}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="chart_profile" class="chart_group col-xs-12 col-md-4">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Profile</h2></div>
+						<div class="chart_item col-xs-12">
+							<canvas id="profile_pie" ng-controller="PieController">profile</canvas>
+						</div>
+					</div>
+				</div>
+				<div id="chart_equipment" class="chart_group col-xs-12 col-sm-6 col-md-4">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Equipment</h2></div>
+						<div class="chart_item col-xs-12" ng-repeat="(key, equipment) in content.equipment">
+							<div class="row" ng-switch on="key">
+								<div class="chart_item_title col-xs-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_value col-xs-6" ng-switch-when="operatingsystem">
+									<ul class="chart_item_list">
+										<li ng-repeat="os in equipment">{{os}}</li>
+									</ul>
+								</div>
+								<div class="chart_item_value col-xs-6" ng-switch-default>
+									{{equipment}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="chart_technologies" class="chart_group col-xs-12">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Technologies</h2></div>
+						<div class="chart_item col-xs-12" ng-repeat="(key, technology) in content.technologies">
+							<div class="row" ng-if="technology.oneof">
+								<div class="col-xs-12">
+									<div class="row">
+										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{key}}</strong></div>
+										<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">One of</div>
+									</div>
+									<div class="row" ng-repeat="(option,strength) in technology.oneof">
+										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2">&nbsp;&nbsp;{{option}}</div>
+										<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">
+											<canvas class="bar_chart" ng-controller="BarController">{{strength}}</canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row" ng-if="!technology.oneof">
+								<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{key}}</strong></div>
+								<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">
+									<canvas class="bar_chart" ng-controller="BarController">{{technology}}</canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="chart_other" class="chart_group col-xs-12">
+					<div class="row">
+						<div class="chart_group_title col-xs-12"><h2>Other</h2></div>
+						<div class="chart_item col-xs-12" ng-repeat="other in content.other">{{other}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

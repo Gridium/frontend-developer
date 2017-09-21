@@ -133,36 +133,49 @@ app.controller("HomeCtrl", function($scope) {
 
     var compareApplicantWithGridium = function(applicant) {
         var gridium = $scope.job;
+
         // starting score for applicant
         var score = 0;
+
+        // loop through all job catagories
         Object.keys(gridium).forEach(function(catagory) {
+            // loop through all applicant catagories
             Object.keys(applicant).forEach(function(appCatagory) {
+                // if job and applicant catagories match
                 if (catagory === appCatagory) {
-                    // console.log(catagory, gridium[catagory], applicant[appCatagory]);
+                    // loop through all job catagory subcatagories
                     Object.keys(gridium[catagory]).forEach(function(subCatagory) {
+                        // loop through all applicant catagory subcatagories
                         Object.keys(applicant[appCatagory]).forEach(function(subAppCatagory) {
+                            // if job and applicant subcatagories match
                             if (subCatagory === subAppCatagory) {
-                                console.log(subCatagory, gridium[catagory][subCatagory], applicant[appCatagory][subAppCatagory]);
+                                // if both subcatagory's "values" match
                                 if (applicant[appCatagory][subAppCatagory] === gridium[catagory][subCatagory]) {
+                                    // YEEAAAHHH, POINTS!
                                     score += 1;
+                                // if the job subcatagory is an array
                                 } if (Array.isArray(gridium[catagory][subCatagory])) {
                                     var subCatagoryArray = gridium[catagory][subCatagory];
-                                    // console.log("subCatagoryArray",subCatagoryArray);
+                                    // loop through the subcatagory array
                                     for (var i = 0; i < subCatagoryArray.length; i++) {
+                                        // if the "values" match
                                         if (subCatagoryArray[i] === applicant[appCatagory][subAppCatagory]) {
+                                            // POINTS!
                                             score += 1;
-                                            console.log("Point for ", applicant[appCatagory][subAppCatagory]);
                                         };
                                     };
+                                // these two catagories are objects
                                 } if (subCatagory === "testing" || subCatagory === "framework") {
                                     var gridiumApps = gridium[catagory][subCatagory]["oneof"];
                                     var applicantApps = applicant[appCatagory][subAppCatagory]["oneof"];
-                                    console.log(gridiumApps, applicantApps);
+                                    // loop through the job object
                                     Object.keys(gridiumApps).forEach(function(gridiumApp) {
+                                        // loop through the applicant object
                                         Object.keys(applicantApps).forEach(function(applicantApp) {
+                                            // if "key" and "value" match
                                             if (gridiumApp === applicantApp && gridiumApps[gridiumApp] === applicantApps[applicantApp]) {
+                                                // POINTS AGAIN!
                                                 score += 1;
-                                                console.log("point for ", gridiumApp);
                                             };
                                         });
                                     });
@@ -173,25 +186,12 @@ app.controller("HomeCtrl", function($scope) {
                 };
             });
         });
-        console.log("the applicant score is ", score);
         return score;
     };
 
-    // var compareApplicantWithGridium = function(applicant) {
-    //     var gridium = $scope.job;
-    //     // starting score for applicant
-    //     var score = 0;
-    //     if (gridium.essentials.employment === applicant.essentials.employment) {
-    //         score += 1;
-    //     };
-    //     console.log("the applicant score is ", score);
-    //     return score;
-    // };
-
-
-    // my profile
+    // a profile for me
     $scope.me = {
-        "name": "William O. Caldwell",
+        "name": "William Caldwell",
         "essentials": {
             "employment": EmploymentType().Permanent,
             "experience": ExperienceLevels().Junior,
@@ -225,7 +225,7 @@ app.controller("HomeCtrl", function($scope) {
                 "oneof": {
                     "react": Level().Familiar,
                     "vue": Level().Familiar,
-                    "angular": Level().Familiar,
+                    "angular": Level().Good,
                 }
             },
             "boardgames": Level().Familiar,
@@ -275,17 +275,18 @@ app.controller("HomeCtrl", function($scope) {
         }
     };
 
+    // array of the two contestants
     $scope.contestArray = [
         $scope.me,
         $scope.randomApplicant
 
     ];
 
+    // get the competition scores
     $scope.myScore = compareApplicantWithGridium($scope.me);
     $scope.otherScore = compareApplicantWithGridium($scope.randomApplicant);
 
-    console.log("me ", $scope.myScore, " them ", $scope.otherScore);
-
+    // assign a winner based on POINTS!
     if ($scope.myScore > $scope.otherScore) {
         $scope.winner = $scope.me.name;
     } if ($scope.otherScore > $scope.myScore) {
@@ -293,4 +294,5 @@ app.controller("HomeCtrl", function($scope) {
     } if ($scope.otherScore === $scope.myScore){
         $scope.winner = "It's a tie! Hire us both!!"
     };
+
 });

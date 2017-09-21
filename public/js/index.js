@@ -236,16 +236,16 @@ app.controller("HomeCtrl", function($scope) {
 
     ];
 
-    var myScore = compareApplicantWithGridium($scope.me);
-    var otherScore = compareApplicantWithGridium($scope.randomApplicant);
+    $scope.myScore = compareApplicantWithGridium($scope.me);
+    $scope.otherScore = compareApplicantWithGridium($scope.randomApplicant);
 
-    console.log("me ", myScore, " them ", otherScore);
+    console.log("me ", $scope.myScore, " them ", $scope.otherScore);
 
-    if (myScore > otherScore) {
+    if ($scope.myScore > $scope.otherScore) {
         $scope.winner = $scope.me.name;
-    } if (otherScore > myScore) {
+    } if ($scope.otherScore > $scope.myScore) {
         $scope.winner = $scope.randomApplicant.name;
-    } if (otherScore === myScore){
+    } if ($scope.otherScore === $scope.myScore){
         $scope.winner = "It's a tie! Hire us both!!"
     };
 });

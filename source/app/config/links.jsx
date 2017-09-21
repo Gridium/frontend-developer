@@ -10,9 +10,9 @@ const createLinks = () => (
       </div>
 		<div className="collapse navbar-collapse">
 	        <ul className="nav navbar-nav">
-	          <li><NavLink to="/" activeClassName="active">One</NavLink></li>
-	          <li><NavLink to="/about" activeClassName="active">Two</NavLink></li>
-	          <li><NavLink to="/position" activeClassName="active">Three</NavLink></li>
+	          <li><NavLink exact to="/" activeClassName="active">One</NavLink></li>
+	          <li><NavLink exact to="/about" activeClassName="active">Two</NavLink></li>
+	          <li><NavLink exact to="/position" activeClassName="active">Three</NavLink></li>
 	        </ul>
 	     </div>
 	 </div>

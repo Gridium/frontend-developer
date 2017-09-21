@@ -5,7 +5,7 @@ import createRoutes from 'routes';
 import createLinks from 'links';
 let routes = null; //Can't be const because we are actively passing the updated state
 const links = createLinks();
-import { BrowserRouter as Router,HashRouter as HashRouter, NavLink} from 'react-router-dom';
+import { Router,HashRouter as HashRouter, NavLink} from 'react-router-dom';
 //If testing via localhost, use HashRouter. If deploying/testing with a live server, use BrowserRouter and set history object
 
 import generateDeveloper from 'shared/components/generateDeveloper';
@@ -17,6 +17,7 @@ export default class App extends React.Component{
 		this.state = {
 		  developer: developer
 		};
+		console.log(this);
 		routes = createRoutes(this);
 	}
 
@@ -49,5 +50,5 @@ export default class App extends React.Component{
 	// 		</Router>
 	// 	);
 	// }
-	
+
 }

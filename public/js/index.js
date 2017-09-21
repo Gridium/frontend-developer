@@ -91,11 +91,11 @@ function Level() { return enumerate("Familiar", "Good", "Expert"); }
 function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
 function PTO() { return enumerate("Accrued", "Unlimited") }
 
-console.log(PTO())
-
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
 
+
+// setup an angularJS controller
 app.controller("HomeCtrl", function($scope) {
 
     // random names for an applicant
@@ -128,20 +128,65 @@ app.controller("HomeCtrl", function($scope) {
         return randomElement;
     };
 
+    // Gridium specs
     $scope.job = job;
 
     var compareApplicantWithGridium = function(applicant) {
         var gridium = $scope.job;
         // starting score for applicant
         var score = 0;
-        if (gridium.essentials.employment === applicant.essentials.employment) {
-            score += 1;
-        } if (gridium.essentials.experience === applicant.essentials.experience) {
-            score += 1;
-        };
+        Object.keys(gridium).forEach(function(catagory) {
+            Object.keys(applicant).forEach(function(appCatagory) {
+                if (catagory === appCatagory) {
+                    // console.log(catagory, gridium[catagory], applicant[appCatagory]);
+                    Object.keys(gridium[catagory]).forEach(function(subCatagory) {
+                        Object.keys(applicant[appCatagory]).forEach(function(subAppCatagory) {
+                            if (subCatagory === subAppCatagory) {
+                                console.log(subCatagory, gridium[catagory][subCatagory], applicant[appCatagory][subAppCatagory]);
+                                if (applicant[appCatagory][subAppCatagory] === gridium[catagory][subCatagory]) {
+                                    score += 1;
+                                } if (Array.isArray(gridium[catagory][subCatagory])) {
+                                    var subCatagoryArray = gridium[catagory][subCatagory];
+                                    // console.log("subCatagoryArray",subCatagoryArray);
+                                    for (var i = 0; i < subCatagoryArray.length; i++) {
+                                        if (subCatagoryArray[i] === applicant[appCatagory][subAppCatagory]) {
+                                            score += 1;
+                                            console.log("Point for ", applicant[appCatagory][subAppCatagory]);
+                                        };
+                                    };
+                                } if (subCatagory === "testing" || subCatagory === "framework") {
+                                    var gridiumApps = gridium[catagory][subCatagory]["oneof"];
+                                    var applicantApps = applicant[appCatagory][subAppCatagory]["oneof"];
+                                    console.log(gridiumApps, applicantApps);
+                                    Object.keys(gridiumApps).forEach(function(gridiumApp) {
+                                        Object.keys(applicantApps).forEach(function(applicantApp) {
+                                            if (gridiumApp === applicantApp && gridiumApps[gridiumApp] === applicantApps[applicantApp]) {
+                                                score += 1;
+                                                console.log("point for ", gridiumApp);
+                                            };
+                                        });
+                                    });
+                                };
+                            };
+                        });
+                    });
+                };
+            });
+        });
         console.log("the applicant score is ", score);
         return score;
     };
+
+    // var compareApplicantWithGridium = function(applicant) {
+    //     var gridium = $scope.job;
+    //     // starting score for applicant
+    //     var score = 0;
+    //     if (gridium.essentials.employment === applicant.essentials.employment) {
+    //         score += 1;
+    //     };
+    //     console.log("the applicant score is ", score);
+    //     return score;
+    // };
 
 
     // my profile

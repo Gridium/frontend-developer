@@ -1,23 +1,47 @@
-.nav-bar{
-  border-radius:0px;
-}
-
 body{
   background:#2c3742;
 }
+
+.navbar-default {
+  border-radius:0px;
+  .nav {
+    >li {
+      >a.active {
+        color: #1abc9c;
+      }
+    }
+  }
+}
+
+.navbar-inverse {
+  .navbar-brand {
+    border-bottom: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+    min-height: 50px;
+    max-height: 72px;
+    height: auto;
+  }
+  .nav{
+    >li:first-child{
+      >a{
+        border-bottom:0px;
+        border-left: none !important; 
+      }
+    }
+  }
+}
+
 
 .page{
     padding-top: 72px;
 }
 
-.navbar .nav > li > a.active {
-    color: #1abc9c;
+.btn-center{
+    margin: 0 auto;
+    text-align: center;
+    float: none;
 }
-
-.navbar-default{
-	border-radius:0px;
-}
-
 
 .fade-wait-leave {
   opacity: 1;
@@ -26,16 +50,13 @@ body{
   opacity: 0;
   transition: opacity .4s ease-in;
 }
-
 .fade-wait-enter {
   opacity: 0;
 }
 .fade-wait-enter.fade-wait-enter-active {
   opacity: 1;
-  /* Delay the enter animation until the leave completes */
   transition: opacity .4s ease-in .6s;
 }
-
 .fade-wait-height {
   transition: height .6s ease-in-out;
 }

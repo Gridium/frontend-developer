@@ -1,22 +1,26 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navbar, NavItem, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const createLinks = () => (
-
-	<nav className="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div className="container">
-      <div className="navbar-header">
-        <a className="navbar-brand" href="#">Wew</a>
-      </div>
-		<div className="collapse navbar-collapse">
-	        <ul className="nav navbar-nav">
-	          <li><NavLink exact to="/" activeClassName="active">One</NavLink></li>
-	          <li><NavLink exact to="/about" activeClassName="active">Two</NavLink></li>
-	          <li><NavLink exact to="/position" activeClassName="active">Three</NavLink></li>
-	        </ul>
-	     </div>
-	 </div>
-	</nav>
+	<Navbar fixedTop inverse>
+		<Navbar.Header>
+			<Navbar.Brand>
+        		<a className="navbar-brand" href=".">Wew</a>
+			</Navbar.Brand>
+		</Navbar.Header>
+		<Nav>
+		  <LinkContainer exact to="/" activeClassName="active">
+		    <NavItem eventKey={1}>One</NavItem>
+		  </LinkContainer>
+		  <LinkContainer exact to="/about" activeClassName="active">
+		    <NavItem eventKey={1}>Two</NavItem>
+		  </LinkContainer>
+		  <LinkContainer exact to="/position" activeClassName="active">
+		    <NavItem eventKey={1}>Three</NavItem>
+		  </LinkContainer>
+		</Nav>
+	</Navbar>
 );
 
 export default createLinks;

@@ -1,17 +1,30 @@
-.nav-bar {
-  border-radius: 0px; }
-
 body {
   background: #2c3742; }
+
+.navbar-default {
+  border-radius: 0px; }
+  .navbar-default .nav > li > a.active {
+    color: #1abc9c; }
+
+.navbar-inverse .navbar-brand {
+  border-bottom: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+  min-height: 50px;
+  max-height: 72px;
+  height: auto; }
+
+.navbar-inverse .nav > li:first-child > a {
+  border-bottom: 0px;
+  border-left: none !important; }
 
 .page {
   padding-top: 72px; }
 
-.navbar .nav > li > a.active {
-  color: #1abc9c; }
-
-.navbar-default {
-  border-radius: 0px; }
+.btn-center {
+  margin: 0 auto;
+  text-align: center;
+  float: none; }
 
 .fade-wait-leave {
   opacity: 1; }
@@ -26,7 +39,6 @@ body {
 
 .fade-wait-enter.fade-wait-enter-active {
   opacity: 1;
-  /* Delay the enter animation until the leave completes */
   -webkit-transition: opacity .4s ease-in .6s;
   transition: opacity .4s ease-in .6s; }
 

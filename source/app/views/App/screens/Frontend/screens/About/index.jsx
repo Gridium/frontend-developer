@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Col, Grid, Row } from 'react-bootstrap';
+
 export default class About extends React.Component {
 
   constructor(props) {
@@ -9,18 +11,16 @@ export default class About extends React.Component {
 
   render(){
   	return (
-      <div className="container page">
-        <h4>
-          About.
-        </h4>
-        <div className="row">
-          <div className="col-md-12">
-            <div className="col-md-6">
-             <p>This is about.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Grid className="page">
+        <Row>
+          <Col xs={12}>
+            <h4 className="animated bounceInDown">Two</h4>
+            <Col xs={12} md={6}>
+             <p>This is two.</p>
+            </Col>
+          </Col>
+        </Row>
+      </Grid>
   	);
   }
 }

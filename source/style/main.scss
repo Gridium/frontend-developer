@@ -1,5 +1,12 @@
-body{
-  background:#2c3742;
+html,body{
+height:100%;
+background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.alert p{
+  color:black !important;
 }
 
 .navbar-default {
@@ -14,6 +21,7 @@ body{
 }
 
 .navbar-inverse {
+  background: #1a2a3f;
   .navbar-brand {
     border-bottom: 0px;
     border-right: 0px;
@@ -32,15 +40,26 @@ body{
   }
 }
 
+.navbar-nav {
+    margin:0px;
+}
 
 .page{
     padding-top: 72px;
+  
+    p,h1,h2,h3,h4,h5{
+      color:#FFFFFF;
+    }
 }
 
 .btn-center{
     margin: 0 auto;
     text-align: center;
-    float: none;
+    float: none !important;
+}
+
+.toolbar-center{
+  text-align:center;
 }
 
 .fade-wait-leave {
@@ -59,4 +78,60 @@ body{
 }
 .fade-wait-height {
   transition: height .6s ease-in-out;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #1abc9c;
+}
+
+.table-bordered{
+      border: 1px solid #1abc9c;
+      color:#FFFFFF;
+      font-size: 14px;
+}
+
+.table-striped > tbody > tr{
+    background-color: rgba(32, 150, 169, 0.52);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(46, 134, 117, 0.54);
+}
+
+.table-striped > tbody > tr:hover{
+    background-color: rgba(32, 150, 169, 1);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd):hover{
+    background-color: rgba(46, 134, 117,1);
+}
+
+.rv-xy-plot__axis__line{
+  fill:none;
+  stroke-width:2px;
+  stroke:#55556d;
+}
+
+.rv-xy-plot__axis__tick__line{
+  stroke:transparent;
+}
+
+.rv-xy-plot__axis__tick__text {
+  fill:#a0a0a0;
+  font-size:7px;
+}
+
+.rv-xy-plot__series--label-text{
+  fill:white;
+}
+
+.rv-xy-plot{
+  margin:0 auto;
+}
+
+
+@media screen and (max-width: 768px) {
+.page{
+    padding-top: 100px;
+  }
 }

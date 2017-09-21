@@ -62,7 +62,7 @@ export default class Welcome extends React.Component {
              <p>This application uses an object given by Gridium to generate a random job applicant based on that data as well as a 'semi-random' position at Gridium.</p>
             </Col>
             <Col xs={12} md={6}>
-              <ButtonToolbar>
+              <ButtonToolbar className="toolbar-center">
                 <Button ref={(button) => { this.button = button; }}  bsStyle="primary" className={ `btn-hg btn-center animated ${this.state.active ? "bounce": ""} ${this.state.initial ? "fadeInRight": ""} ` } href="javascript:;" onClick={this.generate} >Generate</Button>
               </ButtonToolbar>
             </Col>

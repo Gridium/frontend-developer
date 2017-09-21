@@ -30,26 +30,26 @@ export default class App extends React.Component{
 		console.log(this.state); //Debugging
 	}
 
-	render(){
-		return(
-		<HashRouter>
-	      <div>
-	      		{links}
-	        	{routes}
-	      </div>
-	     </HashRouter>
-		);
-	}
-
 	// render(){
 	// 	return(
-	// 		<Router history={history}>
-	// 			<div>
-	// 				{links}
-	// 				{routes}
-	// 			</div>
-	// 		</Router>
+	// 	<HashRouter>
+	//       <div>
+	//       		{links}
+	//         	{routes}
+	//       </div>
+	//      </HashRouter>
 	// 	);
 	// }
+
+	render(){
+		return(
+			<Router history={history}>
+				<div>
+					{links}
+					{routes}
+				</div>
+			</Router>
+		);
+	}
 
 }

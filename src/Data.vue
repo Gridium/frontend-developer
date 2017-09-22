@@ -22,8 +22,8 @@
     border-radius: 8px;
     box-shadow: inset 4px 2px 2px rgba(0,0,0,0.3);
     color: white;
-    font-family: monospace;
-    font-size: 13px;
+    font-family: Inconsolata, monospace;
+    font-size: 14px;
   }
 </style>
 

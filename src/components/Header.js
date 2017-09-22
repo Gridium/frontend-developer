@@ -41,6 +41,7 @@ const Header = () => (
           <img src={technologiesCover} className='panel-img' />
         </div>
       </div>
+      <div className='header-nav-mobile'></div>
     </div>
   </header>
 );

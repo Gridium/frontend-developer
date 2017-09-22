@@ -1,0 +1,25 @@
+/*set a background image on header*/
+.jumbotron {
+    background-image: url("https://cnet1.cbsistatic.com/img/01hCMLJfu9ccV_LQZfNp-qJWv68=/fit-in/970x0/2017/01/06/5db5251d-ab13-46b3-83e7-10e4f4886dba/doe-electrical-grid-graphic.jpg");
+    background-size: cover;
+}
+
+/*white text class*/
+.text-white {
+    color: white;
+}
+
+/*top magin of 20px class*/
+.top-margin-20 {
+    margin-top: 20px;
+}
+
+/*top and bottom magin of 20px class*/
+.top-bottom-margin-20 {
+    margin: 20px 0;
+}
+
+/*full-width class*/
+.full-width {
+    width: 100%;
+}

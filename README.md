@@ -1,16 +1,13 @@
-# Gridium Developer Application
+# Let the games begin!
+I'm ready for some competition so here's a little something I call **The Gridium Front-end Developer Challenge!**
 
-Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.
+I square off against a randomly-generated competitor to see who's the better fit for Gridium. The applicant with the most points wins!
 
-## Instructions
+## View the Completed Project
 
-Fork, Code, Submit a Pull Request
-Use the libraries or framework of your choice, show us what you know!
+[The Gridium Front-end Developer Challenge](https://wocaldwell.github.io/frontend-developer/public/) 
 
-## Getting Started (if using Node/NPM)
-We're polygots. You'll find Python, R, Java, Javascript, and a few other technologies in use at Gridium. Use whatever you feel most comfortable with.
-
-If you choose to go the JS route then the basic work is done. Use NPM to initialize things.
+## Run the Project Locally
 
 ### Prerequisites
 
@@ -31,6 +28,22 @@ Install project dependencies
 > npm i
 ```
 
+### Allowing for Local Dependencies
+
+Open `/public/index.html` and in the `<head>`, replace the Bootstrap styling `<link>` with:
+
+```
+<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+
+Next, at the bottom of the `<body>` replace all of the "third-party" `<script>` tags with the following block:
+
+```
+<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
+```
+
 ### Running the Project
 
 [http-server](https://www.npmjs.com/package/http-server) has been included for convenience, run with the following script:
@@ -43,4 +56,20 @@ Available on:
   http://192.168.100.1:8080
 Hit CTRL-C to stop the server
 ```
+
+### Built With
+
+* [Javascript](https://www.javascript.com/) - Main Language
+* [AngularJS](https://angularjs.org/) - JS Framework
+* [Bootstrap](https://maven.apache.org/) - Frontend Framework
+
+### Authors
+
+* **William Caldwell** - [wocaldwell](https://github.com/wocaldwell)
+* *project architect* **Nick Pleis** - [nickpleis](https://github.com/nickpleis)
+
+
+## Acknowledgments
+
+"Thank you all and GOOD NIGHT!" - Every Musician Ever
 

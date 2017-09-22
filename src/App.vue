@@ -8,6 +8,7 @@
     <form class="pure-form pure-form-aligned">
       <ObjectComponent title="job" :value="obj" :level="0"></ObjectComponent>
     </form>
+    <Data :obj="obj"></Data>
   </div>
 </template>
 
@@ -32,12 +33,11 @@
 
 <script>
   import ObjectComponent from './Object.vue';
-  
-  
+  import Data from './Data.vue';
   
   export default {
     name: 'App',
-    components: { ObjectComponent },
+    components: { ObjectComponent, Data },
     data() {
       return {
         'obj': {}

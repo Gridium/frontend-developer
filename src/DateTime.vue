@@ -5,16 +5,19 @@
 <script>
   export default {
     name: "DateTime",
-    props: ['datetime'],
+    props: ['value'],
 
     computed: {
       datetime_display: {
         get: function() {
-          let date = new Date(this.datetime);
+          let date = new Date(this.value);
           return date.toISOString().substring(0, 10);
         },
         set: function(date) {
-          console.log( new Date( date ).getTime() );
+          date = Date.parse(date);
+          if ( ! isNaN( date ) ) {
+            this.$emit( 'input', date );
+          }
         }
       }
     }

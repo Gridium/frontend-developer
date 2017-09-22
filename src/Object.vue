@@ -1,32 +1,32 @@
 <template>
   <div>
     <h2>{{ title }}</h2>
-    <div v-for="(value, key) in obj"  :style=" {'padding-left': level*20+'px'} ">
-      <div v-if=" value.hasOwnProperty('boolean') ">
-        <label>{{ key }}: </label>
-        <input type="checkbox" v-model="obj[key].boolean">
+    <div v-for="(v, k) in value"  :style=" {'padding-left': level*20+'px'} ">
+      <div v-if=" v.hasOwnProperty('boolean') ">
+        <label>{{ k }}: </label>
+        <input type="checkbox" v-model="value[k].boolean">
       </div>
-      <div v-else-if=" value.hasOwnProperty('number') ">
-        <label>{{ key }}: </label>
-        <input type="number" v-model="obj[key].number">
+      <div v-else-if=" v.hasOwnProperty('number') ">
+        <label>{{ k }}: </label>
+        <input type="number" v-model="value[k].number">
       </div>
-      <div v-else-if=" value.hasOwnProperty('string') ">
-        <label>{{ key }}: </label>
-        <input v-model="obj[key].string">
+      <div v-else-if=" v.hasOwnProperty('string') ">
+        <label>{{ k }}: </label>
+        <input v-model="value[k].string">
       </div>
-      <div v-else-if=" value.hasOwnProperty('enum') ">
-        {{ obj[key].enum[0] }}
-        <select vmodel="obj[key].enum[0]">
-          <option v-for="value in obj[key].enum[1]">{{ value }}</option>
-          <!-- <option v-for="" -->
+      <div v-else-if=" v.hasOwnProperty('enum') ">
+        <label>{{ k }}: </label>
+        <select v-model="value[k].enum[0]">
+          <option v-for="option in value[k].enum[1]">{{ option }}</option>
         </select>
       </div>
-      <div v-else-if=" value.hasOwnProperty('datetime') ">
-        <label>{{ key }}: </label>
-        <DateTime :datetime="obj[key].datetime"></DateTime>
+      <div v-else-if=" v.hasOwnProperty('datetime') ">
+        <label>{{ k }}: </label>
+        {{value[k]}}
+        <DateTime v-model="value[k].datetime"></DateTime>
       </div>
-      <div v-else-if=" typeof(value) === 'object' ">
-        <ObjectComponent :title="key" :obj="value" :level="level+1"></ObjectComponent>
+      <div v-else-if=" typeof(v) === 'object' ">
+        <ObjectComponent :title="k" v-model="value[k]" :level="level+1"></ObjectComponent>
       </div>
       <div v-else>
         xx
@@ -41,6 +41,6 @@
   export default {
     name: 'ObjectComponent',
     components: { DateTime },
-    props: ['title', 'obj', 'level'],
+    props: ['title', 'value', 'level'],
   };
 </script>

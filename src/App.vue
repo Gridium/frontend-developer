@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Start</h1>
-    <ObjectComponent title="Job" :obj="obj" :level="0"></ObjectComponent>
+    <ObjectComponent title="Job" :value="obj" :level="0"></ObjectComponent>
   </div>
 </template>
 

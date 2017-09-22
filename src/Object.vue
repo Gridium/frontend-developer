@@ -1,36 +1,43 @@
 <template>
   <div :class=" level > 0 ? 'object' : '' ">
     <legend>{{ title | capitalize }}</legend>
-    <div v-for="(v, k) in value"  :style=" {'padding-left': 30+'px'} ">
-      <div v-if=" v.hasOwnProperty('boolean') " class="row">
+    <div v-for="(v, k) in value"  class="contents">
+      
+      <div v-if=" v.hasOwnProperty('boolean') " class="row"> <!-- create a checkbox -->
         <span>
           <label>{{ k }}: </label>
           <input type="checkbox" v-model="value[k].boolean">
         </span>
       </div>
-      <div v-else-if=" v.hasOwnProperty('number') " class="row">
+      
+      <div v-else-if=" v.hasOwnProperty('number') " class="row"><!-- create a number input -->
         <label>{{ k }}: </label>
         <input type="number" v-model="value[k].number">
       </div>
-      <div v-else-if=" v.hasOwnProperty('string') " class="row">
+      
+      <div v-else-if=" v.hasOwnProperty('string') " class="row"> <!-- create a text input -->
         <label>{{ k }}: </label>
         <input v-model="value[k].string">
       </div>
-      <div v-else-if=" v.hasOwnProperty('enum') " class="row">
+      
+      <div v-else-if=" v.hasOwnProperty('enum') " class="row"> <!-- create a select input -->
         <label>{{ k }}: </label>
         <select v-model="value[k].enum[0]">
           <option v-for="option in value[k].enum[1]">{{ option }}</option>
         </select>
       </div>
-      <div v-else-if=" v.hasOwnProperty('datetime') " class="row">
+      
+      <div v-else-if=" v.hasOwnProperty('datetime') " class="row"> <!-- create a date input -->
         <label>{{ k }}: </label>
         <DateTime v-model="value[k].datetime"></DateTime>
       </div>
-      <div v-else-if=" typeof(v) === 'object' ">
+      
+      <div v-else-if=" typeof(v) === 'object' "> <!-- create a new sub-object component -->
         <ObjectComponent :title="k" v-model="value[k]" :level="level+1"></ObjectComponent>
       </div>
-      <div v-else>
-        xx
+      
+      <div v-else> <!-- mark error -->
+        ×
       </div>
     </div>
   </div>
@@ -51,6 +58,9 @@
     font-weight: 800;
     border: none
   }
+  .contents {
+     padding-left: 35px;
+  }
   .row {
     margin-bottom: 10px;
   }
@@ -63,8 +73,7 @@
     padding: 9px 7px 0 5px;
     vertical-align: top;
     margin: 0 -7px 0 0;
-    transition: background-color ease-in 0.3s;
-    transition: color ease-in 0.1s;
+    transition: background-color ease-in 0.3s, color ease-in 0.1s;
   }
   .row:hover label {
     background-color: #119;

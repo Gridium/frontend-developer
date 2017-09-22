@@ -8,12 +8,16 @@
 <style scoped>
   h2 {
     font-size: 20px;
-    margin-bottom: 5px;
-    margin-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
     cursor: pointer;
+    transition: background-color ease-in 0.3s, color ease-in 0.1s;
+    margin: 0 0 5px;
   }
   h2:hover {
-    color: #119;
+    background-color: #119;
+    color: white;
   }
   pre {
     margin: 0 20px 0 20px;
@@ -47,12 +51,12 @@
       toggle_display() {
         this.open = !this.open;
         
-        if ( this.open === true ) {
+        if ( this.open === true ) { // autoscroll on opening
           let start = null;
           let scroll = ( timestamp, total ) => {
             start = start || timestamp;
             
-            if ( timestamp - start > 500 ) {
+            if ( timestamp - start > 250 ) {
               return;
             }
             

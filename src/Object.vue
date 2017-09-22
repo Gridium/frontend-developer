@@ -38,11 +38,12 @@
 
 <style scoped>
   .object {
-    border-left: 5px solid #f0f0f0;
-    transition: border-color ease-in 0.3s;
+    box-shadow: inset 5px 0px rgb(242, 242, 242); /* fake border-left */
+    transition: box-shadow ease-in 0.3s;
   }
   .object:hover {
-    border-color: #33f;
+    box-shadow: inset 3px 0px #119; /* fake border-left */
+
   }
   legend {
     padding-left: 10px;
@@ -54,7 +55,7 @@
     margin-bottom: 10px;
   }
   .row label {
-    background-color: #f0f0f0;
+    background-color: rgb(242, 242, 242);
     color: black;
     display: inline-block;
     height: 27px;
@@ -66,7 +67,7 @@
     transition: color ease-in 0.15s;
   }
   .row:hover label {
-    background-color: #33f;
+    background-color: #119;
     color: white;
   }
   .row [type=checkbox] {

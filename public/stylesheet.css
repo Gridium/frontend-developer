@@ -23,7 +23,6 @@ main {
 }
 .headTitle:hover {
     background-color: #004177;
-    cursor: pointer;
 }
 .container {
     text-align: center;
@@ -80,7 +79,6 @@ table {
     -moz-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
 }
 
 

@@ -29,6 +29,7 @@
 
 <script>
   export default {
+    name: "Viewer",
     props: ['obj'],
     data() {
       return {

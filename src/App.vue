@@ -8,7 +8,7 @@
     <form class="pure-form pure-form-aligned">
       <ObjectComponent title="job" :value="obj" :level="0"></ObjectComponent>
     </form>
-    <Data :obj="obj"></Data>
+    <Viewer :obj="obj"></Viewer>
   </div>
 </template>
 
@@ -33,11 +33,11 @@
 
 <script>
   import ObjectComponent from './Object.vue';
-  import Data from './Data.vue';
+  import Viewer from './Viewer.vue';
   
   export default {
     name: 'App',
-    components: { ObjectComponent, Data },
+    components: { ObjectComponent, Viewer },
     data() {
       return {
         'obj': {}
@@ -45,7 +45,7 @@
     },
       
     created() {
-      return fetch('public/js/index.js').then( (response) => {
+      return fetch('js/index.js').then( (response) => {
         return response.text();
       }).then( (text ) => {
         // split json object from enumerators
@@ -74,7 +74,6 @@
               value = parse_value( value, json );
             }
             else if ( line.trim() === "}" || line.trim() === "};" || line.trim() === "}," ) {
-              // console.log(obj);
               return obj;
             }
               

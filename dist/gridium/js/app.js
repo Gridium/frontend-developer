@@ -52837,7 +52837,7 @@ var Welcome = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 null,
-                'This application uses an object given by Gridium to generate a random job applicant based on that data as well as a \'semi-random\' position at Gridium. No need to generate initially, that has already been done :). Click on the above links to your random applicant and position!'
+                'This application uses an object given by Gridium to generate a random job applicant based on that data as well as a \'semi-random\' position at Gridium. No need to generate initially, that has already been done :). Click on the above links to view your random applicant and position!'
               )
             ),
             _react2.default.createElement(

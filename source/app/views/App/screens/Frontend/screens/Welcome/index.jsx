@@ -71,7 +71,7 @@ export default class Welcome extends React.Component {
             <h4>Welcome</h4>
             <Col xs={12} md={6}>
              <p>This is a demonstration of a simple React application using React-Router, React-Bootstrap, and React-Vis.</p>
-             <p>This application uses an object given by Gridium to generate a random job applicant based on that data as well as a 'semi-random' position at Gridium. No need to generate initially, that has already been done :). Click on the above links to your random applicant and position!</p>
+             <p>This application uses an object given by Gridium to generate a random job applicant based on that data as well as a 'semi-random' position at Gridium. No need to generate initially, that has already been done :). Click on the above links to view your random applicant and position!</p>
             </Col>
             <Col xs={12} md={6}>
               <ButtonToolbar className="toolbar-center">

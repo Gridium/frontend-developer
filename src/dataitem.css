@@ -1,0 +1,27 @@
+/* * * DataItem Styles * * */
+
+.data-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1.25em 0; /* 20px ÷ 16px */
+}
+
+.label-block {
+  width: 50%;
+}
+
+.value-block {
+  width: 50%;
+}
+
+.label {
+  font-family: 'Montserrat', sans-serif;
+  color: #004177;
+  font-weight: 600; /* Semi-bold */
+}
+
+.value {
+  font-family: 'Open Sans', sans-serif;
+  color: #e2670f;
+}

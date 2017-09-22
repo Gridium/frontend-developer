@@ -1,0 +1,11 @@
+/* * * Essentials Styles * * */
+
+section {
+  padding: 2.50em 0; /* 40px ÷ 16px */
+}
+
+.data-box {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}

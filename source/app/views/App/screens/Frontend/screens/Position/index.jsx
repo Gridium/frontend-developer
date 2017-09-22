@@ -8,8 +8,15 @@ export default class Position extends React.Component {
   constructor(props) {
     super(props);
     console.log(this);
-    //Developer should be this.parentContext.developer
+    console.log("Position constructed!");
   }
+
+  //DEBUG
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.log("Next Props:" + nextProps);
+  //   console.log("Next State:" + nextState);
+  // }
+
 
   render(){
   	return (

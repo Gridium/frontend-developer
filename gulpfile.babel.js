@@ -9,7 +9,7 @@ import webpack from 'webpack-stream';
 
 const dirs = {
   src: 'source',
-  dest: 'dist',
+  dest: 'dist/gridium/',
   nodeDir: 'node_modules' 
 };
 

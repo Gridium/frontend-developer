@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import history from 'appHistory';
 import createRoutes from 'routes';
 import createLinks from 'links';
-let routes = null; //Can't be const because we are actively passing the updated state
-const links = createLinks();
 import { Router,HashRouter as HashRouter, NavLink} from 'react-router-dom';
 //If testing via localhost, use HashRouter. 
 //If deploying/testing with a live server, use BrowserRouter and set history object
-
 import generateDeveloper from 'shared/components/generateDeveloper';
+const basePath = '/gridium';
+let routes = null;
+let links = createLinks(basePath);
 
 export default class App extends React.Component{
 	constructor(props) {
@@ -18,8 +18,9 @@ export default class App extends React.Component{
 		this.state = {
 		  developer: developer
 		};
+		routes = createRoutes(this,basePath);
 		console.log(this); //Debugging
-		routes = createRoutes(this);
+		console.log("App constructed");
 	}
 
 	generateNewApplicant() {

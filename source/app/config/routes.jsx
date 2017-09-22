@@ -8,16 +8,16 @@ import Position from 'screens/Position';
 
 import history from 'appHistory';
 
-const createRoutes = (parentProps) => (
-
+const createRoutes = (parentProps,basePath) => (
     <Route render={({location}) => (
   	<ReactCSSTransitionReplace transitionName="fade-wait" 
                            transitionEnterTimeout={1000} transitionLeaveTimeout={400}>
         <div key={location.pathname}>
 			<Switch location={location} >
-					<Route path="/" exact render={(props) => (<Welcome parentContext={parentProps} {...props}/>)} />
-					<Route path="/about" exact render={(props) => (<About parentContext={parentProps} {...props}/>)} />
-					<Route path="/position" exact render={(props) => (<Position parentContext={parentProps} {...props}/>)} />
+					<Route path={`${basePath}/`} exact render={(props) => (<Welcome parentContext={parentProps} {...props}/>)} />
+					<Route path={`${basePath}/about`} exact render={(props) => (<About parentContext={parentProps} {...props}/>)} />
+					<Route path={`${basePath}/position`} exact render={(props) => (<Position parentContext={parentProps} {...props}/>)} />
+					<Route render={(props) => (<Welcome parentContext={parentProps} {...props}/>)} />
 			    </Switch>
 		</div>
     </ReactCSSTransitionReplace>

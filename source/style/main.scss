@@ -1,8 +1,9 @@
+//Base Styling
 html,body{
 height:100%;
-background: #141E30;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #141E30;
+background: -webkit-linear-gradient(to bottom, #243B55, #141E30); 
+background: linear-gradient(to bottom, #243B55, #141E30);
 }
 
 .alert p{
@@ -46,9 +47,9 @@ background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, 
 
 .page{
     padding-top: 72px;
-  
     p,h1,h2,h3,h4,h5{
-      color:#FFFFFF;
+      color:black;
+      font-size:6px;
     }
 }
 
@@ -62,6 +63,7 @@ background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, 
   text-align:center;
 }
 
+//Simple React CSSTransistion
 .fade-wait-leave {
   opacity: 1;
 }
@@ -80,6 +82,7 @@ background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, 
   transition: height .6s ease-in-out;
 }
 
+//Bootstrap 3 (React Bootstrap) / Flat - UI overrides
 .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
     border: 1px solid #1abc9c;
 }
@@ -106,6 +109,8 @@ background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, 
     background-color: rgba(46, 134, 117,1);
 }
 
+
+//React-Vis styling
 .rv-xy-plot__axis__line{
   fill:none;
   stroke-width:2px;
@@ -130,8 +135,45 @@ background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, 
 }
 
 
+//Small screen only CSS
 @media screen and (max-width: 768px) {
 .page{
     padding-top: 100px;
+  }
+.navbar .nav > li > a{
+    padding: 0px !important;
+    border: 0px !important;
+ }
+ .navbar-header{
+    width: 50%;
+    float: left;
+ }
+ html,body{
+  overflow:auto;
+ }
+
+}
+
+//Disable animations for mobile devices
+@media only screen and (max-width : 768px) {
+  .animated {
+    /*CSS transitions*/
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
   }
 }

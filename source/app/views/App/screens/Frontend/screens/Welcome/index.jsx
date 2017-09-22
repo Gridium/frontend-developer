@@ -14,6 +14,7 @@ export default class Welcome extends React.Component {
         initial: true,
         generated: false
     };
+    console.log("Welcome constructed!");
   }
 
   componentDidMount () {
@@ -24,6 +25,14 @@ export default class Welcome extends React.Component {
   componentWillUnmount () {
      ReactDOM.findDOMNode(this.button).removeEventListener('animationend', this.generateDone);
   }
+
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.log("Next Props:");
+  //   console.log(nextProps);
+  //   console.log("Next State:");
+  //   console.log(nextState);
+  //   return this.state.active != nextState.active;
+  // }
 
   generate() {
       this.props.parentContext.generateNewApplicant();

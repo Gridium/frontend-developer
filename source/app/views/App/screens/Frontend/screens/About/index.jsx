@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Col, Grid, Row, Table } from 'react-bootstrap';
 import { RadarChart } from 'react-vis';
 
-// import {format} from 'd3-format';
+import "babel-polyfill"; //Mobile Safari support for Object.entries();
 
 export default class About extends React.Component {
 
@@ -33,8 +33,14 @@ export default class About extends React.Component {
           this.applicantData[0].uiux = this.levelToNumber(value.toString());
         }
       });
+      console.log("About constructed!");
   }
  
+  //  shouldComponentUpdate(nextProps, nextState){
+  //   console.log("Next Props:" + nextProps);
+  //   console.log("Next State:" + nextState);
+  // }
+
   levelToNumber(level){
     let numVal = 0;
     if(level == 'Familiar'){

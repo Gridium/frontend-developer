@@ -15,6 +15,11 @@ Gulp/Jest
 
 A demo will be viewable at http://66.150.214.52/gridium/ when complete.
 
+TO DO:
+Add Jest tests
+Minify/Optimize webpack'd assets
+Address double-render issue with Safari/Safari iOS
+
 ---
 
 # Gridium Developer Application

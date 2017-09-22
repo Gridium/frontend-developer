@@ -14,7 +14,7 @@ const Header = () => (
   <header>
 
     <img src={logo} className='logo' />
-    
+
     <div className='header-top'></div>
     <div className='nav-backing'>
       <div className='header-nav'>
@@ -29,7 +29,9 @@ const Header = () => (
           </Link>
         </div>
         <div className='header-panel'>
-          <img src={specsCover} className='panel-img' />
+          <Link to='/specs'>
+            <img src={specsCover} className='panel-img' />
+          </Link>
         </div>
         <div className='header-panel'>
           <img src={profileCover} className='panel-img' />

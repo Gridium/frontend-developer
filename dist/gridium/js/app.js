@@ -52837,7 +52837,7 @@ var Welcome = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 null,
-                'This application uses an object given by Gridium to generate a random job applicant based on that data as well as a \'semi-random\' position at Gridium.'
+                'This application uses an object given by Gridium to generate a random job applicant based on that data as well as a \'semi-random\' position at Gridium. No need to generate initially, that has already been done :). Click on the above links to your random applicant and position!'
               )
             ),
             _react2.default.createElement(
@@ -63876,11 +63876,11 @@ var About = function (_React$Component) {
   function About(props) {
     _classCallCheck(this, About);
 
-    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
-
-    console.log(_this);
+    //console.log(this);
     // this.basicFormat = format('.2r');
     // this.wideFormat = format('.3r');
+    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+
     _this.applicantData = [{ name: 'Skills', css3: 0, design: 0, html5: 0, javascript: 0, node: 0, rest: 0, uiux: 0 }];
     Object.entries(_this.props.parentContext.state.developer.applicant.technologies).map(function (_ref) {
       var _ref2 = _slicedToArray(_ref, 2),
@@ -63903,7 +63903,7 @@ var About = function (_React$Component) {
         _this.applicantData[0].uiux = _this.levelToNumber(value.toString());
       }
     });
-    console.log("About constructed!");
+    //console.log("About constructed!");
     return _this;
   }
 
@@ -85740,11 +85740,9 @@ var Position = function (_React$Component) {
   function Position(props) {
     _classCallCheck(this, Position);
 
-    var _this = _possibleConstructorReturn(this, (Position.__proto__ || Object.getPrototypeOf(Position)).call(this, props));
-
-    console.log(_this);
-    console.log("Position constructed!");
-    return _this;
+    return _possibleConstructorReturn(this, (Position.__proto__ || Object.getPrototypeOf(Position)).call(this, props));
+    //console.log(this);
+    //console.log("Position constructed!");
   }
 
   //DEBUG

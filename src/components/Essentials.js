@@ -1,7 +1,10 @@
 import React from 'react';
+import PageHeader from './PageHeader';
 
 const Essentials = () => (
-  <div>Essentials</div>
+  <div>
+    <PageHeader title={'Essentials'}/>
+  </div>
 );
 
 export default Essentials;

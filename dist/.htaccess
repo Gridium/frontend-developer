@@ -1,0 +1,4 @@
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^gridium/(.*)$ /gridium/index.html?path=$1 [L,QSA]

@@ -1,0 +1,178 @@
+//Base Styling
+html,body{
+height:100%;
+background: #141E30;
+background: -webkit-linear-gradient(to bottom, #243B55, #141E30); 
+background: linear-gradient(to bottom, #243B55, #141E30);
+}
+
+.alert p{
+  color:black !important;
+}
+
+.navbar-default {
+  border-radius:0px;
+  .nav {
+    >li {
+      >a.active {
+        color: #1abc9c;
+      }
+    }
+  }
+}
+
+.navbar-inverse {
+  background: #1a2a3f;
+  .navbar-brand {
+    border-bottom: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+    min-height: 50px;
+    max-height: 72px;
+    height: auto;
+  }
+  .nav{
+    >li:first-child{
+      >a{
+        border-bottom:0px;
+        border-left: none !important; 
+      }
+    }
+  }
+}
+
+.navbar-nav {
+    margin:0px;
+}
+
+.page{
+    padding-top: 72px;
+    p,h1,h2,h3,h4,h5{
+      color:white;
+    }
+}
+
+.btn-center{
+    margin: 0 auto;
+    text-align: center;
+    float: none !important;
+}
+
+.toolbar-center{
+  text-align:center;
+}
+
+//Simple React CSSTransistion
+.fade-wait-leave {
+  opacity: 1;
+}
+.fade-wait-leave.fade-wait-leave-active {
+  opacity: 0;
+  transition: opacity .4s ease-in;
+}
+.fade-wait-enter {
+  opacity: 0;
+}
+.fade-wait-enter.fade-wait-enter-active {
+  opacity: 1;
+  transition: opacity .4s ease-in .6s;
+}
+.fade-wait-height {
+  transition: height .6s ease-in-out;
+}
+
+//Bootstrap 3 (React Bootstrap) / Flat - UI overrides
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #1abc9c;
+}
+
+.table-bordered{
+      border: 1px solid #1abc9c;
+      color:#FFFFFF;
+      font-size: 14px;
+}
+
+.table-striped > tbody > tr{
+    background-color: rgba(32, 150, 169, 0.52);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(46, 134, 117, 0.54);
+}
+
+.table-striped > tbody > tr:hover{
+    background-color: rgba(32, 150, 169, 1);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd):hover{
+    background-color: rgba(46, 134, 117,1);
+}
+
+
+//React-Vis styling
+.rv-xy-plot__axis__line{
+  fill:none;
+  stroke-width:2px;
+  stroke:#55556d;
+}
+
+.rv-xy-plot__axis__tick__line{
+  stroke:transparent;
+}
+
+.rv-xy-plot__axis__tick__text {
+  fill:#a0a0a0;
+  font-size:7px;
+}
+
+.rv-xy-plot__series--label-text{
+  fill:white;
+}
+
+.rv-xy-plot{
+  margin:0 auto;
+}
+
+
+//Small screen only CSS
+@media screen and (max-width: 768px) {
+.page{
+    padding-top: 100px;
+  }
+.navbar .nav > li > a{
+    padding: 0px !important;
+    border: 0px !important;
+ }
+ .navbar-header{
+    width: 50%;
+    float: left;
+ }
+ html,body{
+  overflow:auto;
+ }
+
+}
+
+//Disable animations for mobile devices
+@media only screen and (max-width : 768px) {
+  .animated {
+    /*CSS transitions*/
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+  }
+}

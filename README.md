@@ -1,3 +1,27 @@
+This project is an example of using React to display some data provided via a simple JS module.
+To be a bit more creative than just importing the module and dumping the data out I am using React Router to create a simple single page application that upon visiting (or button click) will generate a random job applicant based on the sample data provided.
+
+React-Vis/Bootstrap are used to style things up and display the data, otherwise React is the main framework to connect all the moving pieces.
+
+To process the data from Gridium I am using the following:
+```
+React/React-Router/React-Vis
+PUG/SASS/Bootstrap/Animate.css/Flat-Ui
+Babel/Webpack/ES6
+Gulp/Jest
+```
+
+./public/js/index.js has been moved into source/app/assets/Developer/index.js and slightly changed to adapt ES6 syntax and webpack module loading.
+
+A demo will be viewable at http://66.150.214.52/gridium/ when complete.
+
+TO DO:
+Add Jest tests
+
+Minify/Optimize webpack'd assets
+
+---
+
 # Gridium Developer Application
 
 Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.

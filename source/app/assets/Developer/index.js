@@ -1,4 +1,4 @@
-var job = {
+const job = {
 	"headline": "Gridium Front-end Developer",
 	"essentials": {
 		"locations": "denver",
@@ -89,6 +89,42 @@ function Monitors() { return enumerate("Negotiable"); }
 function Level() { return enumerate("Familiar", "Good", "Expert"); }
 function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
 function PTO() { return enumerate("Accrued", "Unlimited") }
+function Framework() { return enumerate("react", "vue", "angular") }
+function TestingFramework(){ return enumerate("junit","mocha","jasmine","selenium") }
+function Names() { return enumerate("Eric", "Fred", "Kate") }
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
-function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
+function enumerate(){
+	let v=arguments;
+	let s={all:[],keys:v};
+	for(let i=v.length;i--;)s[v[i]]=s.all[i]=v[i];
+	return s; 
+}
+
+module.exports = {
+    job: job,
+	EmploymentType:EmploymentType,
+	ExperienceLevels:ExperienceLevels,
+	CompanySize:CompanySize,
+	VersionControlSystem:VersionControlSystem,
+	IssueTrackers:IssueTrackers,
+	BuildServers:BuildServers,
+	CodeAnalysisTools:CodeAnalysisTools,
+	KnowledgeRepos:KnowledgeRepos,
+	TravelOptions:TravelOptions,
+	ScheduleOptions:ScheduleOptions,
+	RemoteWorking:RemoteWorking,
+	RelocationPackages:RelocationPackages,
+	OperationSystems:OperationSystems,
+	MachineType:MachineType,
+	Monitors:Monitors,
+	Level:Level,
+	TrainingType:TrainingType,
+	PTO:PTO,
+	enumerate:enumerate,
+	Framework:Framework,
+	TestingFramework:TestingFramework,
+	Names:Names
+};
+
+

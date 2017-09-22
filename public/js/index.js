@@ -173,7 +173,7 @@ function jobDescription(obj, heading) {
         }
 
         if(obj[title]) {
-            result += `<div class="${heading}">` +
+            result += `<div class="box ${heading}">` +
                             '<table>' +
                                 '<tr>' +
                                     `<td class="left">${titleCase}:</td>`;

@@ -153,9 +153,6 @@ function PTO() { return enumerate("Accrued", "Unlimited") }
 function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
 
 
-console.log(job.technologies.testing);
-
-
 function toTitleCase(str)
 {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -164,10 +161,8 @@ function toTitleCase(str)
 function jobDescription(obj, heading) {
     var titleHeading = toTitleCase(heading);
     var result = '';
-    result += '<div class="head">' +
-                '<thead>' +
-                    `<tr><p class="headTitle">${titleHeading}<p></tr>`+
-                '</thead>';
+    result += '<div class="category masonryItem">' +
+                    `<p class="headTitle">${titleHeading}</p>`;
     for (var title in obj) {
         var titleCase;
 
@@ -178,7 +173,7 @@ function jobDescription(obj, heading) {
         }
 
         if(obj[title]) {
-            result += `<div class="col-group ${heading}">` +
+            result += `<div class="${heading}">` +
                             '<table>' +
                                 '<tr>' +
                                     `<td class="left">${titleCase}:</td>`;
@@ -192,13 +187,13 @@ function jobDescription(obj, heading) {
 
             } else if(Array.isArray(obj[title])) {
                 var len = obj[title].length;
+                result +=           '<td class="right">'
+                var arr = []
                 for (var i=0; i<len; i++) {
-                    if(i != len - 1) {
-                        result +=    `<td class="rightArray1">${obj[title][i]}` + ',' + '</td>';
-                    } else {
-                        result +=    `<td class="rightArray2">${obj[title][i]}</td>`;
-                    }
+                    arr.push(`${obj[title][i]}`);
                 }
+                result +=              arr.join(', ');
+                result +=           '</td>'
             } else if(typeof obj[title] === 'object') {
                 for (var subTitle in obj[title]) {
                     result +=        `<td class="rightObj">${subTitle}` + ': ' + `${obj[title][subTitle]}` + '</td>';
@@ -221,10 +216,6 @@ function jobDescription(obj, heading) {
 
 var resultElement = "";
 
-resultElement += '<div class="headline">' +
-                    `<p>${job.headline}<p>` +
-                 '</div>';
-
 resultElement += jobDescription(job.essentials, 'essentials');
 resultElement += jobDescription(job.methodology, 'methodology');
 resultElement += jobDescription(job.specs, 'specs');
@@ -232,7 +223,19 @@ resultElement += jobDescription(job.profile, 'profile');
 resultElement += jobDescription(job.equipment, 'equipment');
 resultElement += jobDescription(job.technologies, 'technologies');
 
-$('.jobDescription').append(resultElement);
+$('#jobContainer').append(resultElement);
+
+$('#titleContainer').append(`<p>${job.headline}<p>`);
+
+$(function(){
+    $('#jobContainer').masonry({
+      // options
+      itemSelector: '.masonryItem',
+      columnWidth: 400,
+      fitWidth: true,
+      gutter: 20
+    });
+});
 
 
 

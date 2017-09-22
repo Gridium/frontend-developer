@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h1>Start</h1>
-    <ObjectComponent title="Job" :value="obj" :level="0"></ObjectComponent>
-  </div>
+  <form class="pure-form pure-form-aligned">
+    <ObjectComponent title="job" :value="obj" :level="0"></ObjectComponent>
+  </form>
 </template>
 
 <script>

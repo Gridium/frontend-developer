@@ -21,15 +21,12 @@ main {
     padding-top: 8px;
     padding-bottom: 8px;
     font-size: 20px;
+    transition: background-color 0.5s #0083c2;
 }
-/*.headTitle, table {
-    -webkit-box-shadow: 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset;
-            box-shadow: 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset;
-    -webkit-box-shadow: '' 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset 1px 2px rgba(0, 0, 0, 0.2);
-       -moz-box-shadow: '' 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset 1px 2px rgba(0, 0, 0, 0.2);
-         -o-box-shadow: '' 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset 1px 2px rgba(0, 0, 0, 0.2);
-            box-shadow: '' 20px 0 20px 0 rgba(0, 0, 0, 0.1) inset 1px 2px rgba(0, 0, 0, 0.2);
-}*/
+.headTitle:hover {
+    background-color: #004177;
+    cursor: pointer;
+}
 .container {
     text-align: center;
     margin-left: auto;
@@ -67,25 +64,9 @@ table {
     background-color: #EAF0F4;
     padding-right: 5px;
 }
-.rightArray1, .rightObj {
-    background-color: #EAF0F4;
-    text-align: left;
-    padding-right: 5px;
-}
-.rightArray1 {
-    padding-right: 5px;
-}
-.rightArray2 {
-    background-color: #EAF0F4;
-    text-align: left;
-    padding-left: 5px;
-}
 .masonryItem { 
     width: 400px;
     margin-bottom: 25px;
-/*    margin: 10px;
-    padding: 10px;
-*/
 
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -94,7 +75,6 @@ table {
          -o-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
             box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 
 
 

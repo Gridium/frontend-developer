@@ -12,9 +12,9 @@ import technologiesCover from '../images/technologies-cover.jpg';
 
 const Header = () => (
   <header>
-    <div className='img-container'>
-      <img src={logo} className='logo' />
-    </div>
+
+    <img src={logo} className='logo' />
+    
     <div className='header-top'></div>
     <div className='nav-backing'>
       <div className='header-nav'>

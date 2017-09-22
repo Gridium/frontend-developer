@@ -1,7 +1,13 @@
 # Let the games begin!
-I'm ready for some competition so here's a little something I call **The Gridium Front-end Developer challenge!**
+I'm ready for some competition so here's a little something I call **The Gridium Front-end Developer Challenge!**
 
 I square off against a randomly-generated competitor to see who's the better fit for Gridium. The applicant with the most points wins!
+
+## View the Completed Project
+
+[The Gridium Front-end Developer Challenge](https://wocaldwell.github.io/frontend-developer/public/) 
+
+## Run the Project Locally
 
 ### Prerequisites
 
@@ -20,6 +26,22 @@ Install project dependencies
 
 ```
 > npm i
+```
+
+### Allowing for Local Dependencies
+
+Open `/public/index.html` and in the `<head>`, replace the Bootstrap styling `<link>` with:
+
+```
+<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+
+Next, at the bottom of the `<body>` replace all of the "third-party" `<script>` tags with the following block:
+
+```
+<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
 ```
 
 ### Running the Project

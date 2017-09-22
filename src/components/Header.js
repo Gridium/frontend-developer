@@ -39,7 +39,9 @@ const Header = () => (
           </Link>
         </div>
         <div className='header-panel'>
-          <img src={equipmentCover} className='panel-img' />
+          <Link to='/equipment'>
+            <img src={equipmentCover} className='panel-img' />
+          </Link>
         </div>
         <div className='header-panel'>
           <img src={technologiesCover} className='panel-img' />

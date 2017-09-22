@@ -11,10 +11,9 @@ export default class Welcome extends React.Component {
     this.handleAlertDismiss = this.handleAlertDismiss.bind(this);
     this.state = {
         active: false,
-        initial: true,
         generated: false
     };
-    console.log("Welcome constructed!");
+    //console.log("Welcome constructed!");
   }
 
   componentDidMount () {
@@ -34,12 +33,15 @@ export default class Welcome extends React.Component {
   //   return this.state.active != nextState.active;
   // }
 
+  // componentWillUpdate(nextProps, nextState){
+  //   console.log("Component will update called");
+  // }
+
   generate() {
       this.props.parentContext.generateNewApplicant();
       this.setState({ 
         active: true, 
-        generated: true,
-        initial: false,
+        generated: true
       });
   };
 
@@ -60,19 +62,20 @@ export default class Welcome extends React.Component {
         <p>Generated a new applicant and position!</p>
       </Alert>;
     }
+    //console.log("Welcome render called");
   	return (
       <Grid className="page">
         <Row>
           <Col xs={12}>
             {alert}
-            <h4 className="animated bounceInDown">Welcome</h4>
+            <h4>Welcome</h4>
             <Col xs={12} md={6}>
              <p>This is a demonstration of a simple React application using React-Router, React-Bootstrap, and React-Vis.</p>
              <p>This application uses an object given by Gridium to generate a random job applicant based on that data as well as a 'semi-random' position at Gridium.</p>
             </Col>
             <Col xs={12} md={6}>
               <ButtonToolbar className="toolbar-center">
-                <Button ref={(button) => { this.button = button; }}  bsStyle="primary" className={ `btn-hg btn-center animated ${this.state.active ? "bounce": ""} ${this.state.initial ? "fadeInRight": ""} ` } href="javascript:;" onClick={this.generate} >Generate</Button>
+                <Button ref={(button) => { this.button = button; }}  bsStyle="primary" className={ `btn-hg btn-center animated ${this.state.active ? "bounce": ""} ` } href="javascript:;" onClick={this.generate} >Generate</Button>
               </ButtonToolbar>
             </Col>
           </Col>

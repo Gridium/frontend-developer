@@ -32,8 +32,7 @@ html, body {
 .page {
   padding-top: 72px; }
   .page p, .page h1, .page h2, .page h3, .page h4, .page h5 {
-    color: black;
-    font-size: 6px; }
+    color: white; }
 
 .btn-center {
   margin: 0 auto;

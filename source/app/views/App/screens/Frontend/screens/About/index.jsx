@@ -10,7 +10,7 @@ export default class About extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this);
+    //console.log(this);
     // this.basicFormat = format('.2r');
     // this.wideFormat = format('.3r');
     this.applicantData = [
@@ -33,12 +33,15 @@ export default class About extends React.Component {
           this.applicantData[0].uiux = this.levelToNumber(value.toString());
         }
       });
-      console.log("About constructed!");
+      //console.log("About constructed!");
   }
  
   //  shouldComponentUpdate(nextProps, nextState){
   //   console.log("Next Props:" + nextProps);
   //   console.log("Next State:" + nextState);
+  // }
+  //   componentWillUpdate(nextProps, nextState){
+  //   console.log("Component will update called");
   // }
 
   levelToNumber(level){
@@ -54,13 +57,14 @@ export default class About extends React.Component {
   }
 
   render(){
+    //console.log("About render called");
   	return (
       <Grid className="page">
         <Row>
           <Col xs={12}>
-            <h4 className="animated bounceInDown">Applicant</h4>
+            <h4>Applicant</h4>
             <Col xs={12} md={6}>
-             <Table striped bordered condensed hover className="animated fadeInLeft">
+             <Table striped bordered condensed hover>
               <thead>
                 <tr>
                   <td colSpan="2">

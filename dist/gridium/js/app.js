@@ -48790,6 +48790,10 @@ var App = function (_React$Component) {
 			console.log(this.state); //Debugging
 		}
 
+		// componentWillUpdate(nextProps, nextState){
+		// 	console.log("Component will update called");
+		// }
+
 		// render(){
 		// 	return(
 		// 	<HashRouter>
@@ -52739,10 +52743,9 @@ var Welcome = function (_React$Component) {
     _this.handleAlertDismiss = _this.handleAlertDismiss.bind(_this);
     _this.state = {
       active: false,
-      initial: true,
       generated: false
     };
-    console.log("Welcome constructed!");
+    //console.log("Welcome constructed!");
     return _this;
   }
 
@@ -52766,14 +52769,17 @@ var Welcome = function (_React$Component) {
     //   return this.state.active != nextState.active;
     // }
 
+    // componentWillUpdate(nextProps, nextState){
+    //   console.log("Component will update called");
+    // }
+
   }, {
     key: 'generate',
     value: function generate() {
       this.props.parentContext.generateNewApplicant();
       this.setState({
         active: true,
-        generated: true,
-        initial: false
+        generated: true
       });
     }
   }, {
@@ -52804,6 +52810,7 @@ var Welcome = function (_React$Component) {
           )
         );
       }
+      //console.log("Welcome render called");
       return _react2.default.createElement(
         _reactBootstrap.Grid,
         { className: 'page' },
@@ -52816,7 +52823,7 @@ var Welcome = function (_React$Component) {
             alert,
             _react2.default.createElement(
               'h4',
-              { className: 'animated bounceInDown' },
+              null,
               'Welcome'
             ),
             _react2.default.createElement(
@@ -52843,7 +52850,7 @@ var Welcome = function (_React$Component) {
                   _reactBootstrap.Button,
                   { ref: function ref(button) {
                       _this2.button = button;
-                    }, bsStyle: 'primary', className: 'btn-hg btn-center animated ' + (this.state.active ? "bounce" : "") + ' ' + (this.state.initial ? "fadeInRight" : "") + ' ', href: 'javascript:;', onClick: this.generate },
+                    }, bsStyle: 'primary', className: 'btn-hg btn-center animated ' + (this.state.active ? "bounce" : "") + ' ', href: 'javascript:;', onClick: this.generate },
                   'Generate'
                 )
               )
@@ -63904,6 +63911,9 @@ var About = function (_React$Component) {
   //   console.log("Next Props:" + nextProps);
   //   console.log("Next State:" + nextState);
   // }
+  //   componentWillUpdate(nextProps, nextState){
+  //   console.log("Component will update called");
+  // }
 
   _createClass(About, [{
     key: 'levelToNumber',
@@ -63921,6 +63931,7 @@ var About = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      //console.log("About render called");
       return _react2.default.createElement(
         _reactBootstrap.Grid,
         { className: 'page' },
@@ -63932,7 +63943,7 @@ var About = function (_React$Component) {
             { xs: 12 },
             _react2.default.createElement(
               'h4',
-              { className: 'animated bounceInDown' },
+              null,
               'Applicant'
             ),
             _react2.default.createElement(
@@ -63940,7 +63951,7 @@ var About = function (_React$Component) {
               { xs: 12, md: 6 },
               _react2.default.createElement(
                 _reactBootstrap.Table,
-                { striped: true, bordered: true, condensed: true, hover: true, className: 'animated fadeInLeft' },
+                { striped: true, bordered: true, condensed: true, hover: true },
                 _react2.default.createElement(
                   'thead',
                   null,
@@ -85742,10 +85753,15 @@ var Position = function (_React$Component) {
   //   console.log("Next State:" + nextState);
   // }
 
+  // componentWillUpdate(nextProps, nextState){
+  //   console.log("Component will update called");
+  // }
+
 
   _createClass(Position, [{
     key: 'render',
     value: function render() {
+      //console.log("Position render called");
       return _react2.default.createElement(
         _reactBootstrap.Grid,
         { className: 'page' },
@@ -85757,7 +85773,7 @@ var Position = function (_React$Component) {
             { xs: 12 },
             _react2.default.createElement(
               'h4',
-              { className: 'animated bounceInDown' },
+              null,
               'Position'
             ),
             _react2.default.createElement(
@@ -85794,7 +85810,7 @@ var Position = function (_React$Component) {
               { xs: 12, md: 6 },
               _react2.default.createElement(
                 _reactBootstrap.Table,
-                { striped: true, bordered: true, condensed: true, hover: true, className: 'animated fadeInLeft' },
+                { striped: true, bordered: true, condensed: true, hover: true },
                 _react2.default.createElement(
                   'thead',
                   null,
@@ -85930,7 +85946,7 @@ var createLinks = function createLinks(basePath) {
 				_react2.default.createElement(
 					'a',
 					{ className: 'navbar-brand', href: '.' },
-					'Test'
+					'Gridium'
 				)
 			)
 		),
@@ -85943,7 +85959,7 @@ var createLinks = function createLinks(basePath) {
 				_react2.default.createElement(
 					_reactBootstrap.NavItem,
 					{ eventKey: 1 },
-					'one'
+					'Welcome'
 				)
 			),
 			_react2.default.createElement(
@@ -85952,7 +85968,7 @@ var createLinks = function createLinks(basePath) {
 				_react2.default.createElement(
 					_reactBootstrap.NavItem,
 					{ eventKey: 2 },
-					'two'
+					'Applicant'
 				)
 			),
 			_react2.default.createElement(
@@ -85961,7 +85977,7 @@ var createLinks = function createLinks(basePath) {
 				_react2.default.createElement(
 					_reactBootstrap.NavItem,
 					{ eventKey: 3 },
-					'three'
+					'Position'
 				)
 			)
 		)

@@ -6,18 +6,18 @@ const createLinks = (basePath) => (
 	<Navbar fixedTop inverse>
 		<Navbar.Header>
 			<Navbar.Brand>
-        		<a className="navbar-brand" href=".">Test</a>
+        		<a className="navbar-brand" href=".">Gridium</a>
 			</Navbar.Brand>
 		</Navbar.Header>
 		<Nav>
 		  <LinkContainer exact to={`${basePath}/`} activeClassName="active">
-		    <NavItem eventKey={1}>one</NavItem>
+		    <NavItem eventKey={1}>Welcome</NavItem>
 		  </LinkContainer>
 		  <LinkContainer exact to={`${basePath}/about`} activeClassName="active">
-		    <NavItem eventKey={2}>two</NavItem>
+		    <NavItem eventKey={2}>Applicant</NavItem>
 		  </LinkContainer>
 		  <LinkContainer exact to={`${basePath}/position`} activeClassName="active">
-		    <NavItem eventKey={3}>three</NavItem>
+		    <NavItem eventKey={3}>Position</NavItem>
 		  </LinkContainer>
 		</Nav>
 	</Navbar>

@@ -7,8 +7,8 @@ export default class Position extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this);
-    console.log("Position constructed!");
+    //console.log(this);
+    //console.log("Position constructed!");
   }
 
   //DEBUG
@@ -17,20 +17,25 @@ export default class Position extends React.Component {
   //   console.log("Next State:" + nextState);
   // }
 
+  // componentWillUpdate(nextProps, nextState){
+  //   console.log("Component will update called");
+  // }
+
 
   render(){
+    //console.log("Position render called");
   	return (
       <Grid className="page">
         <Row>
           <Col xs={12}>
-            <h4 className="animated bounceInDown">Position</h4>
+            <h4>Position</h4>
             <Col xs={12} md={6}>
               <h5>{this.props.parentContext.state.developer.position.headline}</h5>
               <p>We are looking for a { this.props.parentContext.state.developer.position.essentials.experience } {this.props.parentContext.state.developer.position.essentials.headline} to work at our office in {this.props.parentContext.state.developer.position.essentials.location}!</p> 
               <p>We are a team of {this.props.parentContext.state.developer.position.essentials.teamsize} and are looking for someone with a start date of {this.props.parentContext.state.developer.position.essentials.startdate[0]}. Inquire today! </p>
             </Col>
             <Col xs={12} md={6}>
-             <Table striped bordered condensed hover className="animated fadeInLeft">
+             <Table striped bordered condensed hover>
               <thead>
                 <tr>
                   <td colSpan="2">

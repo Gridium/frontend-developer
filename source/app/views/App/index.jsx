@@ -31,6 +31,10 @@ export default class App extends React.Component{
 		console.log(this.state); //Debugging
 	}
 
+	// componentWillUpdate(nextProps, nextState){
+	// 	console.log("Component will update called");
+	// }
+
 	// render(){
 	// 	return(
 	// 	<HashRouter>

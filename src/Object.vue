@@ -1,6 +1,6 @@
 <template>
   <div :class=" level > 0 ? 'object' : '' ">
-    <legend>{{ title }}</legend>
+    <legend>{{ title | capitalize }}</legend>
     <div v-for="(v, k) in value"  :style=" {'padding-left': 30+'px'} ">
       <div v-if=" v.hasOwnProperty('boolean') " class="row">
         <span>
@@ -64,7 +64,7 @@
     vertical-align: top;
     margin: 0 -7px 0 0;
     transition: background-color ease-in 0.3s;
-    transition: color ease-in 0.15s;
+    transition: color ease-in 0.1s;
   }
   .row:hover label {
     background-color: #119;
@@ -87,5 +87,13 @@
     name: 'ObjectComponent',
     components: { DateTime },
     props: ['title', 'value', 'level'],
+    
+    filters: {
+      capitalize: function (value) {
+        if (!value) return '';
+        value = value.toString();
+        return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+    }
   };
 </script>

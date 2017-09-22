@@ -1,8 +1,34 @@
 <template>
-  <form class="pure-form pure-form-aligned">
-    <ObjectComponent title="job" :value="obj" :level="0"></ObjectComponent>
-  </form>
+  <div>
+    <h1>Object Editor</h1>
+    <p>
+      Edits an object based on data parsed in <em>index.js</em>.<br>
+      Design is based on assumption that the contents of the file are unknown.
+    </p>
+    <form class="pure-form pure-form-aligned">
+      <ObjectComponent title="job" :value="obj" :level="0"></ObjectComponent>
+    </form>
+  </div>
 </template>
+
+<style>
+  h1 {
+    background-color: #119;
+    color: white;
+    padding: 10px 0 5px 20px;
+    margin: 0;
+    font-family: Share, Lato, sans-serif;
+    font-size: 40px;
+  }
+  p {
+    padding-left: 15px;
+    background-color: rgb(237, 237, 237);
+    margin: 0 0 5px 0;
+    padding: 15px 0 15px 15px;
+    font-size: 103%;
+    line-height: 140%;
+  }
+</style>
 
 <script>
   import ObjectComponent from './Object.vue';

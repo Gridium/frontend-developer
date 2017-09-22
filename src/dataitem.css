@@ -8,20 +8,34 @@
 }
 
 .label-block {
-  width: 50%;
+  width: 30%;
 }
 
 .value-block {
-  width: 50%;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.label {
+.item-label {
   font-family: 'Montserrat', sans-serif;
   color: #004177;
   font-weight: 600; /* Semi-bold */
+  text-transform: capitalize;
 }
 
-.value {
+.item-value {
   font-family: 'Open Sans', sans-serif;
   color: #e2670f;
+  font-weight: 600; /* Semi-bold */
+  text-transform: capitalize;
+  margin-right: 0.625em;
+}
+
+.item-option {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; /* Light */
+  color: #9b9b9b;
+  text-transform: capitalize;
+  margin-right: 0.625em;
 }

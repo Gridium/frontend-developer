@@ -2,26 +2,33 @@ import React from 'react';
 import PageHeader from './PageHeader';
 import Footer from './Footer';
 import Background from '../images/essentials-cover.jpg';
-import { job } from '../jobData';
+import { job, ExperienceLevels, EmploymentType, CompanySize } from '../jobData';
 import DataItem from './DataItem';
 import '../essentials.css';
 
 const Essentials = () => {
+  // Reference data
   const data = job.essentials;
 
+  // Process data into [key: , value: ] array
   const result = Object.keys(data).filter((i) => {
     return i != 'teamsize';
   }).map(key => ({ key, value: data[key] }));
 
-  const dataItems = result.map((item, index) =>
-    <DataItem key={index} label={item.key} value={item.value} />
+  // Map data into corresponding DataItem components
+  const listItems = result.map((item, index) =>
+    item.key == 'employment' ? <DataItem label={'employment'} value={item.value} options={EmploymentType().all} />
+    : item.key == 'experience' ? <DataItem label={'experience'} value={item.value} options={ExperienceLevels().all} />
+    : item.key == 'companysize' ? <DataItem label={'companysize'} value={item.value} options={CompanySize().all} />
+    :                             <DataItem key={index} label={item.key} value={item.value} />
   );
+  
   return (
     <div>
       <PageHeader title={'Essentials'} />
       <section>
         <div className='data-box'>
-         {dataItems}
+         {listItems}
          <DataItem label={'teamsize'} value={`${data.teamsize.min} - ${data.teamsize.max}`} />
         </div>
       </section>

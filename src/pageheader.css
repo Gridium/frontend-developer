@@ -21,7 +21,7 @@ h2 {
   text-transform: uppercase;
 }
 
-span {
+span.line {
   width: 15%;
   height: 1px;
   background: #4a4a4a;

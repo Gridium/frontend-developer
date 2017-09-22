@@ -131,9 +131,9 @@ app.controller("HomeCtrl", function($scope) {
     // Gridium specs
     $scope.job = job;
 
+    // get an applicants score by comparing stats with the values supplied by Gridium
     var compareApplicantWithGridium = function(applicant) {
         var gridium = $scope.job;
-
         // starting score for applicant
         var score = 0;
 

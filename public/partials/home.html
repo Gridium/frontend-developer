@@ -1,19 +1,28 @@
 <div class="container">
     <div class="jumbotron">
         <div class="container text-center">
-            <h2 class="display-3">The {{job.headline}} challenge.</h2>
-            <p class="lead">Who's the better fit for Gridium, me or some rando? Let's find out!</p>
+            <h2 class="display-3 text-white">The {{job.headline}} challenge.</h2>
+            <p class="lead text-white">Who's the better fit for Gridium, me or some rando? Let's find out!</p>
         </div>
     </div>
-    <h3>I've pitted myself up against another randomly-generated applicant. . . </h3>
-    <h3>And the winner is:</h3>
-    <h1 class="text-center bg-success">{{winner}}</h1>
+    <h3>I've pitted myself against another randomly-generated applicant. . . </h3>
+    <div class="text-center">
+        <h3 class="">And the winner is:</h3>
+        <h1 class="bg-success">{{winner}}</h1>
+        <p ng-if="winner == 'William Caldwell'"><i>(that's me)</i></p>
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3><strong>Here's how this was decided:</strong> For each contestant, a profile was made that outlined some of the same catagories that were supplied by Gridium, such as desired employment type, technical abilities, etc. For each entry, if what the applicant is seeking or their proficiency matches that of Gridium, one point is awarded.</h3>
+            <h3>The applicant with the most points (and I promise, it's not always me) wins!</h3>
+        </div>
+        <div class="col-sm-6">
+            <img class="img-fluid center-block top-margin-20" src="https://media.giphy.com/media/26ybxqF6r4w1pjjws/giphy.gif">
+        </div>
+    </div>
     <hr/>
-    <p><strong>Here's how this was decided:</strong> For each contestant, if what the applicant is seeking or their proficiencies matched that of Gridium, one point was awarded.</p>
-    <img class="img-fluid center-block" src="https://media.giphy.com/media/26ybxqF6r4w1pjjws/giphy.gif">
-    <p>The applicant with the most points (and I promise, it's not always me) wins!</p>
-    <hr/>
-    <p>Here's the stats:</p>
+    <h3>Here's the stats:</h3>
     <div class="row">
         <div ng-repeat="entity in contestArray">
             <div class="col-sm-6">
@@ -31,4 +40,5 @@
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-primary btn-lg full-width top-bottom-margin-20" onClick="window.location.reload()">Run the challenge again</button>
 </div>

@@ -34,7 +34,9 @@ const Header = () => (
           </Link>
         </div>
         <div className='header-panel'>
-          <img src={profileCover} className='panel-img' />
+          <Link to='/profile'>
+            <img src={profileCover} className='panel-img' />
+          </Link>
         </div>
         <div className='header-panel'>
           <img src={equipmentCover} className='panel-img' />

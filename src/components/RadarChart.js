@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import '../doughnutchart.css';
+import { Radar } from 'react-chartjs-2';
 
-class DoughnutChart extends Component {
+class RadarChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      doughnutData: props.doughnutData
+      radarData: props.radarData
     }
   }
 
@@ -19,14 +18,14 @@ class DoughnutChart extends Component {
   render() {
     return (
       <div className='chart'>
-        <Doughnut
-          data={this.state.doughnutData}
-          height={100}
+        <Radar
+          data={this.state.radarData}
+          height={200}
           options={{
             responsive: true,
             title: {
               display: this.props.displayTitle,
-              text: 'Workload',
+              text: 'Profile',
               fontSize: 25,
               fontFamily: 'Montserrat, sans-serif',
               fontColor: '#004277'
@@ -36,7 +35,7 @@ class DoughnutChart extends Component {
               position: this.props.legendPosition
             },
             animation: {
-              duration: 1500
+              duration: 2000
             },
           }}
         />
@@ -45,4 +44,4 @@ class DoughnutChart extends Component {
   }
 };
 
-export default DoughnutChart;
+export default RadarChart;

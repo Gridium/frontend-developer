@@ -27,11 +27,16 @@ class HorizontalBarChart extends Component {
             title: {
               display: this.props.displayTitle,
               text: 'Workweek',
-              fontSize: 25
+              fontSize: 25,
+              fontFamily: 'Montserrat, sans-serif',
+              fontColor: '#004277'
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition
+            },
+            animation: {
+              duration: 3000
             },
             scales: {
               xAxes: [{

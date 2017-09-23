@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../images/logo-circle.png';
-import { Link } from 'react-router-dom';
 import DropDownMenu from './DropDownMenu';
+import HeaderPanel from './HeaderPanel';
 import '../header.css';
 import essentialsCover from '../images/essentials-cover.jpg';
-import essentialsPanel from '../images/essentials-panel.jpg';
 import methodologyCover from '../images/methodology-cover.jpg';
 import specsCover from '../images/specs-cover.jpg';
 import profileCover from '../images/profile-cover.jpg';
@@ -32,42 +31,18 @@ class Header extends Component {
     return (
       <header>
 
-        <img src={logo} onClick={ this.toggleMenu } className='logo' />
+        <img src={logo} onClick={ this.toggleMenu } className='logo' alt='logo' />
 
         <div className='header-top'></div>
         <DropDownMenu menuActive={this.state.menuActive} toggleMenu={ this.toggleMenu } />
         <div className='nav-backing'>
           <div className='header-nav'>
-            <div className='header-panel'>
-              <Link to='/'>
-                <img src={essentialsPanel} className='panel-img' />
-              </Link>
-            </div>
-            <div className='header-panel'>
-              <Link to='/methodology'>
-                <img src={methodologyCover} className='panel-img' />
-              </Link>
-            </div>
-            <div className='header-panel'>
-              <Link to='/specs'>
-                <img src={specsCover} className='panel-img' />
-              </Link>
-            </div>
-            <div className='header-panel'>
-              <Link to='/profile'>
-                <img src={profileCover} className='panel-img' />
-              </Link>
-            </div>
-            <div className='header-panel'>
-              <Link to='/equipment'>
-                <img src={equipmentCover} className='panel-img' />
-              </Link>
-            </div>
-            <div className='header-panel'>
-              <Link to='/technologies'>
-                <img src={technologiesCover} className='panel-img' />
-              </Link>
-            </div>
+            <HeaderPanel linkPath={'/'} imgCover={essentialsCover} />
+            <HeaderPanel linkPath={'/methodology'} imgCover={methodologyCover} />
+            <HeaderPanel linkPath={'/specs'} imgCover={specsCover} />
+            <HeaderPanel linkPath={'/profile'} imgCover={profileCover} />
+            <HeaderPanel linkPath={'/equipment'} imgCover={equipmentCover} />
+            <HeaderPanel linkPath={'/technologies'} imgCover={technologiesCover} />
           </div>
           <div className='header-nav-mobile'></div>
         </div>

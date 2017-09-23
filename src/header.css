@@ -18,14 +18,6 @@
   }
 }
 
-.img-container {
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  z-index: 2;
-  margin-top: 0.938em /* 15px ÷ 16px */
-}
-
 .header-top {
   height: 80px;
   background: #4a4a4a;
@@ -57,20 +49,4 @@
   .header-nav-mobile {
     display: none;
   }
-}
-
-.header-panel {
-  width: 33.33%;
-  height: 100%;
-}
-
-.panel-img {
-  width: 100%;
-  height: 100%;
-  transition: all 1.5s ease;
-}
-
-.panel-img:hover {
-  width: 120%;
-  height: 120%;
 }

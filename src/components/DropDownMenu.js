@@ -4,9 +4,6 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import '../dropdownmenu.css';
 
 class DropDownMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let menu;

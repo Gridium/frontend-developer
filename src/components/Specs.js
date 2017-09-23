@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PageHeader from './PageHeader';
 import Footer from './Footer';
 import Background from '../images/specs-cover.jpg';
-import { job, ScheduleOptions, RemoteWorking, PTO, Level } from '../jobData';
+import { job, ScheduleOptions, RemoteWorking, PTO } from '../jobData';
 import DataItem from './DataItem';
 import HorizontalBarChart from './HorizontalBarChart';
 import DoughnutChart from './DoughnutChart';
@@ -19,14 +19,14 @@ class Specs extends Component {
 
     // Process data into [key: , value: ] array
     this.result = Object.keys(this.data).filter((i) => {
-      return i != 'workload' && i != 'workweek';
+      return i !== 'workload' && i !== 'workweek';
     }).map(key => ({ key, value: this.data[key] }));
 
     // Map data into corresponding DataItem components
     this.listItems = this.result.map((item, index) =>
-      item.key == 'schedule' ? <DataItem label={item.key} value={item.value} options={ScheduleOptions().all} />
-      : item.key == 'remote' ? <DataItem label={item.key} value={item.value} options={RemoteWorking().all} />
-      : item.key == 'pto' ? <DataItem label={item.key} value={item.value} options={PTO().all} />
+      item.key === 'schedule' ? <DataItem label={item.key} value={item.value} options={ScheduleOptions().all} />
+      : item.key === 'remote' ? <DataItem label={item.key} value={item.value} options={RemoteWorking().all} />
+      : item.key ==='pto' ? <DataItem label={item.key} value={item.value} options={PTO().all} />
       :                             <DataItem key={index} label={item.key} value={item.value} />
     );
   }
@@ -39,7 +39,7 @@ class Specs extends Component {
     this.setState({
       horizontalBarData: {
         xLabels: Object.keys(job.specs).filter(function(i) {
-          return i == "workweek"
+          return i === "workweek"
         }),
         datasets: [
           {

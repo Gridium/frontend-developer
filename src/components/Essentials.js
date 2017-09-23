@@ -12,17 +12,17 @@ const Essentials = () => {
 
   // Process data into [key: , value: ] array
   const result = Object.keys(data).filter((i) => {
-    return i != 'teamsize';
+    return i !== 'teamsize';
   }).map(key => ({ key, value: data[key] }));
 
   // Map data into corresponding DataItem components
   const listItems = result.map((item, index) =>
-    item.key == 'employment' ? <DataItem label={'employment'} value={item.value} options={EmploymentType().all} />
-    : item.key == 'experience' ? <DataItem label={'experience'} value={item.value} options={ExperienceLevels().all} />
-    : item.key == 'companysize' ? <DataItem label={'companysize'} value={item.value} options={CompanySize().all} />
+    item.key === 'employment' ? <DataItem label={'employment'} value={item.value} options={EmploymentType().all} />
+    : item.key === 'experience' ? <DataItem label={'experience'} value={item.value} options={ExperienceLevels().all} />
+    : item.key === 'companysize' ? <DataItem label={'companysize'} value={item.value} options={CompanySize().all} />
     :                             <DataItem key={index} label={item.key} value={item.value} />
   );
-  
+
   return (
     <div>
       <PageHeader title={'Essentials'} />

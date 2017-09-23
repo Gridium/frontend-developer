@@ -40,6 +40,7 @@
   color: #004177;
   font-weight: 600; /* Semi-bold */
   text-transform: capitalize;
+  margin-top: 0.313em; /* 5 ÷ 16 */
 }
 
 .item-value {

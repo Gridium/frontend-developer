@@ -22,7 +22,7 @@ const Other = () => {
             <div className='other-info'>{data[1]}</div>
           </div>
           <p className='xx-margin-top'>If you agree with the above, get in touch!</p>
-          <a className='other-btn' href='https://gridium.com/about/working-at-gridium/' target='_blank'>Learn More</a>
+          <a className='other-btn' href='https://gridium.com/about/working-at-gridium/' target='_blank' rel='noopener noreferrer'>Learn More</a>
         </div>
       </section>
       <Footer background={Background} />

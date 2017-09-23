@@ -13,7 +13,7 @@ const Technologies = () => {
 
   // Process data into [key: , value: ] array
   const result = Object.keys(data).filter((i) => {
-    return i != 'testing' && i != 'framework';
+    return i !== 'testing' && i !== 'framework';
   }).map(key => ({ key, value: data[key] }));
 
   // Map data into corresponding DataItem components

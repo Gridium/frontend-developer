@@ -69,6 +69,7 @@ class Specs extends Component {
           <DoughnutChart doughnutData={this.state.doughnutData} />
           <HorizontalBarChart horizontalBarData={this.state.horizontalBarData} />
           <div className='data-box'>
+            <span className='line2'></span>
             {this.listItems}
           </div>
         </section>

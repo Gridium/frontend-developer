@@ -1,14 +1,21 @@
 /* * * Header Styles * * */
 
 .logo {
-  width: 130px;
+  width: 100px;
   display: inline-block;
   position: absolute;
   z-index: 2;
   margin-top: 0.938em; /* 15px ÷ 16px */
   left: 50%;
-  margin-left: -65px;
+  margin-left: -50px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  .logo {
+    width: 130px;
+    margin-left: -65px;
+  }
 }
 
 .img-container {

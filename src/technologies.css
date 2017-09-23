@@ -1,0 +1,25 @@
+/* * * Technologies Styles * * */
+
+.data-box-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.data-box-md {
+  width: 47%;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; /* Semi-bold */
+  color: #00a1e0;
+  border-bottom: 1px solid #00a1e0;
+  padding-bottom: 0.313em; /* 5 ÷ 16 */
+}
+
+span {
+  color: #e2670f;
+  font-family: 'Open sans', sans-serif;
+  font-weight: 300; /* Light */
+}

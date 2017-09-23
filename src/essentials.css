@@ -5,7 +5,28 @@ section {
 }
 
 .data-box {
-  width: 60%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 37.50em) {
+  /* 600 ÷ 16 */
+  .data-box {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 62.50em) {
+  /* 1000 ÷ 16 */
+  .data-box {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 62.50em) {
+  /* 1250 ÷ 16 */
+  .data-box {
+    width: 60%;
+  }
 }

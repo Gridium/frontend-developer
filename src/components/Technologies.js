@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Background from '../images/technologies-cover.jpg';
 import { job, Level } from '../jobData';
 import DataItem from './DataItem';
+import '../technologies.css';
 
 
 const Technologies = () => {
@@ -41,13 +42,20 @@ const Technologies = () => {
       <PageHeader title={'Technologies'} />
       <section>
         <div className='data-box'>
+          <h3>General</h3>
           {listItems}
         </div>
-        <div className='data-box'>
-          {listTestingItems}
-        </div>
-        <div className='data-box'>
-          {listFrameworkItems}
+        <div className='data-box data-box-wrapper'>
+          <div className='data-box-md'>
+            <h3>Testing</h3>
+            <span>(One of)</span>
+            {listTestingItems}
+          </div>
+          <div className='data-box-md'>
+            <h3>Frameworks</h3>
+            <span>(One of)</span>
+            {listFrameworkItems}
+          </div>
         </div>
       </section>
       <Footer background={Background} />

@@ -10,7 +10,8 @@ h1 {
   color: #e2670f;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600; /* Semi-bold */
-  margin: 0;
+  margin: 0 auto 0 auto;
+  width: 95%;
 }
 
 h2 {
@@ -24,7 +25,7 @@ h2 {
 span.line {
   width: 15%;
   height: 1px;
-  background: #4a4a4a;
+  background: #c8c8c8;
   display: inline-block;
   margin: 1.25em 0; /* 20px ÷ 16px */
 }

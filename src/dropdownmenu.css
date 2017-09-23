@@ -21,4 +21,23 @@
 
 ul {
   width: 70%;
+  list-style: none;
+  text-decoration: none;
+  margin-top: 2.5em; /* 40px ÷ 16px */
+}
+
+li {
+  margin: 1.25em 0; /* 20px ÷ 16px */
+}
+
+.menu-link {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #00a1e0;
+}
+
+.menu-link:hover {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #e2670f;
 }

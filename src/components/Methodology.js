@@ -49,6 +49,7 @@ const Methodology = () => {
           {listBooleans}
         </div>
         <div className='data-box'>
+          <span className='line2'></span>
           {listItems}
         </div>
       </section>

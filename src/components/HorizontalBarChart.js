@@ -21,7 +21,7 @@ class HorizontalBarChart extends Component {
       <div className='chart'>
         <HorizontalBar
           data={this.state.horizontalBarData}
-          height={50}
+          height={85}
           options={{
             responsive: true,
             title: {

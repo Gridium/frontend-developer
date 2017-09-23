@@ -6,6 +6,7 @@ import Specs from './Specs';
 import Profile from './Profile';
 import Equipment from './Equipment';
 import Technologies from './Technologies';
+import Other from './Other';
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route path='/profile' component={Profile} />
       <Route path='/equipment' component={Equipment} />
       <Route path='/technologies' component={Technologies} />
+      <Route path='/other' component={Other} />
     </Switch>
   </main>
 );

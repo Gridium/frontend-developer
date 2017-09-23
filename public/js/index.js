@@ -112,6 +112,9 @@ function formatOneOf(obj) {
 }
 
 var valueTranslate = {
+	"locations": function(value) {
+        return toTitleCase(value);
+    },
     "teamsize": function(value) {
         return value.min + ' to ' + value.max;
     },
@@ -180,11 +183,6 @@ function jobDescription(obj, heading) {
 
             if(valueTranslate.hasOwnProperty(title)) {
                 result +=           '<td class="right">' + valueTranslate[title](obj[title]) + '</td>';
-
-            } else if(obj[title] === 'denver') {
-                var denverCase = toTitleCase(obj[title]);
-                result +=           '<td class="right">' + denverCase + '</td>';
-
             } else if(Array.isArray(obj[title])) {
                 var len = obj[title].length;
                 result +=           '<td class="right">'

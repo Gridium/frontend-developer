@@ -8,22 +8,6 @@ main {
     width: 100%;
     text-align: center;
 }
-.headline {
-    font-size: 27px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-}
-.headTitle {
-    background-color: #0083c2;
-    color: white;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-size: 20px;
-    transition: background-color 0.5s #0083c2;
-}
-.headTitle:hover {
-    background-color: #004177;
-}
 .container {
     text-align: center;
     margin-left: auto;
@@ -42,6 +26,38 @@ main {
     -moz-box-shadow:0px 0px 1px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow:0px 0px 1px 0px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow:0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+.headline {
+    font-size: 27px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.headTitle {
+    background-color: #0083c2;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 20px;
+    transition: background-color 0.5s #0083c2;
+}
+.headTitle:hover {
+    background-color: #004177;
+}
+.masonryItem { 
+    width: 400px;
+    margin-bottom: 25px;
+
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+         -o-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
+}
+.category:hover {
+    -moz-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
 }
 table {
     width: 100%;
@@ -63,22 +79,6 @@ table {
     padding-bottom: 8px;
     background-color: #EAF0F4;
     padding-right: 5px;
-}
-.masonryItem { 
-    width: 400px;
-    margin-bottom: 25px;
-
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
-       -moz-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
-         -o-box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
-            box-shadow: '' 0 1px 1px rgba(0, 0, 0, 0.2) 1px 2px rgba(0, 0, 0, 0.2);
-}
-.category:hover {
-    -moz-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.4);
 }
 
 

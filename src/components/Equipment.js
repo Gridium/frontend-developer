@@ -24,9 +24,9 @@ const Equipment = () => {
     <div>
       <PageHeader title={'Equipment'} />
       <section>
-      <div className='data-box'>
-       {listItems}
-      </div>
+        <div className='data-box'>
+         {listItems}
+        </div>
       </section>
       <Footer background={Background} />
     </div>

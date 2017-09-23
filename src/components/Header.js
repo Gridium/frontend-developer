@@ -44,7 +44,9 @@ const Header = () => (
           </Link>
         </div>
         <div className='header-panel'>
-          <img src={technologiesCover} className='panel-img' />
+          <Link to='/technologies'>
+            <img src={technologiesCover} className='panel-img' />
+          </Link>
         </div>
       </div>
       <div className='header-nav-mobile'></div>

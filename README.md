@@ -1,3 +1,8 @@
+# Vish notes
+Built with jQuery. Download/Clone the file to your local to see the demo.
+
+
+---------
 # Gridium Developer Application
 
 Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.

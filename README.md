@@ -1,16 +1,16 @@
-# Gridium Developer Application
+# Gridium Developer Application - Dylan Ludwick
 
-Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.
+React.js, es6, HTML and CSS3, with chart.js for some data visualizations.
 
-## Instructions
+A couple of alterations to note:
 
-Fork, Code, Submit a Pull Request
-Use the libraries or framework of your choice, show us what you know!
+Create-react-app was used for the initial build configuration. The npm scripts have been changed to reflect this.
 
-## Getting Started (if using Node/NPM)
-We're polygots. You'll find Python, R, Java, Javascript, and a few other technologies in use at Gridium. Use whatever you feel most comfortable with.
+I renamed index.js to jobData.js, moved it into /src, and added some export statements. I also edited the enumerate function slightly.
 
-If you choose to go the JS route then the basic work is done. Use NPM to initialize things.
+Thank you for taking the time to go all of these! This project was a lot of fun.
+
+-Dylan
 
 ### Prerequisites
 
@@ -33,14 +33,17 @@ Install project dependencies
 
 ### Running the Project
 
-[http-server](https://www.npmjs.com/package/http-server) has been included for convenience, run with the following script:
+To run on development server:
+
 ```
 > npm start
-Starting up http-server, serving ./public
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.1.213:8080
-  http://192.168.100.1:8080
-Hit CTRL-C to stop the server
+
 ```
 
+To run on 'optimized production build':
+
+```
+> npm install -g serve
+> serve -s build
+
+```

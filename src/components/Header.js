@@ -3,6 +3,7 @@ import logo from '../images/logo-circle.png';
 import logo2 from '../images/logo-circle-2.png';
 import DropDownMenu from './DropDownMenu';
 import HeaderPanel from './HeaderPanel';
+import Logo from './Logo';
 import '../css/header.css';
 import essentialsCover from '../images/essentials-cover.jpg';
 import methodologyCover from '../images/methodology-cover.jpg';
@@ -31,9 +32,9 @@ class Header extends Component {
   render() {
     return (
       <header>
-
-        <img src={logo} onClick={ this.toggleMenu } className='logo' alt='logo' />
-        <img src={logo2} onClick={ this.toggleMenu } className='logo-2' alt='logo' />
+      
+        <Logo imgSrc={ logo } toggleMenu={ this.toggleMenu } logoClass={'logo'} />
+        <Logo imgSrc={ logo2 } toggleMenu={ this.toggleMenu } logoClass={'logo-2'} />
 
         <div className='header-top'></div>
         <DropDownMenu menuActive={this.state.menuActive} toggleMenu={ this.toggleMenu } />

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../databoolean.css';
+import '../css/databoolean.css';
 
 const DataBoolean = ({ label, value }) => (
   <div className='data-bool'>

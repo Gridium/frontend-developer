@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../images/logo-circle.png';
 import DropDownMenu from './DropDownMenu';
 import HeaderPanel from './HeaderPanel';
-import '../header.css';
+import '../css/header.css';
 import essentialsCover from '../images/essentials-cover.jpg';
 import methodologyCover from '../images/methodology-cover.jpg';
 import specsCover from '../images/specs-cover.jpg';

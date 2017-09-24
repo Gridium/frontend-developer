@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Background from '../images/technologies-cover.jpg';
 import { job, Level } from '../jobData';
 import DataItem from './DataItem';
-import '../technologies.css';
+import '../css/technologies.css';
 
 
 const Technologies = () => {

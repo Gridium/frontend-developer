@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HorizontalBar } from 'react-chartjs-2';
-import '../horizontalbarchart.css';
+import '../css/horizontalbarchart.css';
 
 class HorizontalBarChart extends Component {
   constructor(props) {

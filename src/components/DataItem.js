@@ -1,5 +1,5 @@
 import React from 'react';
-import '../dataitem.css';
+import '../css/dataitem.css';
 
 const DataItem = ({ label, value, options }) => {
   if (options) {

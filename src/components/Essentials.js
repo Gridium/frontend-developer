@@ -4,7 +4,6 @@ import Footer from './Footer';
 import Background from '../images/essentials-cover.jpg';
 import { job, ExperienceLevels, EmploymentType, CompanySize } from '../jobData';
 import DataItem from './DataItem';
-import '../essentials.css';
 
 const Essentials = () => {
   // Reference data

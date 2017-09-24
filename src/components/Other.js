@@ -3,7 +3,7 @@ import PageHeader from './PageHeader';
 import Footer from './Footer';
 import { job } from '../jobData';
 import Background from '../images/buildings-vector-pattern.jpg';
-import '../other.css';
+import '../css/other.css';
 
 const Other = () => {
   const data = job.other;

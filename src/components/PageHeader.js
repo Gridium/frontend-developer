@@ -1,6 +1,6 @@
 import React from 'react';
 import { job } from '../jobData';
-import '../pageheader.css'
+import '../css/pageheader.css'
 
 const PageHeader = ({ title }) => (
   <div className='heading-block'>

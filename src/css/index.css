@@ -1,4 +1,26 @@
-/* * * Essentials Styles * * */
+/* * * Index Styles * * */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.line2 {
+  width: 100%;
+  height: 1px;
+  background: #c8c8c8;
+  display: block;
+  margin: 2.5em auto 2.5em auto; /* 40 ÷ 16 */
+}
+
+.x-margin-top {
+  margin-top: 1.25em; /* 20 ÷ 16 */
+}
+
+.xx-margin-top {
+  margin-top: 2.5em; /* 40 ÷ 16 */
+}
 
 section {
   padding: 2.50em 0; /* 40px ÷ 16px */

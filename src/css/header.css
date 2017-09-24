@@ -36,7 +36,7 @@
 .header-nav-mobile {
   height: 160px;
   clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 100%);
-  background: url('./images/buildings-vector-pattern.jpg');
+  background: url('../images/buildings-vector-pattern.jpg');
 }
 
 /* 720px ÷ 16px */

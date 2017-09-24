@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../headerpanel.css';
+import '../css/headerpanel.css';
 
 const HeaderPanel = ({ linkPath, imgCover }) => (
   <div className='header-panel'>

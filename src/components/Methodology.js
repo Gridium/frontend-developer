@@ -5,7 +5,7 @@ import Background from '../images/methodology-cover.jpg';
 import { job, BuildServers, CodeAnalysisTools, VersionControlSystem, IssueTrackers } from '../jobData';
 import DataBoolean from './DataBoolean';
 import DataItem from './DataItem';
-import '../methodology.css';
+import '../css/methodology.css';
 
 const Methodology = () => {
   // Reference Data

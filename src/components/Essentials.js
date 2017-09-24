@@ -31,7 +31,7 @@ const Essentials = () => {
          <DataItem label={'teamsize'} value={`${data.teamsize.min} - ${data.teamsize.max}`} />
         </div>
       </section>
-      <Footer background={Background} />
+      <Footer background={Background} footerClass={'footer-essentials'} />
     </div>
   )
 };

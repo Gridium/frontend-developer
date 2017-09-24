@@ -1,10 +1,15 @@
 /* * * Footer Styles * * */
 
+footer {
+  height: 15vh;
+  position: relative;
+}
+
 .block-front {
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 15vh;
+  height: 100%;
   clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
 }
 
@@ -12,6 +17,68 @@
   position: absolute;
   background: #4a4a4a;
   width: 100%;
-  height: 15vh;
+  height: 100%;
   clip-path: polygon(0% 0%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+/* * Sticky-footer work-around * */
+
+@media screen and (min-height: 61.25em) {
+  /* 980 ÷ 16 */
+  footer.footer-essentials {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-height: 82.50em) {
+  /* 1320 ÷ 16 */
+  footer.footer-methodology {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-height: 80.12em) {
+  /* 1282 ÷ 16 */
+  footer.footer-specs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-height: 62.50em) {
+  /* 1000 ÷ 16 */
+  footer.footer-profile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-height: 46.88em) {
+  /* 750 ÷ 16 */
+  footer.footer-equipment {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (min-height: 55.00em) {
+  /* 880 ÷ 16 */
+  footer.footer-other {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

@@ -53,7 +53,7 @@ const Methodology = () => {
           {listItems}
         </div>
       </section>
-      <Footer background={Background} />
+      <Footer background={Background} footerClass={'footer-methodology'} />
     </div>
   )
 };

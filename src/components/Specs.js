@@ -73,7 +73,7 @@ class Specs extends Component {
             {this.listItems}
           </div>
         </section>
-        <Footer background={Background} />
+        <Footer background={Background} footerClass={'footer-specs'}/>
       </div>
     )
   }

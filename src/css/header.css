@@ -5,7 +5,7 @@
   display: inline-block;
   position: absolute;
   z-index: 2;
-  margin-top: 0.938em; /* 15px ÷ 16px */
+  margin-top: 0.938em; /* 15 ÷ 16 */
   left: 50%;
   margin-left: -50px;
   cursor: pointer;
@@ -39,7 +39,7 @@
   background: url('../images/buildings-vector-pattern.jpg');
 }
 
-/* 720px ÷ 16px */
+/* 720 ÷ 16 */
 @media screen and (min-width: 45em) {
   .header-nav {
     display: flex;

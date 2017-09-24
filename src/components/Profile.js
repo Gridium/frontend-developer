@@ -38,7 +38,7 @@ class Profile extends Component {
         <section>
           <RadarChart radarData={this.state.radarData} />
         </section>
-        <Footer background={Background} />
+        <Footer background={Background} footerClass={'footer-profile'} />
       </div>
     )
   }

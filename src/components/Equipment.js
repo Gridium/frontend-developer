@@ -28,7 +28,7 @@ const Equipment = () => {
          {listItems}
         </div>
       </section>
-      <Footer background={Background} />
+      <Footer background={Background} footerClass={'footer-equipment'} />
     </div>
   )
 };

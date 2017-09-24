@@ -25,7 +25,7 @@ const Other = () => {
           <a className='other-btn' href='https://gridium.com/about/working-at-gridium/' target='_blank' rel='noopener noreferrer'>Learn More</a>
         </div>
       </section>
-      <Footer background={Background} />
+      <Footer background={Background} footerClass={'footer-other'} />
     </div>
   )
 };

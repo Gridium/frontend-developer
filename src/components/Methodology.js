@@ -34,10 +34,10 @@ const Methodology = () => {
 
   // Map data into corresponding DataItem components
   const listItems = resultItems.map((item, index) =>
-    item.key === 'buildserver' ? <DataItem label={item.key} value={item.value} options={BuildServers().all} />
-    : item.key === 'staticcodeanalysis' ? <DataItem label={item.key} value={item.value} options={CodeAnalysisTools().all} />
-    : item.key === 'versioncontrol' ? <DataItem label={item.key} value={item.value} options={VersionControlSystem().all} />
-    : item.key === 'issuetracker' ? <DataItem label={item.key} value={item.value} options={IssueTrackers().all} />
+    item.key === 'buildserver' ? <DataItem key={index} label={item.key} value={item.value} options={BuildServers().all} />
+    : item.key === 'staticcodeanalysis' ? <DataItem key={index} label={item.key} value={item.value} options={CodeAnalysisTools().all} />
+    : item.key === 'versioncontrol' ? <DataItem key={index} label={item.key} value={item.value} options={VersionControlSystem().all} />
+    : item.key === 'issuetracker' ? <DataItem key={index} label={item.key} value={item.value} options={IssueTrackers().all} />
     :                             <DataItem key={index} label={item.key} value={item.value} />
   );
 

@@ -15,8 +15,8 @@ const Equipment = () => {
 
   // Map data into corresponding DataItem components
   const listItems = result.map((item, index) =>
-    item.key === 'operatingsystem' ? <DataItem label={item.key} value={item.value} options={OperationSystems().all} />
-    : item.key === 'computer' ? <DataItem label={item.key} value={item.value} options={MachineType().all} />
+    item.key === 'operatingsystem' ? <DataItem key={index} label={item.key} value={item.value} options={OperationSystems().all} />
+    : item.key === 'computer' ? <DataItem key={index} label={item.key} value={item.value} options={MachineType().all} />
     :                             <DataItem key={index} label={item.key} value={item.value} />
   );
 

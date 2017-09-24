@@ -5,7 +5,7 @@ const DataItem = ({ label, value, options }) => {
   if (options) {
     const listOptions = options.map((item, index) =>
       // If item found in value array, render span with 'item-value' className, else render as 'item-option'
-      value.includes(item) ? <span className='item-value'>{item}</span> : <span className='item-option'>{item}</span>
+      value.includes(item) ? <span key={index} className='item-value'>{item}</span> : <span key={index} className='item-option'>{item}</span>
     );
 
     // If DataItem component passed options as prop, render 'value-block' div with listOptions

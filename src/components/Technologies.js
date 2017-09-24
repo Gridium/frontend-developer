@@ -18,7 +18,7 @@ const Technologies = () => {
 
   // Map data into corresponding DataItem components
   const listItems = result.map((item, index) =>
-    <DataItem label={item.key} value={item.value} options={Level().all} />
+    <DataItem key={index} label={item.key} value={item.value} options={Level().all} />
   );
 
   // Process testing data into [key: , value: ] array
@@ -26,7 +26,7 @@ const Technologies = () => {
 
   // Map framework data into corresponding DataItem components
   const listTestingItems = resultTesting.map((item, index) =>
-    <DataItem label={item.key} value={item.value} options={Level().all} />
+    <DataItem key={index} label={item.key} value={item.value} options={Level().all} />
   );
 
   // Process framework data into [key: , value: ] array
@@ -34,7 +34,7 @@ const Technologies = () => {
 
   // Map framework data into corresponding DataItem components
   const listFrameworkItems = resultFramework.map((item, index) =>
-    <DataItem label={item.key} value={item.value} options={Level().all} />
+    <DataItem key={index} label={item.key} value={item.value} options={Level().all} />
   );
 
   return (

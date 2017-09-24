@@ -24,9 +24,9 @@ class Specs extends Component {
 
     // Map data into corresponding DataItem components
     this.listItems = this.result.map((item, index) =>
-      item.key === 'schedule' ? <DataItem label={item.key} value={item.value} options={ScheduleOptions().all} />
-      : item.key === 'remote' ? <DataItem label={item.key} value={item.value} options={RemoteWorking().all} />
-      : item.key ==='pto' ? <DataItem label={item.key} value={item.value} options={PTO().all} />
+      item.key === 'schedule' ? <DataItem key={index} label={item.key} value={item.value} options={ScheduleOptions().all} />
+      : item.key === 'remote' ? <DataItem key={index} label={item.key} value={item.value} options={RemoteWorking().all} />
+      : item.key ==='pto' ? <DataItem key={index} label={item.key} value={item.value} options={PTO().all} />
       :                             <DataItem key={index} label={item.key} value={item.value} />
     );
   }

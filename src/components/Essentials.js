@@ -16,9 +16,9 @@ const Essentials = () => {
 
   // Map data into corresponding DataItem components
   const listItems = result.map((item, index) =>
-    item.key === 'employment' ? <DataItem label={item.key} value={item.value} options={EmploymentType().all} />
-    : item.key === 'experience' ? <DataItem label={item.key} value={item.value} options={ExperienceLevels().all} />
-    : item.key === 'companysize' ? <DataItem label={item.key} value={item.value} options={CompanySize().all} />
+    item.key === 'employment' ? <DataItem key={index} label={item.key} value={item.value} options={EmploymentType().all} />
+    : item.key === 'experience' ? <DataItem key={index} label={item.key} value={item.value} options={ExperienceLevels().all} />
+    : item.key === 'companysize' ? <DataItem key={index} label={item.key} value={item.value} options={CompanySize().all} />
     :                             <DataItem key={index} label={item.key} value={item.value} />
   );
 

@@ -1,0 +1,37 @@
+/* * * DataBoolean Styles * * */
+
+.data-bool {
+  text-align: center;
+  width: 50%;
+  margin: 1.25em 0; /* 20 ÷ 16 */
+}
+
+@media screen and (min-width: 31.25em) {
+  /* 500 ÷ 16 */
+  .data-bool {
+    width: 33.33%;
+  }
+}
+
+.bool-label {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  color: #004177;
+  font-weight: 600; /* Semi-bold */
+  text-transform: capitalize;
+}
+
+.bool-value {
+  font-family: 'Open Sans', sans-serif;
+  color: #e2670f;
+  text-transform: capitalize;
+  margin: 0.313em; /* 5px ÷ 16px */
+}
+
+.bool-option {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; /* Light */
+  color: #9b9b9b;
+  text-transform: capitalize;
+  margin: 0.313em; /* 5px ÷ 16px */
+}

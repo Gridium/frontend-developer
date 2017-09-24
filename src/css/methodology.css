@@ -1,0 +1,7 @@
+/* * * Methodology Styles * * */
+
+.data-bool-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

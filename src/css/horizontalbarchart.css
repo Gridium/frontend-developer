@@ -1,0 +1,28 @@
+/* * * HorizontalBarChart Styles * * */
+
+.chart {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 2.5em auto; /* 20px ÷ 16px */
+}
+
+@media screen and (min-width: 23.75em) {
+  /* 380px ÷ 16px */
+  .chart {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 35.00em) {
+  /* 560px ÷ 16px */
+  .chart {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 62.50em) {
+  /* 1000px ÷ 16px */
+  .chart {
+    width: 40%;
+  }
+}

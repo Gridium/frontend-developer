@@ -1,0 +1,62 @@
+/* * * DataItem Styles * * */
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1.25em 0; /* 20 ÷ 16 */
+}
+
+@media screen and (min-width: 26.25em) {
+  /* 420 ÷ 16 */
+  .data-item {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 37.50em) {
+  /* 600 ÷ 16 */
+  .item-value {
+    margin-right: 0.938em; /* 15 ÷ 16 */
+  }
+
+  .item-option {
+    margin-right: 0.938em; /* 15 ÷ 16 */
+  }
+}
+
+.label-block {
+  width: 100%;
+}
+
+.value-block {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-label {
+  font-family: 'Montserrat', sans-serif;
+  color: #004177;
+  font-weight: 600; /* Semi-bold */
+  text-transform: capitalize;
+  margin-top: 0.313em; /* 5 ÷ 16 */
+}
+
+.item-value {
+  font-family: 'Open Sans', sans-serif;
+  color: #e2670f;
+  font-weight: 600; /* Semi-bold */
+  text-transform: capitalize;
+  margin-right: 0.625em; /* 10 ÷ 16 */
+  margin-top: 0.313em; /* 5 ÷ 16 */
+}
+
+.item-option {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300; /* Light */
+  color: #9b9b9b;
+  text-transform: capitalize;
+  margin-right: 0.625em; /* 10 ÷ 16 */
+  margin-top: 0.313em; /* 5 ÷ 16 */
+}

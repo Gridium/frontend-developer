@@ -1,0 +1,45 @@
+/* * * DropDownMenu Styles * * */
+
+.menu-enter {
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.menu-enter.menu-enter-active {
+  height: auto;
+  max-height: 300px;
+  transition: all 1s ease-in;
+}
+
+.menu-leave {
+  max-height: 300px;
+}
+
+.menu-leave.menu-leave-active {
+  overflow: hidden;
+  max-height: 0px;
+  transition: all 0.5s ease-in;
+}
+
+ul {
+  width: 70%;
+  list-style: none;
+  text-decoration: none;
+  margin-top: 2.5em; /* 40px ÷ 16px */
+}
+
+li {
+  margin: 1.25em 0; /* 20px ÷ 16px */
+}
+
+.menu-link {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #00a1e0;
+}
+
+.menu-link:hover {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #e2670f;
+}

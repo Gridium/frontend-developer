@@ -1,0 +1,30 @@
+/* * * Other styles * * */
+
+.other-info {
+  font-family: 'Montserrat', sans-serif;
+  display: inline;
+  text-transform: capitalize;
+  color: #004277;
+  font-weight: 600; /* Semi-bold */
+}
+
+i {
+  color: #e2670f;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 2.5em; /* 40 ÷ 16 */
+}
+
+a.other-btn {
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0.625em; /* 10 ÷ 16 */
+  color: #fff;
+  background: #00a1e0;
+}
+
+a.other-btn:hover {
+  background: #e2670f;
+}

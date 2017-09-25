@@ -2,3 +2,11 @@ body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
+
+#job li {
+    list-style: none;    
+}
+
+#job li .label {
+    font-weight: bold;
+}

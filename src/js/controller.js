@@ -1,6 +1,7 @@
 import { job } from './job';
 import {
-    title
+    title,
+    essentials
 } from './components/index';
 
 function Ctrl() {
@@ -12,6 +13,7 @@ Ctrl.fn = Ctrl.prototype;
 
 Ctrl.fn.displayJob = function() {
     this.container.appendChild(title.render(job.headline))
+    this.container.appendChild(essentials.render(job.essentials))
 }
 
 window.addEventListener('DOMContentLoaded', function() {

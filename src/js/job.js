@@ -74,6 +74,12 @@ export const job = {
 function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); }
 function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); }
 function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); }
+export function CompanySizeResources() {
+    return mapEnumToResources(
+        CompanySize(),
+        ["Less than 10", "10 to 20", "20 to 50", "50 to 200", "200+"]
+    ); 
+}
 function VersionControlSystem() { return enumerate("NotYetChosen", "Git", "BitBucket"); }
 function IssueTrackers() { return enumerate("NotYetChosen", "GitHub", "Jira", "Tikkit"); }
 function BuildServers() { return enumerate("NotYetChosen", "Jenkins", "Travis", "Codeship", "CircleCI"); }
@@ -92,3 +98,14 @@ function PTO() { return enumerate("Accrued", "Unlimited") }
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() { var v=arguments;var s={all:[],keys:v};for(var i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
+
+function mapEnumToResources(enumerator, resources) {
+    if (enumerator.all.length !== resources.length) {
+        return {};
+    }
+    let map = {};
+    for (let i = 0; i < enumerator.all.length; i++) {
+        map[enumerator.all[i]] = resources[i];
+    }
+    return map;
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import job from '../gridium';
+
 export default class Methodology extends Component {
     isMethodUsed(isUsed) {
         if (isUsed === true) {
@@ -15,7 +17,9 @@ export default class Methodology extends Component {
     }
 
     render() {
-        const methods = this.props.methodology;
+        const methods = this.props.methodology ?
+            this.props.methodology : job.methodology;
+            
         const { codereviews,
             prototyping,
             failfast,

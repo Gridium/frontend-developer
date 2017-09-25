@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "lodash.startcase": "^4.4.0"
+    "lodash.startcase": "^4.4.0",
+    "react-router-dom": "^4.2.2"
   }
 }

@@ -1,9 +1,219 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tohm Judson">
+    <meta name="description" content="Sample job webpage">
+    <meta name="keywords" content="Gridium">
+
+    <title>Gridium Interview</title>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
 
 </head>
-<body>
-    <script type="text/javascript" src="./js/index.js"></script>
+
+<body ng-app="GridiumApp">
+    
+    <div class="container" ng-controller="GridiumController">
+
+        <!-- Headline -->
+        <div class="position-headline">
+            <h1>{{headline}}</h1>
+        </div>
+    
+        <div class="inner-container">
+        
+                <!-- Essentials -->
+            <div class="section-container">
+                <h2>Essentials</h2>
+                <div class="options-container">
+                    <div class="column-container">
+                    
+                        <!-- Left -->
+                        <div>
+                            <div class="row-container">
+                                <div>Location</div>
+                                <div class="location">{{essentials.locations}}</div>
+                            </div>
+                            <div class="row-container">
+                                <div>Employment Type</div>
+                                <div>{{essentials.employment}}</div>
+                            </div>
+                            <div class="row-container">
+                                <div>Experience</div>
+                                <div>
+                                    <span ng-repeat="exp in essentials.experience">{{exp}}{{$last ? '' : ', '}}</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right -->
+                        <div>
+                            <div class="row-container">
+                                <div>Employment Type</div>
+                                <div>{{essentials.companysize | companysize}} people</div>
+                            </div>
+
+                            <div class="row-container">
+                                <div>Team Size</div>
+                                <div>{{essentials.teamsize.min}}-{{essentials.teamsize.max}} people</div>
+                            </div>
+
+                            <div class="row-container">
+                                <div>Start Date</div>
+                                <div>{{essentials.startdate | date:'mediumDate'}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Methodology -->
+            <div class="section-container">
+                <h2>How we work</h2>
+                <div class="options-container">
+                    <div class="column-container">
+                    
+                        <!-- Left -->
+                        <div>
+                            <h3>Our Practices</h3>
+                            <div class="row-container" ng-repeat="(key, method) in methodology" ng-if="!isString(method)">
+                                <div>{{key | methodname}}</div>
+                                <div>{{method ? '&#10003;' : '&#65794;'}}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right -->
+                        <div>
+                            <h3>Our Tech</h3>
+                            <div class="row-container" ng-repeat="(key, method) in methodology" ng-if="isString(method)">
+                                <div>{{key | methodname}}</div>
+                                <div>{{method}}</div>
+                            </div>
+                            
+                            <h3>Gear</h3>
+                            <div ng-repeat="(key, equipment) in equipment">
+                                <div class="row-container" ng-switch on="key">
+                                    <div>{{key | gearname}}</div>
+                                    <div ng-switch-when="operatingsystem">
+                                        <span ng-repeat="equ in equipment">{{equ}}{{$last ? '' : ', '}}</span>
+                                    </div>
+                                    <div ng-switch-default>
+                                        {{equipment}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="section-container">
+                <h2>How you will spend your time</h2>
+                <div class="options-container">
+                    <div class="column-container">
+
+                        <!-- Left -->
+                        <div>
+                            <canvas id="canvas" width="300" height="300"></canvas>
+                        </div>
+
+                        <!-- Right -->
+                        <div class="options-container">
+                            <h3>Work Day</h3>
+                            <div class="row-container">
+                                <div>
+                                    <span class="newfeatures">&nbsp;</span>
+                                    New Features  
+                                </div>
+                                <div>{{profile.newfeatures}}%</div>
+                            </div>
+                            <div class="row-container">
+                                <div>
+                                    <span class="clientsupport">&nbsp;</span>
+                                    Client Support
+                                </div>
+                                <div>{{profile.clientsupport}}%</div>
+                            </div>
+                            <div class="row-container">
+                                <div>
+                                    <span class="documentation">&nbsp;</span>
+                                    Documentation
+                                </div>
+                                <div>{{profile.documentation}}%</div>
+                            </div>
+                            <div class="row-container">
+                                <div>
+                                    <span class="maintenance">&nbsp;</span>
+                                    Maintenance
+                                </div>
+                                <div>{{profile.maintenance}}%</div>
+                            </div>
+                            <div class="row-container">
+                                <div>
+                                    <span class="meetings">&nbsp;</span>
+                                    Meetings
+                                </div>
+                                <div>{{profile.meetings}}%</div>
+                            </div>
+
+                            <h3>Work-Life</h3>
+                            <div class="row-container" ng-repeat="(key, spec) in specs">
+                                <div>{{key | specsname}}</div>
+                                <div>{{spec}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Skills -->
+            <div class="section-container">
+                <h2>Your Skill Level</h2>
+                <div class="options-container">
+                    <div ng-repeat="(key, technology) in technologies">
+                        
+                        <!-- if oneOf options -->
+                        <div class="oneof" ng-if="technology.oneof">
+                            <div>
+                                <div>{{key | technologyname}}: One of</div>
+                                <div class="row-container" ng-repeat="(option,strength) in technology.oneof">
+                                    <div class="oneof-option">{{option}}</div>
+                                    <div>{{strength}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- else -->
+                        <div class="row-container" ng-if="!technology.oneof">
+                            <div>{{key | technologyname}}</div>
+                            <div>{{technology}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other -->
+            <div class="section-container">
+                <h2>Other Information</h2>
+                <div class="options-container">
+                    <div ng-repeat="other in others">{{other}}</div>
+                </div>
+            </div> 
+        
+        </div><!-- End Inner Container -->
+    </div> <!-- End GridiumController -->
+
+    <!-- On Load Script -->
+    <script type="text/javascript" src="./js/piechart.js"></script>
+
 </body>
 </html>

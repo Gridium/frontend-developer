@@ -1,11 +1,19 @@
-export const createRow = (label, text) => {
+export const createRow = (label, content) => {
     const rowNode = document.createElement('li');
     const labelNode = document.createElement('span');
-    const textNode = document.createElement('span');
+    const contentNode = document.createElement('span');
     labelNode.textContent = `${label}: `;
     labelNode.className = 'label';
-    textNode.textContent = text;
+    contentNode.innerHTML = content;
     rowNode.appendChild(labelNode);
-    rowNode.appendChild(textNode);
+    rowNode.appendChild(contentNode);
     return rowNode;
+};
+
+export const createCheckbox = (checked, disabled) => {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.disabled = disabled;
+    checkbox.defaultChecked = checked;
+    return checkbox;
 };

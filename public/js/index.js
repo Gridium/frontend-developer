@@ -233,10 +233,12 @@ function Ctrl() {
 Ctrl.fn = Ctrl.prototype;
 
 Ctrl.fn.displayJob = function() {
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].headline))
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].headline))
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* essentials */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].essentials))
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["b" /* methodology */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].methodology))
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].specs))
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].specs))
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* profile */].render())
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* profile */].drawChart(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].profile);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -249,13 +251,16 @@ window.addEventListener('DOMContentLoaded', function() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(4);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__essentials__ = __webpack_require__(5);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__essentials__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__methodology__ = __webpack_require__(6);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__methodology__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__specs__ = __webpack_require__(8);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile__ = __webpack_require__(9);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__profile__["a"]; });
+
 
 
 
@@ -403,6 +408,78 @@ const specs = {
     }
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = specs;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(1);
+
+
+
+const profile = {
+    chart: {
+        chart: null,
+        chartData: null,
+        options: {
+            pieHole: 0.4
+        }
+    },
+    profileChartWrapperId: 'profile_chart_wrapper',
+    profileChartId: 'profile_chart',
+    resizeDone: function() {
+        this.chart.options.width = '100%';
+        this.chart.options.height = '100%';
+        this.chart.chart.draw(this.chart.chartData, this.chart.options);
+    },
+    render: function () {
+        const that = this;
+        const wrapper = document.createElement('div');
+        const sectionTitle = document.createElement('h2');
+        const profileChartWrapper = document.createElement('div');
+        const profileChart = document.createElement('div');
+        
+        sectionTitle.textContent = 'Developer Profile';
+        profileChartWrapper.id = this.profileChartWrapperId;
+        profileChart.id = this.profileChartId;
+        profileChart.style.maxHeight = '300px';
+        
+        profileChartWrapper.appendChild(profileChart);
+        wrapper.appendChild(sectionTitle);
+        wrapper.appendChild(profileChartWrapper);
+        
+        let throttler;
+        window.onresize = function() {
+            clearTimeout(throttler);
+            throttler = setTimeout(function() {
+                that.resizeDone();
+            }, 100);
+        };
+
+        return wrapper;
+    },
+    drawChart: function (data) {
+        const that = this;
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            that.chart.chartData = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['New Features', data.newfeatures],
+                ['Client Support', data.clientsupport],
+                ['Documentation', data.documentation],
+                ['Maintenance', data.maintenance],
+                ['Meetings', data.meetings],
+            ]);
+            that.chart.chart = new google.visualization.PieChart(document.getElementById(that.profileChartId));
+            that.chart.chart.draw(that.chart.chartData, that.chart.options);
+        }
+    }
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = profile;
 
 
 /***/ })

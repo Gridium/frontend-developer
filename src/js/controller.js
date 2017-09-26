@@ -3,7 +3,8 @@ import {
     title,
     essentials,
     methodology,
-    specs
+    specs,
+    profile
 } from './components/index';
 
 function Ctrl() {
@@ -18,6 +19,8 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(essentials.render(job.essentials))
     this.container.appendChild(methodology.render(job.methodology))
     this.container.appendChild(specs.render(job.specs))
+    this.container.appendChild(profile.render())
+    profile.drawChart(job.profile);
 }
 
 window.addEventListener('DOMContentLoaded', function() {

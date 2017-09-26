@@ -1,3 +1,5 @@
+import { constants } from './constants';
+
 export const job = {
 	"headline": "Gridium Front-end Developer",
 	"essentials": {
@@ -69,32 +71,30 @@ export const job = {
         "we love technology",
         "we solve interesting problems"
 	]
-}
+};
 
-function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); }
-function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); }
-function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); }
-export function CompanySizeResources() {
-    return mapEnumToResources(
-        CompanySize(),
-        ["Less than 10", "10 to 20", "20 to 50", "50 to 200", "200+"]
-    ); 
-}
-function VersionControlSystem() { return enumerate("NotYetChosen", "Git", "BitBucket"); }
-function IssueTrackers() { return enumerate("NotYetChosen", "GitHub", "Jira", "Tikkit"); }
-function BuildServers() { return enumerate("NotYetChosen", "Jenkins", "Travis", "Codeship", "CircleCI"); }
-function CodeAnalysisTools() { return enumerate("NotYetChosen", "ESLint"); }
-function KnowledgeRepos() { return enumerate("NotYetChosen", "GitHubWiki", "Confluence"); }
-function TravelOptions() { return enumerate("None", "Possible", "Plentiful"); }
-function ScheduleOptions() { return enumerate("Fixed", "Flexible"); }
-function RemoteWorking() { return enumerate("No", "Negotiable", "Required"); }
-function RelocationPackages() { return enumerate("Nonealse", "Negotiable"); }
-function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Windows"); }
-function MachineType() { return enumerate("Workstation", "Laptop"); }
-function Monitors() { return enumerate("Negotiable"); }
-function Level() { return enumerate("Familiar", "Good", "Expert"); }
-function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); }
-function PTO() { return enumerate("Accrued", "Unlimited") }
+function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };
+function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); };
+function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); };
+export const CompanySizeResources = () => mapEnumToResources(
+    CompanySize(),
+    ["Less than 10", "10 to 20", "20 to 50", "50 to 200", "200+"]
+);
+function VersionControlSystem() { return enumerate(constants.notYetChosen, "Git", "BitBucket"); };
+function IssueTrackers() { return enumerate(constants.notYetChosen, "GitHub", "Jira", "Tikkit"); };
+function BuildServers() { return enumerate(constants.notYetChosen, "Jenkins", "Travis", "Codeship", "CircleCI"); };
+function CodeAnalysisTools() { return enumerate(constants.notYetChosen, "ESLint"); };
+function KnowledgeRepos() { return enumerate(constants.notYetChosen, "GitHubWiki", "Confluence"); };
+function TravelOptions() { return enumerate("None", "Possible", "Plentiful"); };
+function ScheduleOptions() { return enumerate("Fixed", "Flexible"); };
+function RemoteWorking() { return enumerate("No", "Negotiable", "Required"); };
+function RelocationPackages() { return enumerate("Nonealse", "Negotiable"); };
+function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Windows"); };
+function MachineType() { return enumerate("Workstation", "Laptop"); };
+function Monitors() { return enumerate("Negotiable"); };
+function Level() { return enumerate("Familiar", "Good", "Expert"); };
+function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); };
+function PTO() { return enumerate("Accrued", "Unlimited") };
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
 function enumerate() { var v=arguments;var s={all:[],keys:v};for(var i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
@@ -108,4 +108,4 @@ function mapEnumToResources(enumerator, resources) {
         map[enumerator.all[i]] = resources[i];
     }
     return map;
-}
+};

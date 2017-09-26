@@ -233,9 +233,10 @@ function Ctrl() {
 Ctrl.fn = Ctrl.prototype;
 
 Ctrl.fn.displayJob = function() {
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].headline))
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].headline))
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* essentials */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].essentials))
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["b" /* methodology */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].methodology))
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* job */].specs))
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -248,11 +249,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(4);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__essentials__ = __webpack_require__(5);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__essentials__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__methodology__ = __webpack_require__(6);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__methodology__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__specs__ = __webpack_require__(8);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
+
 
 
 
@@ -367,6 +371,38 @@ const constants = {
     notYetChosen: 'NotYetChosen'
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = constants;
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
+
+
+const specs = {
+    container: document.createElement('ul'),
+    addRow: function(row) {
+        this.container.appendChild(row);
+    },
+    render: function(data) {
+        const wrapper = document.createElement('div');
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.textContent = 'Details';
+        wrapper.appendChild(sectionTitle);
+
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Workload', data.workload));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Workweek', `${data.workweek} hours`));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Schedule', data.schedule));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Remote', data.remote));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Personal time off', data.pto));
+
+        wrapper.appendChild(this.container);
+        return wrapper;
+    }
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = specs;
 
 
 /***/ })

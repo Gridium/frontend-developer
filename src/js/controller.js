@@ -2,7 +2,8 @@ import { job } from './job';
 import {
     title,
     essentials,
-    methodology
+    methodology,
+    specs
 } from './components/index';
 
 function Ctrl() {
@@ -16,6 +17,7 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(title.render(job.headline))
     this.container.appendChild(essentials.render(job.essentials))
     this.container.appendChild(methodology.render(job.methodology))
+    this.container.appendChild(specs.render(job.specs))
 }
 
 window.addEventListener('DOMContentLoaded', function() {

@@ -3,6 +3,10 @@ body {
     text-align: center;
 }
 
+#job ul {
+    padding: 0px;
+}
+
 #job li {
     list-style: none;    
 }

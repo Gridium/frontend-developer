@@ -1,6 +1,3 @@
-import { constants } from '../constants';
-import { createRow, createCheckbox } from '../helpers';
-
 export const profile = {
     chart: {
         chart: null,

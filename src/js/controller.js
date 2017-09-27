@@ -21,13 +21,16 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(essentials.render(job.essentials));
     this.container.appendChild(methodology.render(job.methodology));
     this.container.appendChild(specs.render(job.specs));
-    this.container.appendChild(profile.render());
-    profile.drawChart(job.profile);
+
+    this.container.appendChild(profile.prepareCharts());
+    profile.drawCharts(job.profile);
+
     this.container.appendChild(equipment.render(job.equipment));
-    this.container.appendChild(technologies.render());
-    technologies.drawTechChart(job.technologies);
-    technologies.drawTestChart(job.technologies);
-    technologies.drawFrameworkChart(job.technologies);
+    
+    this.container.appendChild(technologies.prepareCharts());
+    technologies.drawCharts(job.technologies);
+
+    this.container.appendChild(other.render());
 }
 
 window.addEventListener('DOMContentLoaded', function() {

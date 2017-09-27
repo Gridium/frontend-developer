@@ -79,17 +79,7 @@ const createRow = (label, content) => {
     rowNode.appendChild(contentNode);
     return rowNode;
 };
-/* harmony export (immutable) */ __webpack_exports__["b"] = createRow;
-
-
-const createCheckbox = (checked, disabled) => {
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.disabled = disabled;
-    checkbox.defaultChecked = checked;
-    return checkbox;
-};
-/* harmony export (immutable) */ __webpack_exports__["a"] = createCheckbox;
+/* harmony export (immutable) */ __webpack_exports__["a"] = createRow;
 
 
 /***/ }),
@@ -254,13 +244,16 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["b" /* essentials */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].essentials));
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* methodology */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].methodology));
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].specs));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].render());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].drawChart(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].profile);
+
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].profile);
+
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* equipment */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].equipment));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].render());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].drawTechChart(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].drawTestChart(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].drawFrameworkChart(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
+    
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
+
+    this.container.appendChild(other.render());
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -296,6 +289,9 @@ window.onresize = function() {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__equipment__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__technologies__ = __webpack_require__(11);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_6__technologies__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__other__ = __webpack_require__(14);
+/* unused harmony reexport other */
+
 
 
 
@@ -341,12 +337,12 @@ const essentials = {
             ? data.teamsize.max 
             : `${data.teamsize.min} - ${data.teamsize.max}`;
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Location', data.locations[0].toUpperCase() + data.locations.slice(1)));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Contract', data.employment));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Experience', data.experience.join(' OR ')));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Starting date', startDate.toLocaleDateString('en-US', dateOptions)));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Team Size', teamSize));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Company Size', Object(__WEBPACK_IMPORTED_MODULE_0__job__["a" /* CompanySizeResources */])()[data.companysize]));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Location', data.locations[0].toUpperCase() + data.locations.slice(1)));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Contract', data.employment));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Experience', data.experience.join(' OR ')));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Starting date', startDate.toLocaleDateString('en-US', dateOptions)));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Team Size', teamSize));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Company Size', Object(__WEBPACK_IMPORTED_MODULE_0__job__["a" /* CompanySizeResources */])()[data.companysize]));
 
         return this.container;
     }
@@ -376,27 +372,27 @@ const methodology = {
         sectionTitle.textContent = 'Methodology';
         wrapper.appendChild(sectionTitle);
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Code Review', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.codereviews, true).outerHTML));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Prototyping', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.prototyping, true).outerHTML));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Unit Testing', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.unittests, true).outerHTML));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Integration Tests', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.integrationtests, true).outerHTML));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Review', data.codereviews ? '✅' : '❌'));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Prototyping', data.prototyping ? '✅' : '❌'));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Unit Testing', data.unittests ? '✅' : '❌'));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Integration Tests', data.integrationtests ? '✅' : '❌'));
 
         if (data.buildserver !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Server', data.buildserver));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Server', data.buildserver));
         }
         if (data.staticcodeanalysis !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Code Analysis Tool', data.staticcodeanalysis));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Analysis Tool', data.staticcodeanalysis));
         }
         if (data.versioncontrol !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Version Control', data.versioncontrol));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Version Control', data.versioncontrol));
         }
         if (data.issuetracker !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Issue Tracker', data.issuetracker));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Issue Tracker', data.issuetracker));
         }
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Standups', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.standups, true).outerHTML));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Quick Start', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.quickstart, true).outerHTML));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* createRow */])('Commit on Day 1', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createCheckbox */])(data.commitondayone, true).outerHTML));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Standups', data.standups ? '✅' : '❌'));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Quick Start', data.quickstart ? '✅' : '❌'));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Commit on Day 1', data.commitondayone ? '✅' : '❌'));
 
         wrapper.appendChild(this.container);
         return wrapper;
@@ -424,11 +420,11 @@ const specs = {
         sectionTitle.textContent = 'Details';
         wrapper.appendChild(sectionTitle);
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Workload', data.workload));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Workweek', `${data.workweek} hours`));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Schedule', data.schedule));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Remote', data.remote));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Personal time off', data.pto));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workload', data.workload));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workweek', `${data.workweek} hours`));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Schedule', data.schedule));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Remote', data.remote));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Personal time off', data.pto));
 
         wrapper.appendChild(this.container);
         return wrapper;
@@ -457,7 +453,7 @@ const profile = {
         this.chart.options.height = '100%';
         this.chart.chart.draw(this.chart.chartData, this.chart.options);
     },
-    render: function () {
+    prepareCharts: function () {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -475,7 +471,7 @@ const profile = {
 
         return wrapper;
     },
-    drawChart: function (data) {
+    drawCharts: function (data) {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
@@ -515,8 +511,8 @@ const equipment = {
         sectionTitle.textContent = 'Equipment';
         wrapper.appendChild(sectionTitle);
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Operating System', data.operatingsystem.join(' OR ')));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* createRow */])('Computer', data.computer));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Operating System', data.operatingsystem.join(' OR ')));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Computer', data.computer));
 
         wrapper.appendChild(this.container);
         return wrapper;
@@ -587,7 +583,7 @@ const technologies = {
         this.charts.framework.options.height = '100%';
         this.charts.framework.chart.draw(this.charts.framework.chartData, this.charts.framework.options);
     },
-    render: function () {
+    prepareCharts: function () {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -630,6 +626,11 @@ const technologies = {
         wrapper.appendChild(frameworkChartWrapper);
 
         return wrapper;
+    },
+    drawCharts: function(data) {
+        this.drawTechChart(data);
+        this.drawTestChart(data);
+        this.drawFrameworkChart(data);
     },
     drawTechChart: function (data) {
         const chart = this.charts.tech;
@@ -921,6 +922,39 @@ const languageColors = {
     "Jasmine": "#7F3977"
   };
 /* harmony export (immutable) */ __webpack_exports__["a"] = languageColors;
+
+
+/***/ }),
+/* 13 */,
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
+
+
+const specs = {
+    container: document.createElement('ul'),
+    addRow: function(row) {
+        this.container.appendChild(row);
+    },
+    render: function(data) {
+        const wrapper = document.createElement('div');
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.textContent = 'Details';
+        wrapper.appendChild(sectionTitle);
+
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workload', data.workload));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workweek', `${data.workweek} hours`));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Schedule', data.schedule));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Remote', data.remote));
+        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Personal time off', data.pto));
+
+        wrapper.appendChild(this.container);
+        return wrapper;
+    }
+};
+/* unused harmony export specs */
 
 
 /***/ })

@@ -1,5 +1,5 @@
 import { constants } from '../constants';
-import { createRow, createCheckbox } from '../helpers';
+import { createRow } from '../helpers';
 
 export const methodology = {
     container: document.createElement('ul'),
@@ -12,10 +12,10 @@ export const methodology = {
         sectionTitle.textContent = 'Methodology';
         wrapper.appendChild(sectionTitle);
 
-        this.addRow(createRow('Code Review', createCheckbox(data.codereviews, true).outerHTML));
-        this.addRow(createRow('Prototyping', createCheckbox(data.prototyping, true).outerHTML));
-        this.addRow(createRow('Unit Testing', createCheckbox(data.unittests, true).outerHTML));
-        this.addRow(createRow('Integration Tests', createCheckbox(data.integrationtests, true).outerHTML));
+        this.addRow(createRow('Code Review', data.codereviews ? '✅' : '❌'));
+        this.addRow(createRow('Prototyping', data.prototyping ? '✅' : '❌'));
+        this.addRow(createRow('Unit Testing', data.unittests ? '✅' : '❌'));
+        this.addRow(createRow('Integration Tests', data.integrationtests ? '✅' : '❌'));
 
         if (data.buildserver !== constants.notYetChosen) {
             this.addRow(createRow('Server', data.buildserver));
@@ -30,9 +30,9 @@ export const methodology = {
             this.addRow(createRow('Issue Tracker', data.issuetracker));
         }
 
-        this.addRow(createRow('Standups', createCheckbox(data.standups, true).outerHTML));
-        this.addRow(createRow('Quick Start', createCheckbox(data.quickstart, true).outerHTML));
-        this.addRow(createRow('Commit on Day 1', createCheckbox(data.commitondayone, true).outerHTML));
+        this.addRow(createRow('Standups', data.standups ? '✅' : '❌'));
+        this.addRow(createRow('Quick Start', data.quickstart ? '✅' : '❌'));
+        this.addRow(createRow('Commit on Day 1', data.commitondayone ? '✅' : '❌'));
 
         wrapper.appendChild(this.container);
         return wrapper;

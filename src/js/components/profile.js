@@ -13,7 +13,7 @@ export const profile = {
         this.chart.options.height = '100%';
         this.chart.chart.draw(this.chart.chartData, this.chart.options);
     },
-    render: function () {
+    prepareCharts: function () {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -31,7 +31,7 @@ export const profile = {
 
         return wrapper;
     },
-    drawChart: function (data) {
+    drawCharts: function (data) {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);

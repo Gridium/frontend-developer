@@ -9,11 +9,3 @@ export const createRow = (label, content) => {
     rowNode.appendChild(contentNode);
     return rowNode;
 };
-
-export const createCheckbox = (checked, disabled) => {
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.disabled = disabled;
-    checkbox.defaultChecked = checked;
-    return checkbox;
-};

@@ -52,7 +52,7 @@ export const technologies = {
         this.charts.framework.options.height = '100%';
         this.charts.framework.chart.draw(this.charts.framework.chartData, this.charts.framework.options);
     },
-    render: function () {
+    prepareCharts: function () {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -95,6 +95,11 @@ export const technologies = {
         wrapper.appendChild(frameworkChartWrapper);
 
         return wrapper;
+    },
+    drawCharts: function(data) {
+        this.drawTechChart(data);
+        this.drawTestChart(data);
+        this.drawFrameworkChart(data);
     },
     drawTechChart: function (data) {
         const chart = this.charts.tech;

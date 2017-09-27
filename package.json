@@ -2,6 +2,9 @@
   "name": "gridium-test",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "7.2.1"
+  },
   "scripts": {
     "start": "http-server",
     "lint": "tslint \"src/**/*.ts\"",

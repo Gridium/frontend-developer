@@ -72,7 +72,7 @@ const createRow = (label, content) => {
     const rowNode = document.createElement('li');
     const labelNode = document.createElement('span');
     const contentNode = document.createElement('span');
-    labelNode.textContent = `${label}: `;
+    labelNode.textContent = `${label} `;
     labelNode.className = 'label';
     contentNode.innerHTML = content;
     rowNode.appendChild(labelNode);
@@ -91,9 +91,10 @@ const createRow = (label, content) => {
 
 
 const job = {
-	"headline": "Gridium Front-end Developer",
+    "headline": "Gridium Front-end Developer",
 	"essentials": {
-		"locations": "denver",
+        "locations": "denver",
+        "position": "Front-end Developer",
         "employment": EmploymentType().Permanent,
         "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
 		"startdate": (new Date()).getTime(),
@@ -160,7 +161,8 @@ const job = {
 	"other": [
         "we love technology",
         "we solve interesting problems"
-	]
+    ],
+    "apply": "https://gridium.com/about/working-at-gridium/"
 };
 /* harmony export (immutable) */ __webpack_exports__["c"] = job;
 
@@ -234,26 +236,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function Ctrl() {
     this.container = document.getElementById('job');
-    this.displayJob();
+    this.displayJob(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */]);
 };
 
 Ctrl.fn = Ctrl.prototype;
 
-Ctrl.fn.displayJob = function() {
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["h" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].headline));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["b" /* essentials */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].essentials));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* methodology */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].methodology));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].specs));
-
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].prepareCharts());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].profile);
-
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* equipment */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].equipment));
-    
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].prepareCharts());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
-
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* other */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].other));
+Ctrl.fn.displayJob = function(data) {
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["j" /* title */].render(data.headline));
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* intro */].render(data));
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
+    const columnsWrapper = document.createElement('div');
+    columnsWrapper.className = 'column-wrapper';
+    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].drawCharts(data.profile);
+    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* methodology */].render(data.methodology));
+    this.container.appendChild(columnsWrapper);
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].prepareCharts(data.technologies));
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].drawCharts(data.technologies);
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* other */].render(data.other));
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -265,8 +266,8 @@ let throttler;
 window.onresize = function() {
     clearTimeout(throttler);
     throttler = setTimeout(function() {
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].resizeDone();
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].resizeDone();
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].resizeDone();
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].resizeDone();
     }, 100);
 };
 
@@ -276,21 +277,27 @@ window.onresize = function() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(5);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__essentials__ = __webpack_require__(6);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__essentials__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__methodology__ = __webpack_require__(7);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__methodology__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__specs__ = __webpack_require__(8);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile__ = __webpack_require__(9);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__profile__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__equipment__ = __webpack_require__(10);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__equipment__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__technologies__ = __webpack_require__(11);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__technologies__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__other__ = __webpack_require__(14);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__other__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__intro__ = __webpack_require__(15);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__intro__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__essentials__ = __webpack_require__(6);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__essentials__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__methodology__ = __webpack_require__(7);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__methodology__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__specs__ = __webpack_require__(8);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_4__specs__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile__ = __webpack_require__(9);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__profile__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__equipment__ = __webpack_require__(10);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__equipment__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__technologies__ = __webpack_require__(11);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_7__technologies__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__other__ = __webpack_require__(14);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_8__other__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__apply__ = __webpack_require__(16);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_9__apply__["a"]; });
+
+
 
 
 
@@ -321,30 +328,25 @@ const title = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__job__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(0);
-
 
 
 const essentials = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
+        const location = data.locations[0].toUpperCase() + data.locations.slice(1);
+        const experience = data.experience.map(el => `<strong>${el}</strong>`).join('/');
         const startDate = new Date(data.startdate)
         const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
         const teamSize = data.teamsize.max === data.teamsize.min 
             ? data.teamsize.max 
             : `${data.teamsize.min} - ${data.teamsize.max}`;
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Location', data.locations[0].toUpperCase() + data.locations.slice(1)));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Contract', data.employment));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Experience', data.experience.join(' OR ')));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Starting date', startDate.toLocaleDateString('en-US', dateOptions)));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Team Size', teamSize));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Company Size', Object(__WEBPACK_IMPORTED_MODULE_0__job__["a" /* CompanySizeResources */])()[data.companysize]));
+        const wrapper = document.createElement('div');
+        const text = document.createElement('div');
+        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
+        <p>Gridium has ${Object(__WEBPACK_IMPORTED_MODULE_0__job__["a" /* CompanySizeResources */])()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
+        wrapper.appendChild(text);
 
-        return this.container;
+        return wrapper;
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = essentials;
@@ -369,7 +371,8 @@ const methodology = {
     render: function(data) {
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Methodology';
+        sectionTitle.textContent = 'How we do things';
+        wrapper.id = 'methodology';
         wrapper.appendChild(sectionTitle);
 
         this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Review', data.codereviews ? '✅' : '❌'));
@@ -378,16 +381,16 @@ const methodology = {
         this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Integration Tests', data.integrationtests ? '✅' : '❌'));
 
         if (data.buildserver !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Server', data.buildserver));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Server Builds', `with ${data.buildserver}`));
         }
         if (data.staticcodeanalysis !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Analysis Tool', data.staticcodeanalysis));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Analysis Tool', `with ${data.staticcodeanalysis}`));
         }
         if (data.versioncontrol !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Version Control', data.versioncontrol));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Version Control', `with ${data.versioncontrol}`));
         }
         if (data.issuetracker !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Issue Tracker', data.issuetracker));
+            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Issue Tracker', `with ${data.issuetracker}`));
         }
 
         this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Standups', data.standups ? '✅' : '❌'));
@@ -416,17 +419,12 @@ const specs = {
     },
     render: function(data) {
         const wrapper = document.createElement('div');
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Details';
-        wrapper.appendChild(sectionTitle);
+        const text = document.createElement('p');
+        const remote = data.remote === 'No' ? 'not possible' : data.remote.toLowerCase();
+        
+        text.innerHTML = `We are looking for people available to work ${data.workweek} hours per week, with a ${data.schedule.toLowerCase()} schedule. Remote working is ${remote} and personal time off is ${data.pto.toLowerCase()}.`;
+        wrapper.appendChild(text);
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workload', data.workload));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workweek', `${data.workweek} hours`));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Schedule', data.schedule));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Remote', data.remote));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Personal time off', data.pto));
-
-        wrapper.appendChild(this.container);
         return wrapper;
     }
 };
@@ -443,8 +441,9 @@ const profile = {
         chart: null,
         chartData: null,
         options: {
-            pieHole: 0.4
-        }
+            pieHole: 0.4,
+            legend: { position: 'top', maxLines: 10 }
+        },
     },
     profileChartWrapperId: 'profile_chart_wrapper',
     profileChartId: 'profile_chart',
@@ -459,11 +458,11 @@ const profile = {
         const sectionTitle = document.createElement('h2');
         const profileChartWrapper = document.createElement('div');
         const profileChart = document.createElement('div');
-        
-        sectionTitle.textContent = 'Developer Profile';
+        wrapper.id = 'profile';
+        sectionTitle.textContent = 'What you will do';
         profileChartWrapper.id = this.profileChartWrapperId;
         profileChart.id = this.profileChartId;
-        profileChart.classList = 'chart';
+        profileChartWrapper.classList = 'chart';
         profileChart.style.maxHeight = '300px';
         
         profileChartWrapper.appendChild(profileChart);
@@ -498,24 +497,14 @@ const profile = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
-
-
 const equipment = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
         const wrapper = document.createElement('div');
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Equipment';
-        wrapper.appendChild(sectionTitle);
+        const text = document.createElement('p');
 
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Operating System', data.operatingsystem.join(' OR ')));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Computer', data.computer));
+        text.innerHTML = `We all use ${data.computer}s with ${data.operatingsystem.join(' or ')} installed.`;
 
-        wrapper.appendChild(this.container);
+        wrapper.appendChild(text);
         return wrapper;
     }
 };
@@ -584,7 +573,7 @@ const technologies = {
         this.charts.framework.options.height = '100%';
         this.charts.framework.chart.draw(this.charts.framework.chartData, this.charts.framework.options);
     },
-    prepareCharts: function () {
+    prepareCharts: function (data) {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -601,26 +590,26 @@ const technologies = {
         const frameworkChartTitle = document.createElement('h3');
         const frameworkChart = document.createElement('div');
 
-        sectionTitle.textContent = 'Technologies';
+        sectionTitle.textContent = 'Developer Profile';
 
         techChartWrapper.id = this.techChartWrapperId;
-        techChartTitle.textContent = 'Skills';
+        techChartWrapper.classList = 'chart';
+        techChartTitle.textContent = data.oneof ? 'Skills (one of)' : 'Skills';
         techChart.id = this.techChartId;
-        techChart.classList = 'chart';
         techChartWrapper.appendChild(techChartTitle);
         techChartWrapper.appendChild(techChart);
 
         testChartWrapper.id = this.testChartWrapperId;
-        testChartTitle.textContent = 'Testing (one of)';
+        testChartWrapper.classList = 'chart';
+        testChartTitle.textContent = data.testing.oneof ? 'Testing (one of)' : 'Testing';
         testChart.id = this.testChartId;
-        testChart.classList = 'chart';
         testChartWrapper.appendChild(testChartTitle);
         testChartWrapper.appendChild(testChart);
 
         frameworkChartWrapper.id = this.frameworkChartWrapperId;
-        frameworkChartTitle.textContent = 'Frameworks (one of)';
+        frameworkChartWrapper.classList = 'chart';
+        frameworkChartTitle.textContent = data.framework.oneof ? 'Frameworks (one of)' : 'Frameworks';
         frameworkChart.id = this.frameworkChartId;
-        frameworkChart.classList = 'chart';
         frameworkChartWrapper.appendChild(frameworkChartTitle);
         frameworkChartWrapper.appendChild(frameworkChart);
 
@@ -666,13 +655,16 @@ const technologies = {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
+        if (data.testing.oneof) {
+            data.testing = data.testing.oneof;
+        }
         function drawChart() {
             chart.chartData = google.visualization.arrayToDataTable([
                 ['Testing', 'Level', { role: 'style' }],
-                ['JUnit', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.oneof.junit], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JUnit']],
-                ['Mocha', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.oneof.mocha], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Mocha']],
-                ['Jasmine', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.oneof.jasmine], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Jasmine']],
-                ['Selenium', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.oneof.selenium], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Selenium']]
+                ['JUnit', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.junit], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JUnit']],
+                ['Mocha', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.mocha], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Mocha']],
+                ['Jasmine', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.jasmine], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Jasmine']],
+                ['Selenium', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.selenium], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Selenium']]
             ]);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
@@ -948,6 +940,49 @@ const other = {
     }
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = other;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__(4);
+
+
+const intro = {
+    render: function(data) {
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["c" /* essentials */].render(data.essentials));
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["h" /* specs */].render(data.specs));
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["b" /* equipment */].render(data.equipment));
+        
+        const text = document.createElement('p');
+        text.textContent = 'Do you like what you are seeing? Read on and see if your skills match with what we are looking for!';
+        wrapper.appendChild(text);
+        return wrapper;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = intro;
+
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const apply = {
+    render: function(data) {
+        const button = document.createElement('a');
+        button.classList = 'btn btn-cta';
+        button.textContent = 'Apply';
+        button.href = data;
+        button.target = '_blank';
+        return button;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = apply;
 
 
 /***/ })

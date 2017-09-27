@@ -9,7 +9,8 @@ export const methodology = {
     render: function(data) {
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Methodology';
+        sectionTitle.textContent = 'How we do things';
+        wrapper.id = 'methodology';
         wrapper.appendChild(sectionTitle);
 
         this.addRow(createRow('Code Review', data.codereviews ? '✅' : '❌'));
@@ -18,16 +19,16 @@ export const methodology = {
         this.addRow(createRow('Integration Tests', data.integrationtests ? '✅' : '❌'));
 
         if (data.buildserver !== constants.notYetChosen) {
-            this.addRow(createRow('Server', data.buildserver));
+            this.addRow(createRow('Server Builds', `with ${data.buildserver}`));
         }
         if (data.staticcodeanalysis !== constants.notYetChosen) {
-            this.addRow(createRow('Code Analysis Tool', data.staticcodeanalysis));
+            this.addRow(createRow('Code Analysis Tool', `with ${data.staticcodeanalysis}`));
         }
         if (data.versioncontrol !== constants.notYetChosen) {
-            this.addRow(createRow('Version Control', data.versioncontrol));
+            this.addRow(createRow('Version Control', `with ${data.versioncontrol}`));
         }
         if (data.issuetracker !== constants.notYetChosen) {
-            this.addRow(createRow('Issue Tracker', data.issuetracker));
+            this.addRow(createRow('Issue Tracker', `with ${data.issuetracker}`));
         }
 
         this.addRow(createRow('Standups', data.standups ? '✅' : '❌'));

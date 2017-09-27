@@ -1,20 +1,11 @@
-import { createRow } from '../helpers';
-
 export const equipment = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
         const wrapper = document.createElement('div');
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Equipment';
-        wrapper.appendChild(sectionTitle);
+        const text = document.createElement('p');
 
-        this.addRow(createRow('Operating System', data.operatingsystem.join(' OR ')));
-        this.addRow(createRow('Computer', data.computer));
+        text.innerHTML = `We all use ${data.computer}s with ${data.operatingsystem.join(' or ')} installed.`;
 
-        wrapper.appendChild(this.container);
+        wrapper.appendChild(text);
         return wrapper;
     }
 };

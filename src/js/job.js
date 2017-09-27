@@ -1,9 +1,10 @@
 import { constants } from './constants';
 
 export const job = {
-	"headline": "Gridium Front-end Developer",
+    "headline": "Gridium Front-end Developer",
 	"essentials": {
-		"locations": "denver",
+        "locations": "denver",
+        "position": "Front-end Developer",
         "employment": EmploymentType().Permanent,
         "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
 		"startdate": (new Date()).getTime(),
@@ -70,7 +71,8 @@ export const job = {
 	"other": [
         "we love technology",
         "we solve interesting problems"
-	]
+    ],
+    "apply": "https://gridium.com/about/working-at-gridium/"
 };
 
 function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };

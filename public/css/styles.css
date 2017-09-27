@@ -1,6 +1,69 @@
+:root {
+    --bg-color: #eaf0f4;
+    
+    --primary-color: #e2670f;
+
+    --primary-color-light: #ffccbc;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider-color: var(--bg-color);
+} 
+
+ /* Media Queries used for mobile first device size classes */
+    
+/* For phone classes */
+@media only screen { } /* For mobile styles */
+
+/* For Tablet Classes */
+@media only screen and (min-width: 48em) {
+    #job {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .column-wrapper {
+        display: flex;
+    }
+} /* min-width 768px for Tablet styles */
+
+/* For Laptop Classes */
+@media only screen and (min-width: 62em) {
+    #job {
+        width: 70%;
+        margin: 0 auto;
+    }
+} /* min-width 992px for laptop to small desktop styles /*
+
+/* For Desktop Classes */
+@media only screen and (min-width: 75em) { 
+    #job {
+        width: 60%;
+        margin: 0 auto;
+    }
+} /* min-width 1200px medium to large Desktop styles /*
+
+/* Others Media Queries used for devices with min and max used with show and hide classes*/
+
+@media only screen and (max-width: 47.938em) { } /* Up to 767px */
+
+@media only screen and (min-width: 48em) and (max-width: 61.938em) { } /* 768px to 991px */
+
+@media only screen and (min-width: 62em) and (max-width: 74.938em) { } /*  992px to 1199px */
+
+@media only screen and (min-width: 75em) { } /* 1200px and up */
+
+/* Used to stack columns 30em and under with cute-100 */
+@media only screen and (max-width: 30em){ } /* max-width 30em 480px */
+
+
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    background-color: var(--bg-color);
+}
+
+#job {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #job ul {
@@ -13,6 +76,17 @@ body {
 
 #job li .label {
     font-weight: bold;
+}
+
+.chart {
+    border: 2px solid var(--primary-color);
+    border-radius: 2px;
+    margin: 10px;
+    background-color: white;
+}
+
+#profile, #methodology {
+    width: 100%;
 }
 
 #profile_chart_wrapper {
@@ -28,4 +102,51 @@ body {
     left: 0;
     width:100%;
     height:100%;
+}
+
+/* Gridium button style */
+a.btn {
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transition: all all 0.2s ease ease;
+    -moz-transition: all all 0.2s ease ease;
+    -ms-transition: all all 0.2s ease ease;
+    -o-transition: all all 0.2s ease ease;
+    transition: all all 0.2s ease ease;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 28px;
+    border-radius: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-cta {
+    color: var(--primary-color);
+    background-color: #fff;
+    border-color: #d0d7da;
+}
+
+.btn-cta:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    border-color: #b2510c;
 }

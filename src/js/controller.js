@@ -1,37 +1,35 @@
 import { job } from './job';
 import {
     title,
-    essentials,
+    intro,
     methodology,
-    specs,
     profile,
-    equipment,
     technologies,
-    other
+    other,
+    apply
 } from './components/index';
 
 function Ctrl() {
     this.container = document.getElementById('job');
-    this.displayJob();
+    this.displayJob(job);
 };
 
 Ctrl.fn = Ctrl.prototype;
 
-Ctrl.fn.displayJob = function() {
-    this.container.appendChild(title.render(job.headline));
-    this.container.appendChild(essentials.render(job.essentials));
-    this.container.appendChild(methodology.render(job.methodology));
-    this.container.appendChild(specs.render(job.specs));
-
-    this.container.appendChild(profile.prepareCharts());
-    profile.drawCharts(job.profile);
-
-    this.container.appendChild(equipment.render(job.equipment));
-    
-    this.container.appendChild(technologies.prepareCharts());
-    technologies.drawCharts(job.technologies);
-
-    this.container.appendChild(other.render(job.other));
+Ctrl.fn.displayJob = function(data) {
+    this.container.appendChild(title.render(data.headline));
+    this.container.appendChild(intro.render(data));
+    this.container.appendChild(apply.render(data.apply));
+    const columnsWrapper = document.createElement('div');
+    columnsWrapper.className = 'column-wrapper';
+    columnsWrapper.appendChild(profile.prepareCharts());
+    profile.drawCharts(data.profile);
+    columnsWrapper.appendChild(methodology.render(data.methodology));
+    this.container.appendChild(columnsWrapper);
+    this.container.appendChild(technologies.prepareCharts(data.technologies));
+    technologies.drawCharts(data.technologies);
+    this.container.appendChild(other.render(data.other));
+    this.container.appendChild(apply.render(data.apply));
 }
 
 window.addEventListener('DOMContentLoaded', function() {

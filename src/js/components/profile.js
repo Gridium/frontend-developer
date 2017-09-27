@@ -3,8 +3,9 @@ export const profile = {
         chart: null,
         chartData: null,
         options: {
-            pieHole: 0.4
-        }
+            pieHole: 0.4,
+            legend: { position: 'top', maxLines: 10 }
+        },
     },
     profileChartWrapperId: 'profile_chart_wrapper',
     profileChartId: 'profile_chart',
@@ -19,10 +20,11 @@ export const profile = {
         const sectionTitle = document.createElement('h2');
         const profileChartWrapper = document.createElement('div');
         const profileChart = document.createElement('div');
-        
-        sectionTitle.textContent = 'Developer Profile';
+        wrapper.id = 'profile';
+        sectionTitle.textContent = 'What you will do';
         profileChartWrapper.id = this.profileChartWrapperId;
         profileChart.id = this.profileChartId;
+        profileChartWrapper.classList = 'chart';
         profileChart.style.maxHeight = '300px';
         
         profileChartWrapper.appendChild(profileChart);

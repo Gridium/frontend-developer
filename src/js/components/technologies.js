@@ -52,7 +52,7 @@ export const technologies = {
         this.charts.framework.options.height = '100%';
         this.charts.framework.chart.draw(this.charts.framework.chartData, this.charts.framework.options);
     },
-    prepareCharts: function () {
+    prepareCharts: function (data) {
         const that = this;
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
@@ -69,22 +69,25 @@ export const technologies = {
         const frameworkChartTitle = document.createElement('h3');
         const frameworkChart = document.createElement('div');
 
-        sectionTitle.textContent = 'Technologies';
+        sectionTitle.textContent = 'Developer Profile';
 
         techChartWrapper.id = this.techChartWrapperId;
-        techChartTitle.textContent = 'Skills';
+        techChartWrapper.classList = 'chart';
+        techChartTitle.textContent = data.oneof ? 'Skills (one of)' : 'Skills';
         techChart.id = this.techChartId;
         techChartWrapper.appendChild(techChartTitle);
         techChartWrapper.appendChild(techChart);
 
         testChartWrapper.id = this.testChartWrapperId;
-        testChartTitle.textContent = 'Testing (one of)';
+        testChartWrapper.classList = 'chart';
+        testChartTitle.textContent = data.testing.oneof ? 'Testing (one of)' : 'Testing';
         testChart.id = this.testChartId;
         testChartWrapper.appendChild(testChartTitle);
         testChartWrapper.appendChild(testChart);
 
         frameworkChartWrapper.id = this.frameworkChartWrapperId;
-        frameworkChartTitle.textContent = 'Frameworks (one of)';
+        frameworkChartWrapper.classList = 'chart';
+        frameworkChartTitle.textContent = data.framework.oneof ? 'Frameworks (one of)' : 'Frameworks';
         frameworkChart.id = this.frameworkChartId;
         frameworkChartWrapper.appendChild(frameworkChartTitle);
         frameworkChartWrapper.appendChild(frameworkChart);
@@ -131,13 +134,16 @@ export const technologies = {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
+        if (data.testing.oneof) {
+            data.testing = data.testing.oneof;
+        }
         function drawChart() {
             chart.chartData = google.visualization.arrayToDataTable([
                 ['Testing', 'Level', { role: 'style' }],
-                ['JUnit', LevelResources()[data.testing.oneof.junit], languageColors['JUnit']],
-                ['Mocha', LevelResources()[data.testing.oneof.mocha], languageColors['Mocha']],
-                ['Jasmine', LevelResources()[data.testing.oneof.jasmine], languageColors['Jasmine']],
-                ['Selenium', LevelResources()[data.testing.oneof.selenium], languageColors['Selenium']]
+                ['JUnit', LevelResources()[data.testing.junit], languageColors['JUnit']],
+                ['Mocha', LevelResources()[data.testing.mocha], languageColors['Mocha']],
+                ['Jasmine', LevelResources()[data.testing.jasmine], languageColors['Jasmine']],
+                ['Selenium', LevelResources()[data.testing.selenium], languageColors['Selenium']]
             ]);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]

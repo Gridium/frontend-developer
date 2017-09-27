@@ -7,17 +7,12 @@ export const specs = {
     },
     render: function(data) {
         const wrapper = document.createElement('div');
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Details';
-        wrapper.appendChild(sectionTitle);
+        const text = document.createElement('p');
+        const remote = data.remote === 'No' ? 'not possible' : data.remote.toLowerCase();
+        
+        text.innerHTML = `We are looking for people available to work ${data.workweek} hours per week, with a ${data.schedule.toLowerCase()} schedule. Remote working is ${remote} and personal time off is ${data.pto.toLowerCase()}.`;
+        wrapper.appendChild(text);
 
-        this.addRow(createRow('Workload', data.workload));
-        this.addRow(createRow('Workweek', `${data.workweek} hours`));
-        this.addRow(createRow('Schedule', data.schedule));
-        this.addRow(createRow('Remote', data.remote));
-        this.addRow(createRow('Personal time off', data.pto));
-
-        wrapper.appendChild(this.container);
         return wrapper;
     }
 };

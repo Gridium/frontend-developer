@@ -4,14 +4,15 @@ import { ApiService } from '../../api.service';
 import { NgbModal, NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-home-view',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-apply-view',
+  templateUrl: './apply.component.html',
+  styleUrls: ['./apply.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ApplyComponent implements OnInit {
 
-  job: any;
+  options: any;
   bottomOfPage: any;
+  otherOptions: any;
 
   constructor(public apiService: ApiService) {
   }
@@ -27,8 +28,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.job = this.apiService.getJob();
-    console.log(this.apiService.getJob());
+    this.options = this.apiService.getOptions();
+    this.otherOptions = this.apiService.getJob();
+    console.log(this.apiService.getOptions());
+    console.log(this.otherOptions);
   }
 
 }

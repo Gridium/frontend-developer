@@ -42,10 +42,48 @@
     width: 100%;
     background: rgb(224, 56, 60);
     padding: 35px;
+
+    &.blue {
+      background: rgb(12, 126, 200);
+      transition: .5s;
+    }
+    &.red {
+      background: rgb(224, 56, 60);
+      transition: .5s;
+    }
+
+    &.applicationer {
+      transition: .5s;
+    }
+    &.apply {
+      transition: .5s;
+    }
+    a {
+      text-decoration: none;
+    }
+    .apply-button {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 50px;
+      color: rgb(255, 255, 255);
+      transition: color 0.5s linear;
+      transition: background-color 0.5s linear;
+    }
+    .apply-button:hover {
+      background-color: rgb(224, 56, 60);
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 50px;
+      color: rgb(255, 255, 255);
+      transition: .5s;
+    }
   }
   .robot {
     background:url('/assets/images/robot1.png') no-repeat top left;
-    width: 400px;
+    width: 300px;
     height: 400px;
     position: fixed;
     bottom: 0;
@@ -59,6 +97,28 @@
 
     &.text-center {
       text-align: center;
+    }
+  }
+  .about-gridium {
+    width: 100%;
+  }
+  .company {
+    padding-bottom: 150px;
+    .text-left {
+      text-align: left;
+      &.true {
+        color: rgb(12, 126, 200);
+        font-weight: bold;
+      }
+      &.false {
+        color: rgb(224, 56, 60);
+      }
+    }
+    .text-right {
+      text-align: right;
+    }
+    h4 {
+      padding: 20px 10px 10px 10px;
     }
   }
 }

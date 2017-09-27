@@ -5,9 +5,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { ApplyComponent } from './components/apply/apply.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 import { RoutingModule } from './routing.module';
+
 import { CamelToHumanPipe } from './pipes/camel.pipe';
+import { FoShoPipe } from './pipes/fosho.pipe';
+import { MilliToDatePipe } from './pipes/date.pipe';
+import { KeysPipe } from './pipes/keyval.pipe';
 
 import { ApiService } from './api.service';
 
@@ -16,7 +22,13 @@ import { ApiService } from './api.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    CamelToHumanPipe
+    ApplyComponent,
+    ThankYouComponent,
+    CamelToHumanPipe,
+    FoShoPipe,
+    MilliToDatePipe,
+    KeysPipe,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,8 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
  name: 'camelToHuman'
 })
 
+// Some HUMANS can't read camelCASE
+
 @Injectable()
 export class CamelToHumanPipe implements PipeTransform {
  transform(items: any[]): any[] {

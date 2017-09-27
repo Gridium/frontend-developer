@@ -81,15 +81,6 @@
       cursor: pointer;
     }
   }
-  .robot {
-    background:url('/assets/images/robot1.png') no-repeat top left;
-    width: 300px;
-    height: 400px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-  }
   .app-title {
     width: 100%;
     color: #fff;
@@ -129,15 +120,9 @@
   }
 
   @media only screen and (max-width: 1180px) {
-    .robot {
-        visibility: hidden;
-    }
   }
 
   @media only screen and (max-width: 540px) {
-    .robot {
-        visibility: hidden;
-    }
     .tech-label {
       text-align: center;
     }

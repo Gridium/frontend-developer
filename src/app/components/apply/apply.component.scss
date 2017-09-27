@@ -104,15 +104,31 @@
   }
   .apply-form {
     padding-bottom:150px;
+    .row {
+      padding: 10px 0px;
+    }
+    .row:nth-child(even){
+      background-color: #f5f5f5;
+    }
     .text-left {
       text-align: left;
     }
     .text-right {
       text-align: right;
     }
+    .tech-label {
+      padding: 10px 0px 0px 0px;
+      margin: 0px;
+    }
+    h4 {
+      padding: 15px;
+    }
+    label {
+      margin: 0px;
+    }
   }
 
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 1180px) {
     .robot {
         visibility: hidden;
     }

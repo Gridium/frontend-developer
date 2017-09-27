@@ -2,10 +2,13 @@
   <h1 class="text-center">{{job.headline}}</h1>
 </div>
 
-<div class="container-fluid company">
+<section class="what-were-about">
   <div class="row">
     <h4 class="text-center about-gridium">What we're about:</h4>
   </div>
+</section>
+
+<div class="container-fluid company">
   <div class="row">
     <div class="col-sm-6 text-right"><h5>Company Size</h5></div>
     <div class="col-sm-6 text-left">{{job.essentials.companysize | camelToHuman}}</div>

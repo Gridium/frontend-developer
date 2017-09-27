@@ -1,0 +1,89 @@
+<div class="headline">
+  <h1 class="text-center">{{job.headline}}</h1>
+</div>
+
+<section class="what-were-about">
+  <div class="row">
+    <h4 class="text-center about-gridium">What we're about:</h4>
+  </div>
+</section>
+
+<div class="container-fluid company">
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Company Size</h5></div>
+    <div class="col-sm-6 text-left">{{job.essentials.companysize | camelToHuman}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Team Size</h5></div>
+    <div class="col-sm-6 text-left">{{job.essentials.teamsize.min}} to {{job.essentials.teamsize.max}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Work Week</h5></div>
+    <div class="col-sm-6 text-left">{{job.specs.workweek}} Hours</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>PTO</h5></div>
+    <div class="col-sm-6 text-left">{{job.specs.pto}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Remote?</h5></div>
+    <div class="col-sm-6 text-left">{{job.specs.remote}}</div>
+  </div>
+  <div class="row">
+    <h4 class="text-center about-gridium">How we code:</h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Build Server</h5></div>
+    <div class="col-sm-6 text-left">{{job.methodology.buildserver}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Code Reviews</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.codereviews, 'false':!job.methodology.codereviews}">{{job.methodology.codereviews | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Commit On Day One</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.commitondayone, 'false':!job.methodology.commitondayone}">{{job.methodology.commitondayone | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Fail Fast</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.failfast, 'false':!job.methodology.failfast}">{{job.methodology.failfast | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Integration Tests</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.integrationtests, 'false':!job.methodology.integrationtests}">{{job.methodology.integrationtests | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Issue Tracker</h5></div>
+    <div class="col-sm-6 text-left">{{job.methodology.issuetracker}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Prototyping</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.prototyping, 'false':!job.methodology.prototyping}">{{job.methodology.prototyping | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Quick Start</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.quickstart, 'false':!job.methodology.quickstart}">{{job.methodology.quickstart | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Standups</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.standups, 'false':!job.methodology.standups}">{{job.methodology.standups | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Static Code Analysis</h5></div>
+    <div class="col-sm-6 text-left">{{job.methodology.staticcodeanalysis | camelToHuman}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Unit Tests</h5></div>
+    <div class="col-sm-6 text-left" [ngClass]="{'true': job.methodology.unittests, 'false':!job.methodology.unittests}">{{job.methodology.unittests | foSho}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right"><h5>Version Control</h5></div>
+    <div class="col-sm-6 text-left">{{job.methodology.versioncontrol}}</div>
+  </div>
+</div>
+
+<div class="row footer" [ngClass]="{'blue': bottomOfPage, 'red': !bottomOfPage}">
+  <div class="robot"></div>
+  <h1 *ngIf="!bottomOfPage" class="app-title applicationer text-center">Gridium Job Applicationer</h1>
+  <h1 *ngIf="bottomOfPage" class="app-title apply text-center">Sound Good? <a routerLink="/apply" class="apply-button">Apply :)</a></h1>
+</div>

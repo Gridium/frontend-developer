@@ -1,0 +1,83 @@
+<div class="headline">
+  <h1 class="text-center">{{otherOptions.headline}}</h1>
+</div>
+
+<div class="container-fluid apply-form">
+  <div class="row">
+    <h4 class="text-center about-gridium">Tell Us About You</h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 text-right">
+      <h5 class="tech-label">Experience Level:</h5>
+      <span>*select one</span>
+    </div>
+    <div class="col-sm-9 text-left">
+      <label *ngFor="let item of options.ExperienceLevels.all" class="col-md-3">
+        <input type="radio" name="experience" value="" />
+        <span class="option">{{item}}</span>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 text-right">
+      <h5 class="tech-label">OS Prefs:</h5>
+    </div>
+    <div class="col-sm-9 text-left">
+      <label *ngFor="let item of options.OperationSystems.all" class="col-md-3">
+        <input type="checkbox" name="experience" value="" />
+        <span class="option">{{item}}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="text-center about-gridium">Frameworks</h4>
+  </div>
+  <div class="row" *ngFor="let fw of otherOptions.technologies.framework.oneof | keys">
+    <div class="col-sm-3 text-right">
+      <h5 class="tech-label">{{fw.key}}</h5>
+    </div>
+    <div class="col-sm-9 text-left">
+      <label *ngFor="let item of options.Level.all" class="col-md-4">
+        <input type="radio" name="{{fw.key}}" value="" />
+        <span class="option">{{item}}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="text-center about-gridium">Testing</h4>
+  </div>
+  <div class="row" *ngFor="let fw of otherOptions.technologies.testing.oneof | keys">
+    <div class="col-sm-3 text-right">
+      <h5 class="tech-label">{{fw.key}}</h5>
+    </div>
+    <div class="col-sm-9 text-left">
+      <label *ngFor="let item of options.Level.all" class="col-md-4">
+        <input type="radio" name="{{fw.key}}" value="" />
+        <span class="option">{{item}}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4 class="text-center about-gridium">Technologies</h4>
+  </div>
+  <div class="row" *ngFor="let fw of otherOptions.technologies | keys">
+    <div class="col-sm-3 text-right">
+      <h5 class="tech-label">{{fw.key}}</h5>
+    </div>
+    <div class="col-sm-9 text-left">
+      <label *ngFor="let item of options.Level.all" class="col-md-4">
+        <input type="radio" name="{{fw.key}}" value="" />
+        <span class="option">{{item}}</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="row footer" [ngClass]="{'blue': bottomOfPage, 'red': !bottomOfPage}">
+  <div class="robot"></div>
+  <h1 *ngIf="!bottomOfPage" class="app-title applicationer text-center">Gridium Job Applicationer</h1>
+  <a *ngIf="bottomOfPage" class="apply-button" routerLink="/thanks" ><h1 class="app-title apply text-center">send application :)</h1></a>
+</div>

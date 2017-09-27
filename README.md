@@ -1,6 +1,12 @@
 # Gridium Developer Application
 
-Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.
+Hello! Thanks for a fun project!
+
+You can check out the app deployed to heroku here: https://pure-escarpment-67447.herokuapp.com
+
+to run locally check the instructions on how to install and serve the environment.
+
+Built using Angular 4
 
 ## Instructions
 
@@ -33,14 +39,12 @@ Install project dependencies
 
 ### Running the Project
 
-[http-server](https://www.npmjs.com/package/http-server) has been included for convenience, run with the following script:
+run with the following script to run the app:
 ```
-> npm start
+> ng serve
 Starting up http-server, serving ./public
 Available on:
-  http://127.0.0.1:8080
-  http://192.168.1.213:8080
-  http://192.168.100.1:8080
+  http://localhost:4200/
 Hit CTRL-C to stop the server
 ```
 

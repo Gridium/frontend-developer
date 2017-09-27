@@ -28,9 +28,15 @@ export default class App extends Component {
             </div>
             <div className="bg-black orange">
                 <Switch>
-                    <Route exact path={`${match.url}`} component={EssentialInfo} />
-                    <Route path={`${match.url}/essentials`} component={EssentialInfo} />
-                    <Route path={`${match.url}/methodology`} component={asyncComponent(() => import('./components/Methodology'))} />
+                    <Route 
+                    exact path={`${match.url}`} 
+                    component={EssentialInfo} />
+                    <Route 
+                    path={`${match.url}/essentials`} 
+                    component={EssentialInfo} />
+                    <Route 
+                    path={`${match.url}/methodology`} 
+                    component={asyncComponent(() => import('./components/Methodology'))} />
                 </Switch>
             </div>
         </div>

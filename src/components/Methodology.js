@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import List from './List';
+import ListItem from './ListItem';
+
 import job from '../gridium';
 
 export default class Methodology extends Component {
@@ -19,6 +22,8 @@ export default class Methodology extends Component {
     render() {
         const methods = this.props.methodology ?
             this.props.methodology : job.methodology;
+
+            const listStyle = 'lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--orange-30';
             
         const { codereviews,
             prototyping,
@@ -33,12 +38,14 @@ export default class Methodology extends Component {
             quickstart,
             commitondayone
         } = methods;
+
         return (
-            <div>
-                <ul>
-                    <li>
-                        Code Reviews: {this.isMethodUsed(codereviews)}
-                    </li>
+            <div className="pa3 pa5-ns">
+                <List>
+                    <ListItem 
+                    style={listStyle} 
+                    name="Code Reviews" 
+                    value={this.isMethodUsed(codereviews)} />
                     <li>
                         Prototyping: {this.isMethodUsed(prototyping)}
                     </li>
@@ -75,7 +82,7 @@ export default class Methodology extends Component {
                     <li>
                         Commit On Day One: {this.isMethodUsed(commitondayone)}
                     </li>
-                </ul>
+                </List>
             </div>
         );
     }

@@ -912,11 +912,7 @@ module.exports = ReactDOMComponentTree;
 "use strict";
 
 
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(37);
-module.exports = function (it) {
-  return Object(defined(it));
-};
+module.exports = __webpack_require__(66);
 
 /***/ }),
 /* 16 */
@@ -925,7 +921,11 @@ module.exports = function (it) {
 "use strict";
 
 
-module.exports = __webpack_require__(66);
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(37);
+module.exports = function (it) {
+  return Object(defined(it));
+};
 
 /***/ }),
 /* 17 */
@@ -1567,7 +1567,7 @@ exports.f = __webpack_require__(11) ? gOPD : function getOwnPropertyDescriptor(O
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(20);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var IE_PROTO = __webpack_require__(105)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
@@ -1897,7 +1897,7 @@ module.exports = function (KEY, exec) {
 // 6 -> Array#findIndex
 var ctx = __webpack_require__(31);
 var IObject = __webpack_require__(70);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toLength = __webpack_require__(13);
 var asc = __webpack_require__(122);
 module.exports = function (TYPE, $create) {
@@ -2259,7 +2259,7 @@ if (__webpack_require__(11)) {
   var has = __webpack_require__(20);
   var classof = __webpack_require__(72);
   var isObject = __webpack_require__(8);
-  var toObject = __webpack_require__(15);
+  var toObject = __webpack_require__(16);
   var isArrayIter = __webpack_require__(119);
   var create = __webpack_require__(54);
   var getPrototypeOf = __webpack_require__(27);
@@ -7435,7 +7435,7 @@ module.exports = function (original, length) {
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 
 
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toAbsoluteIndex = __webpack_require__(53);
 var toLength = __webpack_require__(13);
 module.exports = function fill(value /* , start = 0, end = @length */) {
@@ -10106,7 +10106,7 @@ var _invariant = __webpack_require__(34);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -10667,7 +10667,7 @@ module.exports.f = function getOwnPropertyNames(it) {
 var getKeys = __webpack_require__(52);
 var gOPS = __webpack_require__(81);
 var pIE = __webpack_require__(71);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var IObject = __webpack_require__(70);
 var $assign = Object.assign;
 
@@ -10890,7 +10890,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 var aFunction = __webpack_require__(19);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var IObject = __webpack_require__(70);
 var toLength = __webpack_require__(13);
 
@@ -10927,7 +10927,7 @@ module.exports = function (that, callbackfn, aLen, memo, isRight) {
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 
 
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toAbsoluteIndex = __webpack_require__(53);
 var toLength = __webpack_require__(13);
 
@@ -15519,7 +15519,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -15690,7 +15690,7 @@ var _invariant = __webpack_require__(34);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -15928,9 +15928,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _List = __webpack_require__(565);
+
+var _List2 = _interopRequireDefault(_List);
+
+var _ListItem = __webpack_require__(566);
+
+var _ListItem2 = _interopRequireDefault(_ListItem);
 
 var _gridium = __webpack_require__(153);
 
@@ -15967,6 +15975,8 @@ var Methodology = function (_Component) {
         value: function render() {
             var methods = this.props.methodology ? this.props.methodology : _gridium2.default.methodology;
 
+            var listStyle = 'lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--orange-30';
+
             var codereviews = methods.codereviews,
                 prototyping = methods.prototyping,
                 failfast = methods.failfast,
@@ -15980,18 +15990,17 @@ var Methodology = function (_Component) {
                 quickstart = methods.quickstart,
                 commitondayone = methods.commitondayone;
 
+
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'pa3 pa5-ns' },
                 _react2.default.createElement(
-                    'ul',
+                    _List2.default,
                     null,
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Code Reviews: ',
-                        this.isMethodUsed(codereviews)
-                    ),
+                    _react2.default.createElement(_ListItem2.default, {
+                        style: listStyle,
+                        name: 'Code Reviews',
+                        value: this.isMethodUsed(codereviews) }),
                     _react2.default.createElement(
                         'li',
                         null,
@@ -16655,7 +16664,7 @@ __webpack_require__(39)('getOwnPropertyDescriptor', function () {
 
 
 // 19.1.2.9 Object.getPrototypeOf(O)
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var $getPrototypeOf = __webpack_require__(27);
 
 __webpack_require__(39)('getPrototypeOf', function () {
@@ -16672,7 +16681,7 @@ __webpack_require__(39)('getPrototypeOf', function () {
 
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var $keys = __webpack_require__(52);
 
 __webpack_require__(39)('keys', function () {
@@ -17979,7 +17988,7 @@ $export($export.S, 'Date', { now: function now() {
 
 
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toPrimitive = __webpack_require__(36);
 
 $export($export.P + $export.F * __webpack_require__(6)(function () {
@@ -18110,7 +18119,7 @@ $export($export.S, 'Array', { isArray: __webpack_require__(82) });
 
 var ctx = __webpack_require__(31);
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var call = __webpack_require__(168);
 var isArrayIter = __webpack_require__(119);
 var toLength = __webpack_require__(13);
@@ -18236,7 +18245,7 @@ $export($export.P + $export.F * __webpack_require__(6)(function () {
 
 var $export = __webpack_require__(0);
 var aFunction = __webpack_require__(19);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var fails = __webpack_require__(6);
 var $sort = [].sort;
 var test = [1, 2, 3];
@@ -19630,7 +19639,7 @@ __webpack_require__(47)('includes');
 
 var $export = __webpack_require__(0);
 var flattenIntoArray = __webpack_require__(182);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toLength = __webpack_require__(13);
 var aFunction = __webpack_require__(19);
 var arraySpeciesCreate = __webpack_require__(122);
@@ -19659,7 +19668,7 @@ __webpack_require__(47)('flatMap');
 
 var $export = __webpack_require__(0);
 var flattenIntoArray = __webpack_require__(182);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toLength = __webpack_require__(13);
 var toInteger = __webpack_require__(38);
 var arraySpeciesCreate = __webpack_require__(122);
@@ -19883,7 +19892,7 @@ $export($export.S, 'Object', {
 
 
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var aFunction = __webpack_require__(19);
 var $defineProperty = __webpack_require__(12);
 
@@ -19902,7 +19911,7 @@ __webpack_require__(11) && $export($export.P + __webpack_require__(90), 'Object'
 
 
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var aFunction = __webpack_require__(19);
 var $defineProperty = __webpack_require__(12);
 
@@ -19921,7 +19930,7 @@ __webpack_require__(11) && $export($export.P + __webpack_require__(90), 'Object'
 
 
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toPrimitive = __webpack_require__(36);
 var getPrototypeOf = __webpack_require__(27);
 var getOwnPropertyDescriptor = __webpack_require__(26).f;
@@ -19946,7 +19955,7 @@ __webpack_require__(11) && $export($export.P + __webpack_require__(90), 'Object'
 
 
 var $export = __webpack_require__(0);
-var toObject = __webpack_require__(15);
+var toObject = __webpack_require__(16);
 var toPrimitive = __webpack_require__(36);
 var getPrototypeOf = __webpack_require__(27);
 var getOwnPropertyDescriptor = __webpack_require__(26).f;
@@ -21679,7 +21688,7 @@ module.exports = function (regExp, replace) {
 "use strict";
 
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -33711,7 +33720,7 @@ var _warning = __webpack_require__(18);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -34190,7 +34199,7 @@ var _warning = __webpack_require__(18);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -34640,7 +34649,7 @@ var _warning = __webpack_require__(18);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -34920,7 +34929,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35497,7 +35506,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35630,7 +35639,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -36704,7 +36713,7 @@ var _invariant = __webpack_require__(34);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -36934,7 +36943,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37090,7 +37099,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37234,7 +37243,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37256,7 +37265,7 @@ var _Methodology = __webpack_require__(228);
 
 var _Methodology2 = _interopRequireDefault(_Methodology);
 
-var _AsyncComponent = __webpack_require__(565);
+var _AsyncComponent = __webpack_require__(567);
 
 var _AsyncComponent2 = _interopRequireDefault(_AsyncComponent);
 
@@ -37267,8 +37276,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import AsyncMethodology from './components/AsyncMethodology';
 
 var App = function (_Component) {
     _inherits(App, _Component);
@@ -37311,9 +37318,15 @@ var App = function (_Component) {
                     _react2.default.createElement(
                         _reactRouterDom.Switch,
                         null,
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '' + match.url, component: _Essential_Info2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: match.url + '/essentials', component: _Essential_Info2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: match.url + '/methodology', component: (0, _AsyncComponent2.default)(function () {
+                        _react2.default.createElement(_reactRouterDom.Route, {
+                            exact: true, path: '' + match.url,
+                            component: _Essential_Info2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, {
+                            path: match.url + '/essentials',
+                            component: _Essential_Info2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, {
+                            path: match.url + '/methodology',
+                            component: (0, _AsyncComponent2.default)(function () {
                                 return new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 228));
                             }) })
                     )
@@ -37340,7 +37353,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37394,7 +37407,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37445,7 +37458,7 @@ var EssentialInfo = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'ul',
-                    null,
+                    { className: 'mt0' },
                     _react2.default.createElement(
                         'li',
                         null,
@@ -38094,6 +38107,89 @@ module.exports = startCase;
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(15);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var List = function (_Component) {
+    _inherits(List, _Component);
+
+    function List() {
+        _classCallCheck(this, List);
+
+        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+    }
+
+    _createClass(List, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "ul",
+                { className: "mt0 list pl0 measure center" },
+                this.props.children
+            );
+        }
+    }]);
+
+    return List;
+}(_react.Component);
+
+exports.default = List;
+
+/***/ }),
+/* 566 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(15);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ListItem = function ListItem(_ref) {
+    var style = _ref.style,
+        name = _ref.name,
+        value = _ref.value;
+
+    return _react2.default.createElement(
+        'li',
+        { className: style },
+        name,
+        ': ',
+        value
+    );
+};
+
+exports.default = ListItem;
+
+/***/ }),
+/* 567 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -38101,7 +38197,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.default = asyncComponent;
 
-var _react = __webpack_require__(16);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 

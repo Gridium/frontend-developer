@@ -22,7 +22,7 @@ export default class EssentialInfo extends Component {
 
         return (
             <div>
-                <ul>
+                <ul className="mt0">
                     <li>
                         Location: {startCase(locations)}
                     </li>

@@ -240,20 +240,20 @@ function Ctrl() {
 Ctrl.fn = Ctrl.prototype;
 
 Ctrl.fn.displayJob = function() {
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].headline));
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["h" /* title */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].headline));
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["b" /* essentials */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].essentials));
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["c" /* methodology */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].methodology));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].specs));
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* specs */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].specs));
 
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].prepareCharts());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].profile);
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].profile);
 
     this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* equipment */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].equipment));
     
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].prepareCharts());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].drawCharts(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].technologies);
 
-    this.container.appendChild(other.render());
+    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* other */].render(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */].other));
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -265,8 +265,8 @@ let throttler;
 window.onresize = function() {
     clearTimeout(throttler);
     throttler = setTimeout(function() {
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* profile */].resizeDone();
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* technologies */].resizeDone();
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* profile */].resizeDone();
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* technologies */].resizeDone();
     }, 100);
 };
 
@@ -276,21 +276,21 @@ window.onresize = function() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(5);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__essentials__ = __webpack_require__(6);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__essentials__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__methodology__ = __webpack_require__(7);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__methodology__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__specs__ = __webpack_require__(8);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__specs__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile__ = __webpack_require__(9);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__profile__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__profile__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__equipment__ = __webpack_require__(10);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__equipment__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__technologies__ = __webpack_require__(11);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_6__technologies__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__technologies__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__other__ = __webpack_require__(14);
-/* unused harmony reexport other */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__other__["a"]; });
 
 
 
@@ -463,6 +463,7 @@ const profile = {
         sectionTitle.textContent = 'Developer Profile';
         profileChartWrapper.id = this.profileChartWrapperId;
         profileChart.id = this.profileChartId;
+        profileChart.classList = 'chart';
         profileChart.style.maxHeight = '300px';
         
         profileChartWrapper.appendChild(profileChart);
@@ -605,18 +606,21 @@ const technologies = {
         techChartWrapper.id = this.techChartWrapperId;
         techChartTitle.textContent = 'Skills';
         techChart.id = this.techChartId;
+        techChart.classList = 'chart';
         techChartWrapper.appendChild(techChartTitle);
         techChartWrapper.appendChild(techChart);
 
         testChartWrapper.id = this.testChartWrapperId;
         testChartTitle.textContent = 'Testing (one of)';
         testChart.id = this.testChartId;
+        testChart.classList = 'chart';
         testChartWrapper.appendChild(testChartTitle);
         testChartWrapper.appendChild(testChart);
 
         frameworkChartWrapper.id = this.frameworkChartWrapperId;
         frameworkChartTitle.textContent = 'Frameworks (one of)';
         frameworkChart.id = this.frameworkChartId;
+        frameworkChart.classList = 'chart';
         frameworkChartWrapper.appendChild(frameworkChartTitle);
         frameworkChartWrapper.appendChild(frameworkChart);
 
@@ -930,31 +934,20 @@ const languageColors = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
-
-
-const specs = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
+const other = {
     render: function(data) {
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
-        sectionTitle.textContent = 'Details';
+        const sectionText = document.createElement('p');
+        sectionTitle.textContent = 'Why join us?';
+        const textContent = data.join(' & ');
+        sectionText.textContent = textContent[0].toUpperCase() + textContent.slice(1);
         wrapper.appendChild(sectionTitle);
-
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workload', data.workload));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Workweek', `${data.workweek} hours`));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Schedule', data.schedule));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Remote', data.remote));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('Personal time off', data.pto));
-
-        wrapper.appendChild(this.container);
+        wrapper.appendChild(sectionText);
         return wrapper;
     }
 };
-/* unused harmony export specs */
+/* harmony export (immutable) */ __webpack_exports__["a"] = other;
 
 
 /***/ })

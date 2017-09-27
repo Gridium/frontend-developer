@@ -6,7 +6,8 @@ import {
     specs,
     profile,
     equipment,
-    technologies
+    technologies,
+    other
 } from './components/index';
 
 function Ctrl() {
@@ -30,7 +31,7 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(technologies.prepareCharts());
     technologies.drawCharts(job.technologies);
 
-    this.container.appendChild(other.render());
+    this.container.appendChild(other.render(job.other));
 }
 
 window.addEventListener('DOMContentLoaded', function() {

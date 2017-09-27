@@ -93,6 +93,10 @@ function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Wi
 function MachineType() { return enumerate("Workstation", "Laptop"); };
 function Monitors() { return enumerate("Negotiable"); };
 function Level() { return enumerate("Familiar", "Good", "Expert"); };
+export const LevelResources = () => mapEnumToResources(
+    Level(),
+    [1, 2, 3]
+);
 function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); };
 function PTO() { return enumerate("Accrued", "Unlimited") };
 

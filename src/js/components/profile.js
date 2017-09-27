@@ -28,14 +28,6 @@ export const profile = {
         profileChartWrapper.appendChild(profileChart);
         wrapper.appendChild(sectionTitle);
         wrapper.appendChild(profileChartWrapper);
-        
-        let throttler;
-        window.onresize = function() {
-            clearTimeout(throttler);
-            throttler = setTimeout(function() {
-                that.resizeDone();
-            }, 100);
-        };
 
         return wrapper;
     },

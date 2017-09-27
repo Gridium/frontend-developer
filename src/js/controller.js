@@ -5,7 +5,8 @@ import {
     methodology,
     specs,
     profile,
-    equipment
+    equipment,
+    technologies
 } from './components/index';
 
 function Ctrl() {
@@ -23,8 +24,22 @@ Ctrl.fn.displayJob = function() {
     this.container.appendChild(profile.render());
     profile.drawChart(job.profile);
     this.container.appendChild(equipment.render(job.equipment));
+    this.container.appendChild(technologies.render());
+    technologies.drawTechChart(job.technologies);
+    technologies.drawTestChart(job.technologies);
+    technologies.drawFrameworkChart(job.technologies);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
     const ctrl = new Ctrl();
 });
+
+// Listen for window resize and resize the charts accordingly
+let throttler;
+window.onresize = function() {
+    clearTimeout(throttler);
+    throttler = setTimeout(function() {
+        profile.resizeDone();
+        technologies.resizeDone();
+    }, 100);
+};

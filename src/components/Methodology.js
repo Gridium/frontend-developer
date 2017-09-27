@@ -44,44 +44,68 @@ export default class Methodology extends Component {
                 <List>
                     <ListItem 
                     style={listStyle} 
-                    name="Code Reviews" 
+                    name="Code Reviews:" 
                     value={this.isMethodUsed(codereviews)} />
-                    <li>
-                        Prototyping: {this.isMethodUsed(prototyping)}
-                    </li>
-                    <li>
-                        Fail Fast: {this.isMethodUsed(failfast)}
-                    </li>
-                    <li>
-                        Unit Tests: {this.isMethodUsed(unittests)}
-                    </li>
-                    <li>
-                        Integration Tests: {this.isMethodUsed(integrationtests)}
-                    </li>
-                    <li>
-                        Fail Fast: {this.isMethodUsed(failfast)}
-                    </li>
-                    <li>
-                        Build Server: {buildserver}
-                    </li>
-                    <li>
-                        Static Code Analysis: {staticcodeanalysis}
-                    </li>
-                    <li>
-                        Version Control: {versioncontrol}
-                    </li>
-                    <li>
-                        Issue Tracker: {issuetracker}
-                    </li>
-                    <li>
-                        Stand Ups: {this.isMethodUsed(standups)}
-                    </li>
-                    <li>
-                        Quick Start: {this.isMethodUsed(quickstart)}
-                    </li>
-                    <li>
-                        Commit On Day One: {this.isMethodUsed(commitondayone)}
-                    </li>
+                    <ListItem
+                    style={listStyle}
+                    name="Prototyping:" 
+                    value={this.isMethodUsed(prototyping)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name=" Fail Fast:" 
+                    value={this.isMethodUsed(failfast)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Unit Tests:" 
+                    value={this.isMethodUsed(unittests)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Integration Tests:" 
+                    value={this.isMethodUsed(integrationtests)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Fail Fast:" 
+                    value={this.isMethodUsed(failfast)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Build Server:" 
+                    value={buildserver}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Static Code Analysis:" 
+                    value={staticcodeanalysis}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Version Control:" 
+                    value={versioncontrol}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Issue Tracker:" 
+                    value={issuetracker}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Stand Ups:" 
+                    value={this.isMethodUsed(standups)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Quick Start:" 
+                    value={this.isMethodUsed(quickstart)}
+                    />
+                    <ListItem
+                    style={listStyle}
+                    name="Commit On Day One:" 
+                    value={this.isMethodUsed(commitondayone)}
+                    />
                 </List>
             </div>
         );

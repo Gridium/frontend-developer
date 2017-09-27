@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import job from './gridium';
 
 import Headline from './components/Headline';
+import Nav from './components/Nav';
 import EssentialInfo from './components/Essential_Info';
 import Methodology from './components/Methodology';
 import asyncComponent from './components/AsyncComponent';
@@ -15,16 +16,7 @@ export default class App extends Component {
         <div className="helvetica">
             <div className="bg-orange ba">
                 <Headline headline={job.headline} />
-                <NavLink to="/home/essentials"
-                    className="navy" 
-                    activeClassName="underline">
-                    Essential Info
-                </NavLink>
-                <NavLink to="/home/methodology"
-                    className="navy" 
-                    activeClassName="underline">
-                    Methodology
-                </NavLink>
+                <Nav />
             </div>
             <div className="bg-black orange">
                 <Switch>

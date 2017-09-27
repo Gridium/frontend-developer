@@ -6,6 +6,7 @@ import job from './gridium';
 import Headline from './components/Headline';
 import EssentialInfo from './components/Essential_Info';
 import Methodology from './components/Methodology';
+import asyncComponent from './components/AsyncComponent';
 
 export default class App extends Component {
     render() {
@@ -29,7 +30,7 @@ export default class App extends Component {
                 <Switch>
                     <Route exact path={`${match.url}`} component={EssentialInfo} />
                     <Route path={`${match.url}/essentials`} component={EssentialInfo} />
-                    <Route path={`${match.url}/methodology`} component={Methodology} />
+                    <Route path={`${match.url}/methodology`} component={asyncComponent(() => import('./components/Methodology'))} />
                 </Switch>
             </div>
         </div>

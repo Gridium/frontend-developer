@@ -1,25 +1,21 @@
 import { CompanySizeResources } from '../job';
-import { createRow } from '../helpers';
 
 export const essentials = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
+        const location = data.locations[0].toUpperCase() + data.locations.slice(1);
+        const experience = data.experience.map(el => `<strong>${el}</strong>`).join(' OR ');
         const startDate = new Date(data.startdate)
         const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
         const teamSize = data.teamsize.max === data.teamsize.min 
             ? data.teamsize.max 
             : `${data.teamsize.min} - ${data.teamsize.max}`;
 
-        this.addRow(createRow('Location', data.locations[0].toUpperCase() + data.locations.slice(1)));
-        this.addRow(createRow('Contract', data.employment));
-        this.addRow(createRow('Experience', data.experience.join(' OR ')));
-        this.addRow(createRow('Starting date', startDate.toLocaleDateString('en-US', dateOptions)));
-        this.addRow(createRow('Team Size', teamSize));
-        this.addRow(createRow('Company Size', CompanySizeResources()[data.companysize]));
+        const wrapper = document.createElement('div');
+        const text = document.createElement('div');
+        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a ${experience} <strong>${data.position}</strong> for a ${data.employment} position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
+        <p>Gridium has ${CompanySizeResources()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
+        wrapper.appendChild(text);
 
-        return this.container;
+        return wrapper;
     }
 }

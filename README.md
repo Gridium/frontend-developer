@@ -1,46 +1,31 @@
 # Gridium Developer Application
 
-Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.
+You can see this project running here http://gridium-board.surge.sh/
 
-## Instructions
+## Details
 
-Fork, Code, Submit a Pull Request
-Use the libraries or framework of your choice, show us what you know!
+I decided to implement the assignment by creating a **Single Page Application** with **vanilla JS**. No dependencies have been used besides webpack to bundle all JS files.
 
-## Getting Started (if using Node/NPM)
-We're polygots. You'll find Python, R, Java, Javascript, and a few other technologies in use at Gridium. Use whatever you feel most comfortable with.
+The build consists of:
+- 1 JavaScript file
+- 1 CSS file
+- 1 HTML file
 
-If you choose to go the JS route then the basic work is done. Use NPM to initialize things.
+The app structure is based on a single `Controller` which manages the job list and the single job displayer. Each element in the job list and in the single job displayer has been created as a component in separate files, where the whole component logic and rendering live.
 
-### Prerequisites
+The original `job` object has been turned into an array of `jobs` to allow the creation of a Job Board dedicated mainly to developer positions.
 
-Node, NPM should be installed
+Some of the `jobs` attributes have been changed to allow an easier looping and a more dynamic label creation and overall better rendering.
 
-```
-> node -v
-v7.10.0
-> npm -v
-4.2.0
-```
+## Run
 
-### Installing
+To run the project:
 
-Install project dependencies
+1. clone repo `git clone https://github.com/throwaway-nf/frontend-developer.git`
+2. run `npm i` to install all dependencies
+3. run `npm start` to spin-up the server
+4. visit http://127.0.0.1:8080/ to see the app running
 
-```
-> npm i
-```
+## Development
 
-### Running the Project
-
-[http-server](https://www.npmjs.com/package/http-server) has been included for convenience, run with the following script:
-```
-> npm start
-Starting up http-server, serving ./public
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.1.213:8080
-  http://192.168.100.1:8080
-Hit CTRL-C to stop the server
-```
-
+Follow the instructions described [here](#run) and besides running `npm start` also run `npm run build` on a separate terminal window to allow webpack to bundle all the dependencies.

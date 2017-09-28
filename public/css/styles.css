@@ -25,6 +25,9 @@ ul li {
 .chart_group {
 	padding-bottom: 20px;
 }
+.chart_item {
+	text-transform: capitalize;
+}
 .chart_map {
 	width: 100%;
 	padding-bottom: 62.5%;

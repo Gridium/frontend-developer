@@ -6,6 +6,55 @@ app.controller("GridiumController", function ($scope, $http) {
 	$scope.isArray = angular.isArray;
 	$scope.isObject = angular.isObject;
 	$scope.chartColors = ["#00a1e0","#e2670f","#004177","#7b8c9f","#eaf0f4"];
+	$scope.cleanNames = {
+		"locations" : "Locations",
+		"employment" : "Employment",
+		"experience" : "Experience",
+		"startdate" : "Start Date",
+		"companysize" : "Company Size",
+		"teamsize" : "Team Size",
+		"codereviews" : "Code Reviews",
+		"prototyping" : "Prototyping",
+		"failfast" : "Fail Fast",
+		"unittests" : "Unit Tests",
+		"integrationtests" : "Integration Tests",
+		"buildserver" : "Build Server",
+		"staticcodeanalysis" : "Static Code Analysis",
+		"versioncontrol" : "Version Control",
+		"issuetracker" : "Issue Tracker",
+		"standups" : "Stand-ups",
+		"quickstart" : "Quick Start",
+		"commitondayone" : "Commit on Day One",
+		"workload" : "Workload",
+		"workweek" : "Work Week",
+		"schedule" : "Schedule",
+		"remote" : "Remote",
+		"pto" : "PTO",
+		"newfeatures" : "New Features",
+		"clientsupport" : "Client Support",
+		"documentation" : "Documentation",
+		"maintenance" : "Maintenance",
+		"meetings" : "Meetings",
+		"operatingsystem" : "Operating System",
+		"computer" : "Computer",
+		"css3" : "CSS3",
+		"html5" : "HTML5",
+		"javascript" : "JavaScript",
+		"node" : "Node",
+		"rest" : "Rest",
+		"uiux" : "UI/UX",
+		"design" : "Design",
+		"testing" : "Testing",
+		"junit" : "JUnit",
+		"mocha" : "Mocha",
+		"jasmine" : "Jasmine",
+		"selenium" : "Selenium",
+		"framework" : "Framework",
+		"react" : "React",
+		"vue" : "Vue",
+		"angular" : "Angular",
+		"boardgames" : "Board Games",
+	};
 });
 
 // Controller to generate Google Map
@@ -52,7 +101,7 @@ app.controller("PieController", function ($scope, $element, $timeout) {
 				tooltips: {
 					callbacks: {
 						label: function(tooltipItem, data) {
-							return data.labels[tooltipItem.index] +": " + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + "%"; // Add '%' to tooltip
+							return $scope.cleanNames[data.labels[tooltipItem.index]] +": " + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + "%"; // Add '%' to tooltip
 						}
 					}
 				}

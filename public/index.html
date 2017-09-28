@@ -27,7 +27,7 @@
 						<div id="chart_essentials_data" class="col-xs-12 col-sm-6">
 							<div class="chart_item row" ng-repeat="(key, essential) in content.essentials">
 								<div ng-switch on="key">
-									<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+									<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{cleanNames[key]}}</strong></div>
 									<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-switch-when="startdate">
 										{{essential | date:'mediumDate'}}
 									</div>
@@ -59,7 +59,7 @@
 						<div class="chart_group_title col-xs-12"><h2>Methodology</h2></div>
 						<div class="chart_item col-xs-12 col-sm-6" ng-repeat="(key, methodology) in content.methodology">
 							<div class="row">
-								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{cleanNames[key]}}</strong></div>
 								<div class="chart_item_value col-xs-6 col-md-8 col-lg-6" ng-if="methodology == true">
 									&#10004;
 								</div>
@@ -77,7 +77,7 @@
 						<div class="chart_group_title col-xs-12"><h2>Specs</h2></div>
 						<div class="chart_item col-xs-12" ng-repeat="(key, spec) in content.specs">
 							<div class="row">
-								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_title col-xs-6 col-md-4 col-lg-6"><strong>{{cleanNames[key]}}</strong></div>
 								<div class="chart_item_value col-xs-6 col-md-8 col-lg-6">
 									{{spec}}
 								</div>
@@ -98,7 +98,7 @@
 						<div class="chart_group_title col-xs-12"><h2>Equipment</h2></div>
 						<div class="chart_item col-xs-12" ng-repeat="(key, equipment) in content.equipment">
 							<div class="row" ng-switch on="key">
-								<div class="chart_item_title col-xs-6"><strong>{{key}}</strong></div>
+								<div class="chart_item_title col-xs-6"><strong>{{cleanNames[key]}}</strong></div>
 								<div class="chart_item_value col-xs-6" ng-switch-when="operatingsystem">
 									<ul class="chart_item_list">
 										<li ng-repeat="os in equipment">{{os}}</li>
@@ -120,11 +120,11 @@
 							<div class="row" ng-if="technology.oneof">
 								<div class="col-xs-12">
 									<div class="row">
-										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{key}}</strong></div>
+										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{cleanNames[key]}}</strong></div>
 										<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">One of</div>
 									</div>
 									<div class="row" ng-repeat="(option,strength) in technology.oneof">
-										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2">&nbsp;&nbsp;{{option}}</div>
+										<div class="chart_item_title col-xs-12 col-sm-4 col-md-2">&nbsp;&nbsp;{{cleanNames[option]}}</div>
 										<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">
 											<canvas class="bar_chart" ng-controller="BarController">{{strength}}</canvas>
 										</div>
@@ -132,7 +132,7 @@
 								</div>
 							</div>
 							<div class="row" ng-if="!technology.oneof">
-								<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{key}}</strong></div>
+								<div class="chart_item_title col-xs-12 col-sm-4 col-md-2"><strong>{{cleanNames[key]}}</strong></div>
 								<div class="chart_item_value col-xs-12 col-sm-8 col-md-10">
 									<canvas class="bar_chart" ng-controller="BarController">{{technology}}</canvas>
 								</div>

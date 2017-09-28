@@ -110,17 +110,11 @@ export const technologies = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            that.charts.tech.chartData = google.visualization.arrayToDataTable([
-                ['Technology', 'Level', { role: 'style' }],
-                ['CSS3', LevelResources()[data.css3], languageColors['CSS']],
-                ['HTML5', LevelResources()[data.html5], languageColors['HTML']],
-                ['JavaScript', LevelResources()[data.javascript], languageColors['JavaScript']],
-                ['Node', LevelResources()[data.node], languageColors['Node']],
-                ['REST API', LevelResources()[data.rest], languageColors['REST API']],
-                ['UI/UX', LevelResources()[data.uiux], languageColors['UI/UX']],
-                ['Design', LevelResources()[data.design], languageColors['Design']],
-                ['Boardgames', LevelResources()[data.boardgames], languageColors['Boardgames']]
-            ]);
+            const chartData = [['Technology', 'Level', { role: 'style' }]];
+            Object.keys(data).filter(key => !data[key].nested).forEach(key => {
+                chartData.push([key, LevelResources()[data[key]], languageColors[key]]);
+            });
+            that.charts.tech.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };
@@ -134,17 +128,13 @@ export const technologies = {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
-        if (data.testing.oneof) {
-            data.testing = data.testing.oneof;
-        }
         function drawChart() {
-            chart.chartData = google.visualization.arrayToDataTable([
-                ['Testing', 'Level', { role: 'style' }],
-                ['JUnit', LevelResources()[data.testing.junit], languageColors['JUnit']],
-                ['Mocha', LevelResources()[data.testing.mocha], languageColors['Mocha']],
-                ['Jasmine', LevelResources()[data.testing.jasmine], languageColors['Jasmine']],
-                ['Selenium', LevelResources()[data.testing.selenium], languageColors['Selenium']]
-            ]);
+            const chartData = [['Testing', 'Level', { role: 'style' }]];
+            const testing = data.testing.oneof ? data.testing.oneof : data.testing;
+            Object.keys(testing).forEach(key => {
+                chartData.push([key, LevelResources()[testing[key]], languageColors[key]]);
+            });
+            chart.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };
@@ -158,12 +148,12 @@ export const technologies = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            chart.chartData = google.visualization.arrayToDataTable([
-                ['Framework', 'Level', { role: 'style' }],
-                ['React', LevelResources()[data.framework.oneof.react], languageColors['React']],
-                ['Vue', LevelResources()[data.framework.oneof.vue], languageColors['Vue']],
-                ['Angular', LevelResources()[data.framework.oneof.angular], languageColors['Angular']]
-            ]);
+          const chartData = [['Framework', 'Level', { role: 'style' }]];
+          const framework = data.framework.oneof ? data.framework.oneof : data.framework;
+          Object.keys(framework).forEach(key => {
+              chartData.push([key, LevelResources()[framework[key]], languageColors[key]]);
+          });
+          chart.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };

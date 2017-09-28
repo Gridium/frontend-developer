@@ -12,18 +12,18 @@ export const jobs = [{
         "teamsize": { "min": 1, "max": 6 },
     },
     "methodology": {
-        "codereviews": true,
+        "code_reviews": true,
         "prototyping": true,
-        "failfast": true,
-        "unittests": true,
-        "integrationtests": true,
-        "buildserver": BuildServers().CircleCI,
-        "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-        "versioncontrol": VersionControlSystem().Git,
-        "issuetracker": IssueTrackers().Tikkit,
+        "fail_fast": true,
+        "unit_testing": true,
+        "integration_tests": true,
+        "build_server": BuildServers().CircleCI,
+        "static_code_analysis": CodeAnalysisTools().NotYetChosen,
+        "version_control": VersionControlSystem().Git,
+        "issue_tracker": IssueTrackers().Tikkit,
         "standups": true,
-        "quickstart": true,
-        "commitondayone": true,
+        "quick_start": true,
+        "commit_on_day_one": true,
     },
     "specs": {
         "workload": 1.0,
@@ -44,108 +44,37 @@ export const jobs = [{
         "computer": MachineType().Laptop,
     },
     "technologies": {
-        "css3": Level().Good,
-        "html5": Level().Good,
-        "javascript": Level().Good,
-        "node": Level().Good,
-        "rest": Level().Good,
-        "uiux": Level().Familiar,
-        "design": Level().Familiar,
+        "CSS": Level().Good,
+        "HTML": Level().Good,
+        "JavaScript": Level().Good,
+        "Node": Level().Good,
+        "REST": Level().Good,
+        "UI/UX": Level().Familiar,
+        "Design": Level().Familiar,
         "testing": {
+            "nested": true,
             "oneof": {
-                "junit": Level().Good,
-                "mocha": Level().Good,
-                "jasmine": Level().Good,
-                "selenium": Level().Good,
+                "JUnit": Level().Good,
+                "Mocha": Level().Good,
+                "Jasmine": Level().Good,
+                "Selenium": Level().Good,
             }
         },
         "framework": {
+            "nested": true,
             "oneof": {
-                "react": Level().Familiar,
-                "vue": Level().Familiar,
-                "angular": Level().Familiar,
+                "React": Level().Familiar,
+                "Vue": Level().Familiar,
+                "Angular": Level().Familiar,
             }
         },
-        "boardgames": Level().Familiar,
+        "Boardgames": Level().Familiar,
     },
     "other": [
         "we love technology",
         "we solve interesting problems"
     ],
     "apply": "https://gridium.com/about/working-at-gridium/"
-}, {
-  "headline": "Gridium Front-end Developer2",
-  "essentials": {
-      "locations": "denver",
-      "position": "Front-end Developer",
-      "employment": EmploymentType().Permanent,
-      "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-      "startdate": (new Date()).getTime(),
-      "companysize": CompanySize().TenToTwenty,
-      "teamsize": { "min": 1, "max": 6 },
-  },
-  "methodology": {
-      "codereviews": true,
-      "prototyping": true,
-      "failfast": true,
-      "unittests": true,
-      "integrationtests": true,
-      "buildserver": BuildServers().CircleCI,
-      "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-      "versioncontrol": VersionControlSystem().Git,
-      "issuetracker": IssueTrackers().Tikkit,
-      "standups": true,
-      "quickstart": true,
-      "commitondayone": true,
-  },
-  "specs": {
-      "workload": 1.0,
-      "workweek": 40,
-      "schedule": ScheduleOptions().Flexible,
-      "remote": RemoteWorking().Required,
-      "pto": PTO().Unlimited
-  },
-  "profile": {
-      "newfeatures": 50,
-      "clientsupport": 9,
-      "documentation": 10,
-      "maintenance": 30,
-      "meetings": 1,
-  },
-  "equipment": {
-      "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-      "computer": MachineType().Laptop,
-  },
-  "technologies": {
-      "css3": Level().Good,
-      "html5": Level().Good,
-      "javascript": Level().Good,
-      "node": Level().Good,
-      "rest": Level().Good,
-      "uiux": Level().Familiar,
-      "design": Level().Familiar,
-      "testing": {
-          "oneof": {
-              "junit": Level().Good,
-              "mocha": Level().Good,
-              "jasmine": Level().Good,
-              "selenium": Level().Good,
-          }
-      },
-      "framework": {
-          "oneof": {
-              "react": Level().Familiar,
-              "vue": Level().Familiar,
-              "angular": Level().Familiar,
-          }
-      },
-      "boardgames": Level().Familiar,
-  },
-  "other": [
-      "we love technology",
-      "we solve interesting problems"
-  ],
-  "apply": "https://gridium.com/about/working-at-gridium/"
 }];
 
 function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };

@@ -9,3 +9,6 @@ export const createRow = (label, content) => {
     rowNode.appendChild(contentNode);
     return rowNode;
 };
+
+export const keyToLabel = key => 
+  key.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');

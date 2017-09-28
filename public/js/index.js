@@ -60,11 +60,143 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(2);
+
+
+const jobs = [{
+    "headline": "Gridium Front-end Developer",
+    "essentials": {
+        "locations": "denver",
+        "position": "Front-end Developer",
+        "employment": EmploymentType().Permanent,
+        "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
+        "startdate": (new Date()).getTime(),
+        "companysize": CompanySize().TenToTwenty,
+        "teamsize": { "min": 1, "max": 6 },
+    },
+    "methodology": {
+        "code_reviews": true,
+        "prototyping": true,
+        "fail_fast": true,
+        "unit_testing": true,
+        "integration_tests": true,
+        "build_server": BuildServers().CircleCI,
+        "static_code_analysis": CodeAnalysisTools().NotYetChosen,
+        "version_control": VersionControlSystem().Git,
+        "issue_tracker": IssueTrackers().Tikkit,
+        "standups": true,
+        "quick_start": true,
+        "commit_on_day_one": true,
+    },
+    "specs": {
+        "workload": 1.0,
+        "workweek": 40,
+        "schedule": ScheduleOptions().Flexible,
+        "remote": RemoteWorking().Required,
+        "pto": PTO().Unlimited
+    },
+    "profile": {
+        "newfeatures": 50,
+        "clientsupport": 9,
+        "documentation": 10,
+        "maintenance": 30,
+        "meetings": 1,
+    },
+    "equipment": {
+        "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+        "computer": MachineType().Laptop,
+    },
+    "technologies": {
+        "CSS": Level().Good,
+        "HTML": Level().Good,
+        "JavaScript": Level().Good,
+        "Node": Level().Good,
+        "REST": Level().Good,
+        "UI/UX": Level().Familiar,
+        "Design": Level().Familiar,
+        "testing": {
+            "nested": true,
+            "oneof": {
+                "JUnit": Level().Good,
+                "Mocha": Level().Good,
+                "Jasmine": Level().Good,
+                "Selenium": Level().Good,
+            }
+        },
+        "framework": {
+            "nested": true,
+            "oneof": {
+                "React": Level().Familiar,
+                "Vue": Level().Familiar,
+                "Angular": Level().Familiar,
+            }
+        },
+        "Boardgames": Level().Familiar,
+    },
+    "other": [
+        "we love technology",
+        "we solve interesting problems"
+    ],
+    "apply": "https://gridium.com/about/working-at-gridium/"
+}];
+/* harmony export (immutable) */ __webpack_exports__["c"] = jobs;
+
+
+function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };
+function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); };
+function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); };
+const CompanySizeResources = () => mapEnumToResources(
+    CompanySize(),
+    ["Less than 10", "10 to 20", "20 to 50", "50 to 200", "200+"]
+);
+/* harmony export (immutable) */ __webpack_exports__["a"] = CompanySizeResources;
+
+function VersionControlSystem() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "Git", "BitBucket"); };
+function IssueTrackers() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "GitHub", "Jira", "Tikkit"); };
+function BuildServers() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "Jenkins", "Travis", "Codeship", "CircleCI"); };
+function CodeAnalysisTools() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "ESLint"); };
+function KnowledgeRepos() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "GitHubWiki", "Confluence"); };
+function TravelOptions() { return enumerate("None", "Possible", "Plentiful"); };
+function ScheduleOptions() { return enumerate("Fixed", "Flexible"); };
+function RemoteWorking() { return enumerate("No", "Negotiable", "Required"); };
+function RelocationPackages() { return enumerate("Nonealse", "Negotiable"); };
+function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Windows"); };
+function MachineType() { return enumerate("Workstation", "Laptop"); };
+function Monitors() { return enumerate("Negotiable"); };
+function Level() { return enumerate("Familiar", "Good", "Expert"); };
+const LevelResources = () => mapEnumToResources(
+    Level(),
+    [1, 2, 3]
+);
+/* harmony export (immutable) */ __webpack_exports__["b"] = LevelResources;
+
+function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); };
+function PTO() { return enumerate("Accrued", "Unlimited") };
+
+// https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
+function enumerate() { var v = arguments; var s = { all: [], keys: v }; for (var i = v.length; i--;)s[v[i]] = s.all[i] = v[i]; return s };
+
+function mapEnumToResources(enumerator, resources) {
+    if (enumerator.all.length !== resources.length) {
+        return {};
+    }
+    let map = {};
+    for (let i = 0; i < enumerator.all.length; i++) {
+        map[enumerator.all[i]] = resources[i];
+    }
+    return map;
+};
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82,8 +214,13 @@ const createRow = (label, content) => {
 /* harmony export (immutable) */ __webpack_exports__["a"] = createRow;
 
 
+const keyToLabel = key => 
+  key.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+/* harmony export (immutable) */ __webpack_exports__["b"] = keyToLabel;
+
+
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94,7 +231,7 @@ const constants = {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -133,13 +270,13 @@ const constants = {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_index__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_index__ = __webpack_require__(3);
 
 
 
@@ -203,209 +340,6 @@ window.onresize = function () {
 };
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(1);
-
-
-const jobs = [{
-    "headline": "Gridium Front-end Developer",
-    "essentials": {
-        "locations": "denver",
-        "position": "Front-end Developer",
-        "employment": EmploymentType().Permanent,
-        "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-        "startdate": (new Date()).getTime(),
-        "companysize": CompanySize().TenToTwenty,
-        "teamsize": { "min": 1, "max": 6 },
-    },
-    "methodology": {
-        "codereviews": true,
-        "prototyping": true,
-        "failfast": true,
-        "unittests": true,
-        "integrationtests": true,
-        "buildserver": BuildServers().CircleCI,
-        "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-        "versioncontrol": VersionControlSystem().Git,
-        "issuetracker": IssueTrackers().Tikkit,
-        "standups": true,
-        "quickstart": true,
-        "commitondayone": true,
-    },
-    "specs": {
-        "workload": 1.0,
-        "workweek": 40,
-        "schedule": ScheduleOptions().Flexible,
-        "remote": RemoteWorking().Required,
-        "pto": PTO().Unlimited
-    },
-    "profile": {
-        "newfeatures": 50,
-        "clientsupport": 9,
-        "documentation": 10,
-        "maintenance": 30,
-        "meetings": 1,
-    },
-    "equipment": {
-        "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-        "computer": MachineType().Laptop,
-    },
-    "technologies": {
-        "css3": Level().Good,
-        "html5": Level().Good,
-        "javascript": Level().Good,
-        "node": Level().Good,
-        "rest": Level().Good,
-        "uiux": Level().Familiar,
-        "design": Level().Familiar,
-        "testing": {
-            "oneof": {
-                "junit": Level().Good,
-                "mocha": Level().Good,
-                "jasmine": Level().Good,
-                "selenium": Level().Good,
-            }
-        },
-        "framework": {
-            "oneof": {
-                "react": Level().Familiar,
-                "vue": Level().Familiar,
-                "angular": Level().Familiar,
-            }
-        },
-        "boardgames": Level().Familiar,
-    },
-    "other": [
-        "we love technology",
-        "we solve interesting problems"
-    ],
-    "apply": "https://gridium.com/about/working-at-gridium/"
-}, {
-  "headline": "Gridium Front-end Developer2",
-  "essentials": {
-      "locations": "denver",
-      "position": "Front-end Developer",
-      "employment": EmploymentType().Permanent,
-      "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-      "startdate": (new Date()).getTime(),
-      "companysize": CompanySize().TenToTwenty,
-      "teamsize": { "min": 1, "max": 6 },
-  },
-  "methodology": {
-      "codereviews": true,
-      "prototyping": true,
-      "failfast": true,
-      "unittests": true,
-      "integrationtests": true,
-      "buildserver": BuildServers().CircleCI,
-      "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-      "versioncontrol": VersionControlSystem().Git,
-      "issuetracker": IssueTrackers().Tikkit,
-      "standups": true,
-      "quickstart": true,
-      "commitondayone": true,
-  },
-  "specs": {
-      "workload": 1.0,
-      "workweek": 40,
-      "schedule": ScheduleOptions().Flexible,
-      "remote": RemoteWorking().Required,
-      "pto": PTO().Unlimited
-  },
-  "profile": {
-      "newfeatures": 50,
-      "clientsupport": 9,
-      "documentation": 10,
-      "maintenance": 30,
-      "meetings": 1,
-  },
-  "equipment": {
-      "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-      "computer": MachineType().Laptop,
-  },
-  "technologies": {
-      "css3": Level().Good,
-      "html5": Level().Good,
-      "javascript": Level().Good,
-      "node": Level().Good,
-      "rest": Level().Good,
-      "uiux": Level().Familiar,
-      "design": Level().Familiar,
-      "testing": {
-          "oneof": {
-              "junit": Level().Good,
-              "mocha": Level().Good,
-              "jasmine": Level().Good,
-              "selenium": Level().Good,
-          }
-      },
-      "framework": {
-          "oneof": {
-              "react": Level().Familiar,
-              "vue": Level().Familiar,
-              "angular": Level().Familiar,
-          }
-      },
-      "boardgames": Level().Familiar,
-  },
-  "other": [
-      "we love technology",
-      "we solve interesting problems"
-  ],
-  "apply": "https://gridium.com/about/working-at-gridium/"
-}];
-/* harmony export (immutable) */ __webpack_exports__["c"] = jobs;
-
-
-function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };
-function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); };
-function CompanySize() { return enumerate("LessThanTen", "TenToTwenty", "TwentyToFifty", "FiftyToTwoHundred", "MoreThanTwoHundred"); };
-const CompanySizeResources = () => mapEnumToResources(
-    CompanySize(),
-    ["Less than 10", "10 to 20", "20 to 50", "50 to 200", "200+"]
-);
-/* harmony export (immutable) */ __webpack_exports__["a"] = CompanySizeResources;
-
-function VersionControlSystem() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "Git", "BitBucket"); };
-function IssueTrackers() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "GitHub", "Jira", "Tikkit"); };
-function BuildServers() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "Jenkins", "Travis", "Codeship", "CircleCI"); };
-function CodeAnalysisTools() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "ESLint"); };
-function KnowledgeRepos() { return enumerate(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen, "GitHubWiki", "Confluence"); };
-function TravelOptions() { return enumerate("None", "Possible", "Plentiful"); };
-function ScheduleOptions() { return enumerate("Fixed", "Flexible"); };
-function RemoteWorking() { return enumerate("No", "Negotiable", "Required"); };
-function RelocationPackages() { return enumerate("Nonealse", "Negotiable"); };
-function OperationSystems() { return enumerate("MacOSX", "CentOS", "Ubuntu", "Windows"); };
-function MachineType() { return enumerate("Workstation", "Laptop"); };
-function Monitors() { return enumerate("Negotiable"); };
-function Level() { return enumerate("Familiar", "Good", "Expert"); };
-const LevelResources = () => mapEnumToResources(
-    Level(),
-    [1, 2, 3]
-);
-/* harmony export (immutable) */ __webpack_exports__["b"] = LevelResources;
-
-function TrainingType() { return enumerate("None", "Informal", "Formal", "External"); };
-function PTO() { return enumerate("Accrued", "Unlimited") };
-
-// https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
-function enumerate() { var v = arguments; var s = { all: [], keys: v }; for (var i = v.length; i--;)s[v[i]] = s.all[i] = v[i]; return s };
-
-function mapEnumToResources(enumerator, resources) {
-    if (enumerator.all.length !== resources.length) {
-        return {};
-    }
-    let map = {};
-    for (let i = 0; i < enumerator.all.length; i++) {
-        map[enumerator.all[i]] = resources[i];
-    }
-    return map;
-};
-
-/***/ }),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -425,7 +359,7 @@ const title = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__(3);
 
 
 const intro = {
@@ -450,7 +384,7 @@ const intro = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(0);
 
 
 const essentials = {
@@ -465,8 +399,11 @@ const essentials = {
 
         const wrapper = document.createElement('div');
         const text = document.createElement('div');
-        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
-        <p>Gridium has ${Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["a" /* CompanySizeResources */])()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
+        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a 
+        ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} 
+        position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
+        <p>Gridium has ${Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["a" /* CompanySizeResources */])()[data.companysize]} employees and you will be 
+        working in a team of ${teamSize} people.</p>`;
         wrapper.appendChild(text);
 
         return wrapper;
@@ -481,8 +418,8 @@ const essentials = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(1);
 
 
 
@@ -498,29 +435,13 @@ const methodology = {
         sectionTitle.textContent = 'How we do things';
         wrapper.id = 'methodology';
         wrapper.appendChild(sectionTitle);
-
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Review', data.codereviews ? '✅' : '❌'));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Prototyping', data.prototyping ? '✅' : '❌'));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Unit Testing', data.unittests ? '✅' : '❌'));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Integration Tests', data.integrationtests ? '✅' : '❌'));
-
-        if (data.buildserver !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Server Builds', `with ${data.buildserver}`));
-        }
-        if (data.staticcodeanalysis !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Code Analysis Tool', `with ${data.staticcodeanalysis}`));
-        }
-        if (data.versioncontrol !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Version Control', `with ${data.versioncontrol}`));
-        }
-        if (data.issuetracker !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
-            this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Issue Tracker', `with ${data.issuetracker}`));
-        }
-
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Standups', data.standups ? '✅' : '❌'));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Quick Start', data.quickstart ? '✅' : '❌'));
-        this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])('Commit on Day 1', data.commitondayone ? '✅' : '❌'));
-
+        Object.keys(data).forEach(key => {
+            if (typeof data[key] === typeof true) {
+                this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* keyToLabel */])(key), data[key] ? '✅' : '❌'));
+            } else if (data[key] !== __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* constants */].notYetChosen) {
+                this.addRow(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* createRow */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* keyToLabel */])(key), `with ${data[key]}`));
+            }
+        });
         wrapper.appendChild(this.container);
         return wrapper;
     }
@@ -539,7 +460,9 @@ const specs = {
         const text = document.createElement('p');
         const remote = data.remote === 'No' ? 'not possible' : data.remote.toLowerCase();
         
-        text.innerHTML = `We are looking for people available to work ${data.workweek} hours per week, with a ${data.schedule.toLowerCase()} schedule. Remote working is ${remote} and personal time off is ${data.pto.toLowerCase()}.`;
+        text.innerHTML = `We are looking for people available to work ${data.workweek} 
+        hours per week, with a ${data.schedule.toLowerCase()} schedule. Remote working is 
+        ${remote} and personal time off is ${data.pto.toLowerCase()}.`;
         wrapper.appendChild(text);
 
         return wrapper;
@@ -633,8 +556,8 @@ const equipment = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__languageColors__ = __webpack_require__(13);
 
 
@@ -748,17 +671,11 @@ const technologies = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            that.charts.tech.chartData = google.visualization.arrayToDataTable([
-                ['Technology', 'Level', { role: 'style' }],
-                ['CSS3', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.css3], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['CSS']],
-                ['HTML5', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.html5], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['HTML']],
-                ['JavaScript', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.javascript], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JavaScript']],
-                ['Node', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.node], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Node']],
-                ['REST API', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.rest], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['REST API']],
-                ['UI/UX', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.uiux], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['UI/UX']],
-                ['Design', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.design], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Design']],
-                ['Boardgames', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.boardgames], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Boardgames']]
-            ]);
+            const chartData = [['Technology', 'Level', { role: 'style' }]];
+            Object.keys(data).filter(key => !data[key].nested).forEach(key => {
+                chartData.push([key, Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data[key]], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */][key]]);
+            });
+            that.charts.tech.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };
@@ -772,17 +689,13 @@ const technologies = {
         const that = this;
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
-        if (data.testing.oneof) {
-            data.testing = data.testing.oneof;
-        }
         function drawChart() {
-            chart.chartData = google.visualization.arrayToDataTable([
-                ['Testing', 'Level', { role: 'style' }],
-                ['JUnit', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.junit], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JUnit']],
-                ['Mocha', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.mocha], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Mocha']],
-                ['Jasmine', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.jasmine], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Jasmine']],
-                ['Selenium', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.selenium], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Selenium']]
-            ]);
+            const chartData = [['Testing', 'Level', { role: 'style' }]];
+            const testing = data.testing.oneof ? data.testing.oneof : data.testing;
+            Object.keys(testing).forEach(key => {
+                chartData.push([key, Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[testing[key]], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */][key]]);
+            });
+            chart.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };
@@ -796,12 +709,12 @@ const technologies = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            chart.chartData = google.visualization.arrayToDataTable([
-                ['Framework', 'Level', { role: 'style' }],
-                ['React', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.react], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['React']],
-                ['Vue', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.vue], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Vue']],
-                ['Angular', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.angular], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Angular']]
-            ]);
+          const chartData = [['Framework', 'Level', { role: 'style' }]];
+          const framework = data.framework.oneof ? data.framework.oneof : data.framework;
+          Object.keys(framework).forEach(key => {
+              chartData.push([key, Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[framework[key]], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */][key]]);
+          });
+          chart.chartData = google.visualization.arrayToDataTable(chartData);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
             };
@@ -1081,7 +994,7 @@ const apply = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
 
 
 const jobsList = {

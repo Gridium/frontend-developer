@@ -12,8 +12,11 @@ export const essentials = {
 
         const wrapper = document.createElement('div');
         const text = document.createElement('div');
-        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
-        <p>Gridium has ${CompanySizeResources()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
+        text.innerHTML = `<p>Our company is located in ${location} and we are looking for a 
+        ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} 
+        position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
+        <p>Gridium has ${CompanySizeResources()[data.companysize]} employees and you will be 
+        working in a team of ${teamSize} people.</p>`;
         wrapper.appendChild(text);
 
         return wrapper;

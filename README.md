@@ -22,7 +22,7 @@ Install project dependencies
 
 ### Running the Project
 
-```npm start``` will start the production build process and then serve the contents of ```./public'''
+```npm start``` will start the production build process and then serve the contents of ```./public```
 
 ```
 > webpack -p

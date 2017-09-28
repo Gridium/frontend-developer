@@ -1,1 +1,5 @@
 node_modules
+
+#Webpack bundles and map files
+*.bundle.js
+*.bundle.js.map

@@ -5,7 +5,9 @@ app.controller("GridiumController", function ($scope, $http) {
 	$scope.content = job;
 	$scope.isArray = angular.isArray;
 	$scope.isObject = angular.isObject;
-	$scope.chartColors = ["#00a1e0","#e2670f","#004177","#7b8c9f","#eaf0f4"];
+	$scope.chartColors = ["#00a1e0","#e2670f","#004177","#7b8c9f","#384956"];
+
+	// Clean up the job keys *Credit Romklao's code for giving me the idea
 	$scope.cleanNames = {
 		"locations" : "Locations",
 		"employment" : "Employment",

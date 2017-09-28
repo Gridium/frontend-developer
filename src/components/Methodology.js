@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Headline from './Headline';
 import List from './List';
 import ListItem from './ListItem';
 
@@ -41,69 +42,73 @@ export default class Methodology extends Component {
 
         return (
             <div className="pa3 pa5-ns">
+                <Headline
+                style="f2 tc"
+                headline="Methodology"
+                />
                 <List>
                     <ListItem 
                     style={listStyle} 
-                    name="Code Reviews:" 
+                    name="Code Reviews" 
                     value={this.isMethodUsed(codereviews)} />
                     <ListItem
                     style={listStyle}
-                    name="Prototyping:" 
+                    name="Prototyping" 
                     value={this.isMethodUsed(prototyping)}
                     />
                     <ListItem
                     style={listStyle}
-                    name=" Fail Fast:" 
+                    name=" Fail Fast" 
                     value={this.isMethodUsed(failfast)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Unit Tests:" 
+                    name="Unit Tests" 
                     value={this.isMethodUsed(unittests)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Integration Tests:" 
+                    name="Integration Tests" 
                     value={this.isMethodUsed(integrationtests)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Fail Fast:" 
+                    name="Fail Fast" 
                     value={this.isMethodUsed(failfast)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Build Server:" 
+                    name="Build Server" 
                     value={buildserver}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Static Code Analysis:" 
+                    name="Static Code Analysis" 
                     value={staticcodeanalysis}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Version Control:" 
+                    name="Version Control" 
                     value={versioncontrol}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Issue Tracker:" 
+                    name="Issue Tracker" 
                     value={issuetracker}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Stand Ups:" 
+                    name="Stand Ups" 
                     value={this.isMethodUsed(standups)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Quick Start:" 
+                    name="Quick Start" 
                     value={this.isMethodUsed(quickstart)}
                     />
                     <ListItem
                     style={listStyle}
-                    name="Commit On Day One:" 
+                    name="Commit On Day One" 
                     value={this.isMethodUsed(commitondayone)}
                     />
                 </List>

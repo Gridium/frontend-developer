@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/http-server/bin/http-server",
+    "start": "npm run build-prod && node_modules/http-server/bin/http-server",
+    "serve": "node_modules/http-server/bin/http-server",
     "build": "webpack",
+    "build-watch": "webpack --watch",
     "build-prod": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,11 +20,11 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "http-server": "^0.10.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "webpack": "^3.6.0"
   },
   "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "babel-polyfill": "^6.26.0",
     "lodash.startcase": "^4.4.0",
     "react-router-dom": "^4.2.2"

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 export default class Headline extends Component {
     render() {
+        const { style, headline } = this.props;
+
         return (
-            <div className="f1">
-                <h1>{this.props.headline}</h1>    
+            <div className={style}>
+                <h1>{headline}</h1>    
             </div>
         );
     }

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ListItem = ({ style, name, value }) => {
-    return (
-        <li className={style}>
-            {name}: {value}
-        </li>
-    );
+class ListItem extends Component {
+    render() {
+        const { 
+            style,
+            name,
+            value,
+            children
+         } = this.props;
+        return (
+            <li className={style}>
+                {name}: {value}
+                {children}
+            </li>
+        );
+    }
 };
 
 export default ListItem;

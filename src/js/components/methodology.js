@@ -2,13 +2,14 @@ import { constants } from '../constants';
 import { createRow } from '../helpers';
 
 export const methodology = {
-    container: document.createElement('ul'),
+    container: null,
     addRow: function(row) {
         this.container.appendChild(row);
     },
     render: function(data) {
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
+        this.container = document.createElement('ul');
         sectionTitle.textContent = 'How we do things';
         wrapper.id = 'methodology';
         wrapper.appendChild(sectionTitle);

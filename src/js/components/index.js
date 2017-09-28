@@ -8,3 +8,4 @@ export { equipment } from './equipment';
 export { technologies } from './technologies';
 export { other } from './other';
 export { apply } from './apply';
+export { jobsList } from './jobsList';

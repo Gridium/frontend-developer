@@ -1,10 +1,4 @@
-import { createRow } from '../helpers';
-
 export const specs = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
         const wrapper = document.createElement('div');
         const text = document.createElement('p');

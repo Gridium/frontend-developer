@@ -1,4 +1,4 @@
-import { CompanySizeResources } from '../job';
+import { CompanySizeResources } from '../jobs';
 
 export const essentials = {
     render: function(data) {

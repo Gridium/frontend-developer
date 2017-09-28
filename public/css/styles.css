@@ -9,12 +9,8 @@
     --divider-color: var(--bg-color);
 } 
 
- /* Media Queries used for mobile first device size classes */
-    
-/* For phone classes */
-@media only screen { } /* For mobile styles */
-
 /* For Tablet Classes */
+/* min-width 768px for Tablet styles */
 @media only screen and (min-width: 48em) {
     #job {
         width: 80%;
@@ -23,37 +19,25 @@
     .column-wrapper {
         display: flex;
     }
-} /* min-width 768px for Tablet styles */
+} 
 
 /* For Laptop Classes */
+/* min-width 992px for laptop to small desktop styles */
 @media only screen and (min-width: 62em) {
     #job {
         width: 70%;
         margin: 0 auto;
     }
-} /* min-width 992px for laptop to small desktop styles /*
+} 
 
 /* For Desktop Classes */
+/* min-width 1200px medium to large Desktop styles */
 @media only screen and (min-width: 75em) { 
     #job {
         width: 60%;
         margin: 0 auto;
     }
-} /* min-width 1200px medium to large Desktop styles /*
-
-/* Others Media Queries used for devices with min and max used with show and hide classes*/
-
-@media only screen and (max-width: 47.938em) { } /* Up to 767px */
-
-@media only screen and (min-width: 48em) and (max-width: 61.938em) { } /* 768px to 991px */
-
-@media only screen and (min-width: 62em) and (max-width: 74.938em) { } /*  992px to 1199px */
-
-@media only screen and (min-width: 75em) { } /* 1200px and up */
-
-/* Used to stack columns 30em and under with cute-100 */
-@media only screen and (max-width: 30em){ } /* max-width 30em 480px */
-
+} 
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -61,20 +45,20 @@ body {
     background-color: var(--bg-color);
 }
 
-#job {
+#job, #jobs {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-#job ul {
+#job ul, #jobs ul {
     padding: 0px;
 }
 
-#job li {
+#job li, #jobs li {
     list-style: none;    
 }
 
-#job li .label {
+#job li .label, #jobs li .label {
     font-weight: bold;
 }
 
@@ -104,7 +88,12 @@ body {
     height:100%;
 }
 
-/* Gridium button style */
+/* Gridium button/link style */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
 a.btn {
     text-decoration: none;
     -webkit-transition: all 0.2s ease;

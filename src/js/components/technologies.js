@@ -1,4 +1,4 @@
-import { LevelResources } from '../job';
+import { LevelResources } from '../jobs';
 import { createRow } from '../helpers';
 import { languageColors } from '../languageColors';
 

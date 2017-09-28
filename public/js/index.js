@@ -87,53 +87,173 @@ const createRow = (label, content) => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(2);
+const constants = {
+    notYetChosen: 'NotYetChosen'
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = constants;
 
 
-const job = {
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(5);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__intro__ = __webpack_require__(6);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__intro__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__essentials__ = __webpack_require__(7);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__essentials__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__methodology__ = __webpack_require__(8);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__methodology__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__specs__ = __webpack_require__(9);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__specs__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile__ = __webpack_require__(10);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_5__profile__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__equipment__ = __webpack_require__(11);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__equipment__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__technologies__ = __webpack_require__(12);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_7__technologies__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__other__ = __webpack_require__(14);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_8__other__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__apply__ = __webpack_require__(15);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_9__apply__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__jobsList__ = __webpack_require__(16);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_10__jobsList__["a"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_index__ = __webpack_require__(2);
+
+
+
+function Ctrl() {
+    this.jobsList = document.getElementById('jobs');
+    this.job = document.getElementById('job');
+    this.displayJobsList(__WEBPACK_IMPORTED_MODULE_0__jobs__["c" /* jobs */].map(el => el.headline));
+    this.addJobsListEvents();
+};
+
+Ctrl.fn = Ctrl.prototype;
+
+Ctrl.fn.displayJobsList = function (data) {
+    this.jobsList.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* jobsList */].render(data));
+}
+
+Ctrl.fn.addJobsListEvents = function() {
+    const jobsList = document.querySelectorAll('[data-job]');
+    jobsList.forEach(job => job.addEventListener(
+        'click', this.triggerJob.bind(this)
+    ));
+}
+
+Ctrl.fn.triggerJob = function(e) {
+    this.clearJob();
+    this.displayJob(__WEBPACK_IMPORTED_MODULE_0__jobs__["c" /* jobs */][e.target.dataset.job]);
+}
+
+Ctrl.fn.displayJob = function (data) {
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["k" /* title */].render(data.headline));
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* intro */].render(data));
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
+    const columnsWrapper = document.createElement('div');
+    columnsWrapper.className = 'column-wrapper';
+    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["h" /* profile */].prepareCharts());
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["h" /* profile */].drawCharts(data.profile);
+    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* methodology */].render(data.methodology));
+    this.job.appendChild(columnsWrapper);
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["j" /* technologies */].prepareCharts(data.technologies));
+    __WEBPACK_IMPORTED_MODULE_1__components_index__["j" /* technologies */].drawCharts(data.technologies);
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* other */].render(data.other));
+    this.job.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
+}
+
+Ctrl.fn.clearJob = function() {
+    this.job.innerHTML = '';
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    const ctrl = new Ctrl();
+});
+
+// Listen for window resize and resize the charts accordingly
+let throttler;
+window.onresize = function () {
+    clearTimeout(throttler);
+    throttler = setTimeout(function () {
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["h" /* profile */].resizeDone();
+        __WEBPACK_IMPORTED_MODULE_1__components_index__["j" /* technologies */].resizeDone();
+    }, 100);
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(1);
+
+
+const jobs = [{
     "headline": "Gridium Front-end Developer",
-	"essentials": {
+    "essentials": {
         "locations": "denver",
         "position": "Front-end Developer",
         "employment": EmploymentType().Permanent,
         "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-		"startdate": (new Date()).getTime(),
-		"companysize": CompanySize().TenToTwenty,
-		"teamsize": { "min": 1, "max": 6 },
-	},
-	"methodology": {
-		"codereviews": true,
-		"prototyping": true,
-		"failfast": true,
-		"unittests": true,
-		"integrationtests": true,
-		"buildserver": BuildServers().CircleCI,
-		"staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-		"versioncontrol": VersionControlSystem().Git,
-		"issuetracker": IssueTrackers().Tikkit,
-		"standups": true,
-		"quickstart": true,
-		"commitondayone": true,
-	},
-	"specs": {
-		"workload": 1.0,
-		"workweek": 40,
+        "startdate": (new Date()).getTime(),
+        "companysize": CompanySize().TenToTwenty,
+        "teamsize": { "min": 1, "max": 6 },
+    },
+    "methodology": {
+        "codereviews": true,
+        "prototyping": true,
+        "failfast": true,
+        "unittests": true,
+        "integrationtests": true,
+        "buildserver": BuildServers().CircleCI,
+        "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
+        "versioncontrol": VersionControlSystem().Git,
+        "issuetracker": IssueTrackers().Tikkit,
+        "standups": true,
+        "quickstart": true,
+        "commitondayone": true,
+    },
+    "specs": {
+        "workload": 1.0,
+        "workweek": 40,
         "schedule": ScheduleOptions().Flexible,
         "remote": RemoteWorking().Required,
         "pto": PTO().Unlimited
-	},
-	"profile": {
-		"newfeatures": 50,
-		"clientsupport": 9,
-		"documentation": 10,
-		"maintenance": 30,
-		"meetings": 1,
-	},
-	"equipment": {
-		"operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-		"computer": MachineType().Laptop,
-	},
-	"technologies": {
+    },
+    "profile": {
+        "newfeatures": 50,
+        "clientsupport": 9,
+        "documentation": 10,
+        "maintenance": 30,
+        "meetings": 1,
+    },
+    "equipment": {
+        "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+        "computer": MachineType().Laptop,
+    },
+    "technologies": {
         "css3": Level().Good,
         "html5": Level().Good,
         "javascript": Level().Good,
@@ -158,13 +278,86 @@ const job = {
         },
         "boardgames": Level().Familiar,
     },
-	"other": [
+    "other": [
         "we love technology",
         "we solve interesting problems"
     ],
     "apply": "https://gridium.com/about/working-at-gridium/"
-};
-/* harmony export (immutable) */ __webpack_exports__["c"] = job;
+}, {
+  "headline": "Gridium Front-end Developer2",
+  "essentials": {
+      "locations": "denver",
+      "position": "Front-end Developer",
+      "employment": EmploymentType().Permanent,
+      "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
+      "startdate": (new Date()).getTime(),
+      "companysize": CompanySize().TenToTwenty,
+      "teamsize": { "min": 1, "max": 6 },
+  },
+  "methodology": {
+      "codereviews": true,
+      "prototyping": true,
+      "failfast": true,
+      "unittests": true,
+      "integrationtests": true,
+      "buildserver": BuildServers().CircleCI,
+      "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
+      "versioncontrol": VersionControlSystem().Git,
+      "issuetracker": IssueTrackers().Tikkit,
+      "standups": true,
+      "quickstart": true,
+      "commitondayone": true,
+  },
+  "specs": {
+      "workload": 1.0,
+      "workweek": 40,
+      "schedule": ScheduleOptions().Flexible,
+      "remote": RemoteWorking().Required,
+      "pto": PTO().Unlimited
+  },
+  "profile": {
+      "newfeatures": 50,
+      "clientsupport": 9,
+      "documentation": 10,
+      "maintenance": 30,
+      "meetings": 1,
+  },
+  "equipment": {
+      "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+      "computer": MachineType().Laptop,
+  },
+  "technologies": {
+      "css3": Level().Good,
+      "html5": Level().Good,
+      "javascript": Level().Good,
+      "node": Level().Good,
+      "rest": Level().Good,
+      "uiux": Level().Familiar,
+      "design": Level().Familiar,
+      "testing": {
+          "oneof": {
+              "junit": Level().Good,
+              "mocha": Level().Good,
+              "jasmine": Level().Good,
+              "selenium": Level().Good,
+          }
+      },
+      "framework": {
+          "oneof": {
+              "react": Level().Familiar,
+              "vue": Level().Familiar,
+              "angular": Level().Familiar,
+          }
+      },
+      "boardgames": Level().Familiar,
+  },
+  "other": [
+      "we love technology",
+      "we solve interesting problems"
+  ],
+  "apply": "https://gridium.com/about/working-at-gridium/"
+}];
+/* harmony export (immutable) */ __webpack_exports__["c"] = jobs;
 
 
 function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };
@@ -199,7 +392,7 @@ function TrainingType() { return enumerate("None", "Informal", "Formal", "Extern
 function PTO() { return enumerate("Accrued", "Unlimited") };
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
-function enumerate() { var v=arguments;var s={all:[],keys:v};for(var i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
+function enumerate() { var v = arguments; var s = { all: [], keys: v }; for (var i = v.length; i--;)s[v[i]] = s.all[i] = v[i]; return s };
 
 function mapEnumToResources(enumerator, resources) {
     if (enumerator.all.length !== resources.length) {
@@ -211,101 +404,6 @@ function mapEnumToResources(enumerator, resources) {
     }
     return map;
 };
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const constants = {
-    notYetChosen: 'NotYetChosen'
-};
-/* harmony export (immutable) */ __webpack_exports__["a"] = constants;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__job__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_index__ = __webpack_require__(4);
-
-
-
-function Ctrl() {
-    this.container = document.getElementById('job');
-    this.displayJob(__WEBPACK_IMPORTED_MODULE_0__job__["c" /* job */]);
-};
-
-Ctrl.fn = Ctrl.prototype;
-
-Ctrl.fn.displayJob = function(data) {
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["j" /* title */].render(data.headline));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["d" /* intro */].render(data));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
-    const columnsWrapper = document.createElement('div');
-    columnsWrapper.className = 'column-wrapper';
-    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].prepareCharts());
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].drawCharts(data.profile);
-    columnsWrapper.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["e" /* methodology */].render(data.methodology));
-    this.container.appendChild(columnsWrapper);
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].prepareCharts(data.technologies));
-    __WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].drawCharts(data.technologies);
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["f" /* other */].render(data.other));
-    this.container.appendChild(__WEBPACK_IMPORTED_MODULE_1__components_index__["a" /* apply */].render(data.apply));
-}
-
-window.addEventListener('DOMContentLoaded', function() {
-    const ctrl = new Ctrl();
-});
-
-// Listen for window resize and resize the charts accordingly
-let throttler;
-window.onresize = function() {
-    clearTimeout(throttler);
-    throttler = setTimeout(function() {
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["g" /* profile */].resizeDone();
-        __WEBPACK_IMPORTED_MODULE_1__components_index__["i" /* technologies */].resizeDone();
-    }, 100);
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title__ = __webpack_require__(5);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_0__title__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__intro__ = __webpack_require__(15);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__intro__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__essentials__ = __webpack_require__(6);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__essentials__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__methodology__ = __webpack_require__(7);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_3__methodology__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__specs__ = __webpack_require__(8);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_4__specs__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile__ = __webpack_require__(9);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_5__profile__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__equipment__ = __webpack_require__(10);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__equipment__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__technologies__ = __webpack_require__(11);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_7__technologies__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__other__ = __webpack_require__(14);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_8__other__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__apply__ = __webpack_require__(16);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_9__apply__["a"]; });
-
-
-
-
-
-
-
-
-
-
 
 /***/ }),
 /* 5 */
@@ -327,7 +425,32 @@ const title = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__job__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__(2);
+
+
+const intro = {
+    render: function(data) {
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["c" /* essentials */].render(data.essentials));
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["i" /* specs */].render(data.specs));
+        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["b" /* equipment */].render(data.equipment));
+        
+        const text = document.createElement('p');
+        text.textContent = 'Do you like what you are seeing? Read on and see if your skills match with what we are looking for!';
+        wrapper.appendChild(text);
+        return wrapper;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = intro;
+
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
 
 
 const essentials = {
@@ -343,7 +466,7 @@ const essentials = {
         const wrapper = document.createElement('div');
         const text = document.createElement('div');
         text.innerHTML = `<p>Our company is located in ${location} and we are looking for a ${experience} <strong>${data.position}</strong> for a ${data.employment.toLowerCase()} position. Starting date: ${startDate.toLocaleDateString('en-US', dateOptions)}</p>
-        <p>Gridium has ${Object(__WEBPACK_IMPORTED_MODULE_0__job__["a" /* CompanySizeResources */])()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
+        <p>Gridium has ${Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["a" /* CompanySizeResources */])()[data.companysize]} employees and you will be working in a team of ${teamSize} people.</p>`;
         wrapper.appendChild(text);
 
         return wrapper;
@@ -354,23 +477,24 @@ const essentials = {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(0);
 
 
 
 const methodology = {
-    container: document.createElement('ul'),
+    container: null,
     addRow: function(row) {
         this.container.appendChild(row);
     },
     render: function(data) {
         const wrapper = document.createElement('div');
         const sectionTitle = document.createElement('h2');
+        this.container = document.createElement('ul');
         sectionTitle.textContent = 'How we do things';
         wrapper.id = 'methodology';
         wrapper.appendChild(sectionTitle);
@@ -405,18 +529,11 @@ const methodology = {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
-
-
 const specs = {
-    container: document.createElement('ul'),
-    addRow: function(row) {
-        this.container.appendChild(row);
-    },
     render: function(data) {
         const wrapper = document.createElement('div');
         const text = document.createElement('p');
@@ -432,7 +549,7 @@ const specs = {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -493,7 +610,7 @@ const profile = {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -512,13 +629,13 @@ const equipment = {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__job__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__jobs__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__languageColors__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__languageColors__ = __webpack_require__(13);
 
 
 
@@ -633,14 +750,14 @@ const technologies = {
         function drawChart() {
             that.charts.tech.chartData = google.visualization.arrayToDataTable([
                 ['Technology', 'Level', { role: 'style' }],
-                ['CSS3', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.css3], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['CSS']],
-                ['HTML5', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.html5], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['HTML']],
-                ['JavaScript', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.javascript], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JavaScript']],
-                ['Node', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.node], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Node']],
-                ['REST API', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.rest], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['REST API']],
-                ['UI/UX', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.uiux], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['UI/UX']],
-                ['Design', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.design], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Design']],
-                ['Boardgames', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.boardgames], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Boardgames']]
+                ['CSS3', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.css3], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['CSS']],
+                ['HTML5', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.html5], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['HTML']],
+                ['JavaScript', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.javascript], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JavaScript']],
+                ['Node', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.node], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Node']],
+                ['REST API', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.rest], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['REST API']],
+                ['UI/UX', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.uiux], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['UI/UX']],
+                ['Design', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.design], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Design']],
+                ['Boardgames', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.boardgames], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Boardgames']]
             ]);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
@@ -661,10 +778,10 @@ const technologies = {
         function drawChart() {
             chart.chartData = google.visualization.arrayToDataTable([
                 ['Testing', 'Level', { role: 'style' }],
-                ['JUnit', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.junit], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JUnit']],
-                ['Mocha', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.mocha], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Mocha']],
-                ['Jasmine', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.jasmine], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Jasmine']],
-                ['Selenium', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.testing.selenium], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Selenium']]
+                ['JUnit', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.junit], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['JUnit']],
+                ['Mocha', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.mocha], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Mocha']],
+                ['Jasmine', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.jasmine], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Jasmine']],
+                ['Selenium', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.testing.selenium], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Selenium']]
             ]);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
@@ -681,9 +798,9 @@ const technologies = {
         function drawChart() {
             chart.chartData = google.visualization.arrayToDataTable([
                 ['Framework', 'Level', { role: 'style' }],
-                ['React', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.framework.oneof.react], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['React']],
-                ['Vue', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.framework.oneof.vue], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Vue']],
-                ['Angular', Object(__WEBPACK_IMPORTED_MODULE_0__job__["b" /* LevelResources */])()[data.framework.oneof.angular], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Angular']]
+                ['React', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.react], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['React']],
+                ['Vue', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.vue], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Vue']],
+                ['Angular', Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[data.framework.oneof.angular], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */]['Angular']]
             ]);
             chart.options.hAxis = {
                 ticks: [{ v: 0, f: '' }, { v: 1, f: 'Familiar' }, { v: 2, f: 'Good' }, { v: 3, f: 'Expert' }]
@@ -701,7 +818,7 @@ const technologies = {
 // fix title
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -921,7 +1038,6 @@ const languageColors = {
 
 
 /***/ }),
-/* 13 */,
 /* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -947,31 +1063,6 @@ const other = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index__ = __webpack_require__(4);
-
-
-const intro = {
-    render: function(data) {
-        const wrapper = document.createElement('div');
-        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["c" /* essentials */].render(data.essentials));
-        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["h" /* specs */].render(data.specs));
-        wrapper.appendChild(__WEBPACK_IMPORTED_MODULE_0__index__["b" /* equipment */].render(data.equipment));
-        
-        const text = document.createElement('p');
-        text.textContent = 'Do you like what you are seeing? Read on and see if your skills match with what we are looking for!';
-        wrapper.appendChild(text);
-        return wrapper;
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = intro;
-
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 const apply = {
     render: function(data) {
         const button = document.createElement('a');
@@ -983,6 +1074,40 @@ const apply = {
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = apply;
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(0);
+
+
+const jobsList = {
+    container: null,
+    addRow: function(row) {
+        this.container.appendChild(row);
+    },
+    render: function(data) {
+        const wrapper = document.createElement('div');
+        const title = document.createElement('h1');
+        const text = document.createElement('p');
+        this.container = document.createElement('ul');
+        title.textContent = 'Welcome to the Gridium developers job boards!';
+        text.textContent = 'Browse all new opportunities and find the job that match your skills.';
+
+        (data.forEach((el, i) => {
+            this.container.appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('', `<h2><a data-job=${i} href="#">${el} ›</a></h2>`))
+        }));
+
+        wrapper.appendChild(title);
+        wrapper.appendChild(text);
+        wrapper.appendChild(this.container);
+        return wrapper;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = jobsList;
 
 
 /***/ })

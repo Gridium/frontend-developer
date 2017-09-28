@@ -1,4 +1,4 @@
-import { job } from './job';
+import { jobs } from './jobs';
 import {
     title,
     intro,
@@ -6,41 +6,64 @@ import {
     profile,
     technologies,
     other,
-    apply
+    apply,
+    jobsList
 } from './components/index';
 
 function Ctrl() {
-    this.container = document.getElementById('job');
-    this.displayJob(job);
+    this.jobsList = document.getElementById('jobs');
+    this.job = document.getElementById('job');
+    this.displayJobsList(jobs.map(el => el.headline));
+    this.addJobsListEvents();
 };
 
 Ctrl.fn = Ctrl.prototype;
 
-Ctrl.fn.displayJob = function(data) {
-    this.container.appendChild(title.render(data.headline));
-    this.container.appendChild(intro.render(data));
-    this.container.appendChild(apply.render(data.apply));
+Ctrl.fn.displayJobsList = function (data) {
+    this.jobsList.appendChild(jobsList.render(data));
+}
+
+Ctrl.fn.addJobsListEvents = function() {
+    const jobsList = document.querySelectorAll('[data-job]');
+    jobsList.forEach(job => job.addEventListener(
+        'click', this.triggerJob.bind(this)
+    ));
+}
+
+Ctrl.fn.triggerJob = function(e) {
+    this.clearJob();
+    this.displayJob(jobs[e.target.dataset.job]);
+}
+
+Ctrl.fn.displayJob = function (data) {
+    this.job.appendChild(title.render(data.headline));
+    this.job.appendChild(intro.render(data));
+    this.job.appendChild(apply.render(data.apply));
     const columnsWrapper = document.createElement('div');
     columnsWrapper.className = 'column-wrapper';
     columnsWrapper.appendChild(profile.prepareCharts());
     profile.drawCharts(data.profile);
     columnsWrapper.appendChild(methodology.render(data.methodology));
-    this.container.appendChild(columnsWrapper);
-    this.container.appendChild(technologies.prepareCharts(data.technologies));
+    this.job.appendChild(columnsWrapper);
+    this.job.appendChild(technologies.prepareCharts(data.technologies));
     technologies.drawCharts(data.technologies);
-    this.container.appendChild(other.render(data.other));
-    this.container.appendChild(apply.render(data.apply));
+    this.job.appendChild(other.render(data.other));
+    this.job.appendChild(apply.render(data.apply));
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+Ctrl.fn.clearJob = function() {
+    this.job.innerHTML = '';
+}
+
+window.addEventListener('DOMContentLoaded', function () {
     const ctrl = new Ctrl();
 });
 
 // Listen for window resize and resize the charts accordingly
 let throttler;
-window.onresize = function() {
+window.onresize = function () {
     clearTimeout(throttler);
-    throttler = setTimeout(function() {
+    throttler = setTimeout(function () {
         profile.resizeDone();
         technologies.resizeDone();
     }, 100);

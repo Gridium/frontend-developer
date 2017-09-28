@@ -1,49 +1,49 @@
 import { constants } from './constants';
 
-export const job = {
+export const jobs = [{
     "headline": "Gridium Front-end Developer",
-	"essentials": {
+    "essentials": {
         "locations": "denver",
         "position": "Front-end Developer",
         "employment": EmploymentType().Permanent,
         "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-		"startdate": (new Date()).getTime(),
-		"companysize": CompanySize().TenToTwenty,
-		"teamsize": { "min": 1, "max": 6 },
-	},
-	"methodology": {
-		"codereviews": true,
-		"prototyping": true,
-		"failfast": true,
-		"unittests": true,
-		"integrationtests": true,
-		"buildserver": BuildServers().CircleCI,
-		"staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
-		"versioncontrol": VersionControlSystem().Git,
-		"issuetracker": IssueTrackers().Tikkit,
-		"standups": true,
-		"quickstart": true,
-		"commitondayone": true,
-	},
-	"specs": {
-		"workload": 1.0,
-		"workweek": 40,
+        "startdate": (new Date()).getTime(),
+        "companysize": CompanySize().TenToTwenty,
+        "teamsize": { "min": 1, "max": 6 },
+    },
+    "methodology": {
+        "codereviews": true,
+        "prototyping": true,
+        "failfast": true,
+        "unittests": true,
+        "integrationtests": true,
+        "buildserver": BuildServers().CircleCI,
+        "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
+        "versioncontrol": VersionControlSystem().Git,
+        "issuetracker": IssueTrackers().Tikkit,
+        "standups": true,
+        "quickstart": true,
+        "commitondayone": true,
+    },
+    "specs": {
+        "workload": 1.0,
+        "workweek": 40,
         "schedule": ScheduleOptions().Flexible,
         "remote": RemoteWorking().Required,
         "pto": PTO().Unlimited
-	},
-	"profile": {
-		"newfeatures": 50,
-		"clientsupport": 9,
-		"documentation": 10,
-		"maintenance": 30,
-		"meetings": 1,
-	},
-	"equipment": {
-		"operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-		"computer": MachineType().Laptop,
-	},
-	"technologies": {
+    },
+    "profile": {
+        "newfeatures": 50,
+        "clientsupport": 9,
+        "documentation": 10,
+        "maintenance": 30,
+        "meetings": 1,
+    },
+    "equipment": {
+        "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+        "computer": MachineType().Laptop,
+    },
+    "technologies": {
         "css3": Level().Good,
         "html5": Level().Good,
         "javascript": Level().Good,
@@ -68,12 +68,85 @@ export const job = {
         },
         "boardgames": Level().Familiar,
     },
-	"other": [
+    "other": [
         "we love technology",
         "we solve interesting problems"
     ],
     "apply": "https://gridium.com/about/working-at-gridium/"
-};
+}, {
+  "headline": "Gridium Front-end Developer2",
+  "essentials": {
+      "locations": "denver",
+      "position": "Front-end Developer",
+      "employment": EmploymentType().Permanent,
+      "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
+      "startdate": (new Date()).getTime(),
+      "companysize": CompanySize().TenToTwenty,
+      "teamsize": { "min": 1, "max": 6 },
+  },
+  "methodology": {
+      "codereviews": true,
+      "prototyping": true,
+      "failfast": true,
+      "unittests": true,
+      "integrationtests": true,
+      "buildserver": BuildServers().CircleCI,
+      "staticcodeanalysis": CodeAnalysisTools().NotYetChosen,
+      "versioncontrol": VersionControlSystem().Git,
+      "issuetracker": IssueTrackers().Tikkit,
+      "standups": true,
+      "quickstart": true,
+      "commitondayone": true,
+  },
+  "specs": {
+      "workload": 1.0,
+      "workweek": 40,
+      "schedule": ScheduleOptions().Flexible,
+      "remote": RemoteWorking().Required,
+      "pto": PTO().Unlimited
+  },
+  "profile": {
+      "newfeatures": 50,
+      "clientsupport": 9,
+      "documentation": 10,
+      "maintenance": 30,
+      "meetings": 1,
+  },
+  "equipment": {
+      "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+      "computer": MachineType().Laptop,
+  },
+  "technologies": {
+      "css3": Level().Good,
+      "html5": Level().Good,
+      "javascript": Level().Good,
+      "node": Level().Good,
+      "rest": Level().Good,
+      "uiux": Level().Familiar,
+      "design": Level().Familiar,
+      "testing": {
+          "oneof": {
+              "junit": Level().Good,
+              "mocha": Level().Good,
+              "jasmine": Level().Good,
+              "selenium": Level().Good,
+          }
+      },
+      "framework": {
+          "oneof": {
+              "react": Level().Familiar,
+              "vue": Level().Familiar,
+              "angular": Level().Familiar,
+          }
+      },
+      "boardgames": Level().Familiar,
+  },
+  "other": [
+      "we love technology",
+      "we solve interesting problems"
+  ],
+  "apply": "https://gridium.com/about/working-at-gridium/"
+}];
 
 function EmploymentType() { return enumerate("Permanent", "Temporary", "Project"); };
 function ExperienceLevels() { return enumerate("Junior", "Seasoned", "Lead", "GrayBeard"); };
@@ -103,7 +176,7 @@ function TrainingType() { return enumerate("None", "Informal", "Formal", "Extern
 function PTO() { return enumerate("Accrued", "Unlimited") };
 
 // https://github.com/RougeWare/Micro-JS-Enum/tree/master/lib
-function enumerate() { var v=arguments;var s={all:[],keys:v};for(var i=v.length;i--;)s[v[i]]=s.all[i]=v[i];return s };
+function enumerate() { var v = arguments; var s = { all: [], keys: v }; for (var i = v.length; i--;)s[v[i]] = s.all[i] = v[i]; return s };
 
 function mapEnumToResources(enumerator, resources) {
     if (enumerator.all.length !== resources.length) {

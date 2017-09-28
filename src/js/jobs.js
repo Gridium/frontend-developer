@@ -96,7 +96,6 @@ export const jobs = [
             "learn_from_errors": false,
             "emergency_control": BuildServers().NotYetChosen,
             "travels": TravelOptions().Plentiful,
-           
             "commit_on_day_one": true,
         },
         "specs": {
@@ -140,6 +139,69 @@ export const jobs = [
         "other": [
             "we love getting lost in space",
             "you can work from anywhere and anywhen you want."
+        ],
+        "apply": "https://gridium.com/about/working-at-gridium/"
+    },
+    {
+        "headline": "Gridium Fullstack Developer",
+        "essentials": {
+            "locations": "tokyo",
+            "position": "Fullstack Developer",
+            "employment": EmploymentType().Project,
+            "experience": [ExperienceLevels().GrayBeard],
+            "startdate": new Date("1, Jan 2018"),
+            "companysize": CompanySize().FiftyToTwoHundred,
+            "teamsize": { "min": 10, "max": 20 },
+        },
+        "methodology": {
+            "attractive_salary": true,
+            "free_lunch": true,
+            "office_pet": true,
+            "private_office": true,
+            "vcs": VersionControlSystem().Git,
+            "issue_tracker": IssueTrackers().Jira,
+            "build_servers": BuildServers().Jenkins,
+            "code_analysis_tools": CodeAnalysisTools().NotYetChosen,
+            "wiki": KnowledgeRepos().Confluence,
+            "travel_options": TravelOptions().Plentiful,
+        },
+        "specs": {
+            "workload": 1.0,
+            "workweek": "35",
+            "schedule": ScheduleOptions().Flexible,
+            "remote": RemoteWorking().Negotiable,
+            "pto": PTO().Unlimited
+        },
+        "profile": {
+            "coding": 25,
+            "documentation": 25,
+            "project_ownership": 25,
+            "people_management": 25,
+        },
+        "equipment": {
+            "operatingsystem": [OperationSystems().Ubuntu, OperationSystems().Windows],
+            "computer": MachineType().Laptop,
+        },
+        "technologies": {
+            "Learning": Level().Expert,
+            "Giving Feedback": Level().Expert,
+            "Managing Teams": Level().Expert,
+            "Proactive": Level().Expert,
+            "testing": {
+                "nested": true,
+                "Mocha": Level().Expert,
+                "JUnit": Level().Expert,
+                "Selenium": Level().Expert,
+            },
+            "framework": {
+                "nested": true,
+                "Angular": Level().Expert,
+                "Vue": Level().Expert,
+            },
+        },
+        "other": [
+            "we build awesome products",
+            "we care about our customers"
         ],
         "apply": "https://gridium.com/about/working-at-gridium/"
     }

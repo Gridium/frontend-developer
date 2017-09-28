@@ -208,5 +208,6 @@ export const languageColors = {
     "JUnit": "#f97732",
     "Selenium": "#232F49",
     "Mocha": "#7F583B",
-    "Jasmine": "#7F3977"
+    "Jasmine": "#7F3977",
+    "Space Travel": "red"
   };

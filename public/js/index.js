@@ -71,82 +71,150 @@
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(2);
 
 
-const jobs = [{
-    "headline": "Gridium Front-end Developer",
-    "essentials": {
-        "locations": "denver",
-        "position": "Front-end Developer",
-        "employment": EmploymentType().Permanent,
-        "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
-        "startdate": (new Date()).getTime(),
-        "companysize": CompanySize().TenToTwenty,
-        "teamsize": { "min": 1, "max": 6 },
-    },
-    "methodology": {
-        "code_reviews": true,
-        "prototyping": true,
-        "fail_fast": true,
-        "unit_testing": true,
-        "integration_tests": true,
-        "build_server": BuildServers().CircleCI,
-        "static_code_analysis": CodeAnalysisTools().NotYetChosen,
-        "version_control": VersionControlSystem().Git,
-        "issue_tracker": IssueTrackers().Tikkit,
-        "standups": true,
-        "quick_start": true,
-        "commit_on_day_one": true,
-    },
-    "specs": {
-        "workload": 1.0,
-        "workweek": 40,
-        "schedule": ScheduleOptions().Flexible,
-        "remote": RemoteWorking().Required,
-        "pto": PTO().Unlimited
-    },
-    "profile": {
-        "newfeatures": 50,
-        "clientsupport": 9,
-        "documentation": 10,
-        "maintenance": 30,
-        "meetings": 1,
-    },
-    "equipment": {
-        "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
-        "computer": MachineType().Laptop,
-    },
-    "technologies": {
-        "CSS": Level().Good,
-        "HTML": Level().Good,
-        "JavaScript": Level().Good,
-        "Node": Level().Good,
-        "REST": Level().Good,
-        "UI/UX": Level().Familiar,
-        "Design": Level().Familiar,
-        "testing": {
-            "nested": true,
-            "oneof": {
-                "JUnit": Level().Good,
-                "Mocha": Level().Good,
-                "Jasmine": Level().Good,
-                "Selenium": Level().Good,
-            }
+const jobs = [
+    {
+        "headline": "Gridium Front-end Developer",
+        "essentials": {
+            "locations": "denver",
+            "position": "Front-end Developer",
+            "employment": EmploymentType().Permanent,
+            "experience": [ExperienceLevels().Junior, ExperienceLevels().Seasoned],
+            "startdate": (new Date()).getTime(),
+            "companysize": CompanySize().TenToTwenty,
+            "teamsize": { "min": 1, "max": 6 },
         },
-        "framework": {
-            "nested": true,
-            "oneof": {
-                "React": Level().Familiar,
-                "Vue": Level().Familiar,
-                "Angular": Level().Familiar,
-            }
+        "methodology": {
+            "code_reviews": true,
+            "prototyping": true,
+            "fail_fast": true,
+            "unit_testing": true,
+            "integration_tests": true,
+            "build_server": BuildServers().CircleCI,
+            "static_code_analysis": CodeAnalysisTools().NotYetChosen,
+            "version_control": VersionControlSystem().Git,
+            "issue_tracker": IssueTrackers().Tikkit,
+            "standups": true,
+            "quick_start": true,
+            "commit_on_day_one": true,
         },
-        "Boardgames": Level().Familiar,
+        "specs": {
+            "workload": 1.0,
+            "workweek": 40,
+            "schedule": ScheduleOptions().Flexible,
+            "remote": RemoteWorking().Required,
+            "pto": PTO().Unlimited
+        },
+        "profile": {
+            "new_features": 50,
+            "client_support": 9,
+            "documentation": 10,
+            "maintenance": 30,
+            "meetings": 1,
+        },
+        "equipment": {
+            "operatingsystem": [OperationSystems().MacOSX, OperationSystems().CentOS],
+            "computer": MachineType().Laptop,
+        },
+        "technologies": {
+            "CSS": Level().Good,
+            "HTML": Level().Good,
+            "JavaScript": Level().Good,
+            "Node": Level().Good,
+            "REST": Level().Good,
+            "UI/UX": Level().Familiar,
+            "Design": Level().Familiar,
+            "testing": {
+                "nested": true,
+                "oneof": {
+                    "JUnit": Level().Good,
+                    "Mocha": Level().Good,
+                    "Jasmine": Level().Good,
+                    "Selenium": Level().Good,
+                }
+            },
+            "framework": {
+                "nested": true,
+                "oneof": {
+                    "React": Level().Familiar,
+                    "Vue": Level().Familiar,
+                    "Angular": Level().Familiar,
+                }
+            },
+            "Boardgames": Level().Familiar,
+        },
+        "other": [
+            "we love technology",
+            "we solve interesting problems"
+        ],
+        "apply": "https://gridium.com/about/working-at-gridium/"
     },
-    "other": [
-        "we love technology",
-        "we solve interesting problems"
-    ],
-    "apply": "https://gridium.com/about/working-at-gridium/"
-}];
+    {
+        "headline": "Gridium Space-Time Traveller",
+        "essentials": {
+            "locations": "everywhere and nowhere, anytime",
+            "position": "Space-Time Traveller",
+            "employment": EmploymentType().Temporary,
+            "experience": [ExperienceLevels().GrayBeard],
+            "startdate": new Date("3, Jul 1985"),
+            "companysize": CompanySize().MoreThanTwoHundred,
+            "teamsize": { "min": 1, "max": 1 },
+        },
+        "methodology": {
+            "propulsion_engines": true,
+            "explosions": true,
+            "moon_landing": true,
+            "exploration": true,
+            "learn_from_errors": false,
+            "emergency_control": BuildServers().NotYetChosen,
+            "travels": TravelOptions().Plentiful,
+           
+            "commit_on_day_one": true,
+        },
+        "specs": {
+            "workload": 1.0,
+            "workweek": ">9000",
+            "schedule": ScheduleOptions().Flexible,
+            "remote": RemoteWorking().No,
+            "pto": PTO().Accrued
+        },
+        "profile": {
+            "survival": 50,
+            "time_travel": 10,
+            "space_travel": 10,
+            "wandering": 10,
+            "flying_in_space": 20,
+        },
+        "equipment": {
+            "operatingsystem": [OperationSystems().Ubuntu],
+            "computer": MachineType().Workstation,
+        },
+        "technologies": {
+            "Harbour": Level().Expert,
+            "VHDL": Level().Expert,
+            "NewLisp": Level().Expert,
+            "Web Ontology Language": Level().Expert,
+            "testing": {
+                "nested": true,
+                "Pan": Level().Expert,
+                "Eagle": Level().Expert,
+                "Boo": Level().Expert,
+            },
+            "framework": {
+                "nested": true,
+                "Latte": Level().Expert,
+                "FORTRAN": Level().Expert,
+                "ColdFusion": Level().Expert,
+                "Lua": Level().Expert,
+            },
+            "Space Travel": Level().Expert,
+        },
+        "other": [
+            "we love getting lost in space",
+            "you can work from anywhere and anywhen you want."
+        ],
+        "apply": "https://gridium.com/about/working-at-gridium/"
+    }
+];
 /* harmony export (immutable) */ __webpack_exports__["c"] = jobs;
 
 
@@ -476,6 +544,9 @@ const specs = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(1);
+
+
 const profile = {
     chart: {
         chart: null,
@@ -487,7 +558,7 @@ const profile = {
     },
     profileChartWrapperId: 'profile_chart_wrapper',
     profileChartId: 'profile_chart',
-    resizeDone: function() {
+    resizeDone: function () {
         this.chart.options.width = '100%';
         this.chart.options.height = '100%';
         this.chart.chart.draw(this.chart.chartData, this.chart.options);
@@ -504,7 +575,7 @@ const profile = {
         profileChart.id = this.profileChartId;
         profileChartWrapper.classList = 'chart';
         profileChart.style.maxHeight = '300px';
-        
+
         profileChartWrapper.appendChild(profileChart);
         wrapper.appendChild(sectionTitle);
         wrapper.appendChild(profileChartWrapper);
@@ -516,14 +587,12 @@ const profile = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            that.chart.chartData = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['New Features', data.newfeatures],
-                ['Client Support', data.clientsupport],
-                ['Documentation', data.documentation],
-                ['Maintenance', data.maintenance],
-                ['Meetings', data.meetings],
-            ]);
+            const chartData = [['Task', 'Hours per Day']];
+            Object.keys(data).forEach(key => {
+                chartData.push([Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* keyToLabel */])(key), data[key]]);
+            });
+            that.chart.chartData = google.visualization.arrayToDataTable(chartData);
+
             that.chart.chart = new google.visualization.PieChart(document.getElementById(that.profileChartId));
             that.chart.chart.draw(that.chart.chartData, that.chart.options);
         }
@@ -692,7 +761,7 @@ const technologies = {
         function drawChart() {
             const chartData = [['Testing', 'Level', { role: 'style' }]];
             const testing = data.testing.oneof ? data.testing.oneof : data.testing;
-            Object.keys(testing).forEach(key => {
+            Object.keys(testing).filter(key => key != 'nested').forEach(key => {
                 chartData.push([key, Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[testing[key]], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */][key]]);
             });
             chart.chartData = google.visualization.arrayToDataTable(chartData);
@@ -711,7 +780,7 @@ const technologies = {
         function drawChart() {
           const chartData = [['Framework', 'Level', { role: 'style' }]];
           const framework = data.framework.oneof ? data.framework.oneof : data.framework;
-          Object.keys(framework).forEach(key => {
+          Object.keys(framework).filter(key => key != 'nested').forEach(key => {
               chartData.push([key, Object(__WEBPACK_IMPORTED_MODULE_0__jobs__["b" /* LevelResources */])()[framework[key]], __WEBPACK_IMPORTED_MODULE_2__languageColors__["a" /* languageColors */][key]]);
           });
           chart.chartData = google.visualization.arrayToDataTable(chartData);
@@ -945,7 +1014,8 @@ const languageColors = {
     "JUnit": "#f97732",
     "Selenium": "#232F49",
     "Mocha": "#7F583B",
-    "Jasmine": "#7F3977"
+    "Jasmine": "#7F3977",
+    "Space Travel": "red"
   };
 /* harmony export (immutable) */ __webpack_exports__["a"] = languageColors;
 

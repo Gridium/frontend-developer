@@ -131,7 +131,7 @@ export const technologies = {
         function drawChart() {
             const chartData = [['Testing', 'Level', { role: 'style' }]];
             const testing = data.testing.oneof ? data.testing.oneof : data.testing;
-            Object.keys(testing).forEach(key => {
+            Object.keys(testing).filter(key => key != 'nested').forEach(key => {
                 chartData.push([key, LevelResources()[testing[key]], languageColors[key]]);
             });
             chart.chartData = google.visualization.arrayToDataTable(chartData);
@@ -150,7 +150,7 @@ export const technologies = {
         function drawChart() {
           const chartData = [['Framework', 'Level', { role: 'style' }]];
           const framework = data.framework.oneof ? data.framework.oneof : data.framework;
-          Object.keys(framework).forEach(key => {
+          Object.keys(framework).filter(key => key != 'nested').forEach(key => {
               chartData.push([key, LevelResources()[framework[key]], languageColors[key]]);
           });
           chart.chartData = google.visualization.arrayToDataTable(chartData);

@@ -1,3 +1,5 @@
+import { keyToLabel } from '../helpers';
+
 export const profile = {
     chart: {
         chart: null,
@@ -9,7 +11,7 @@ export const profile = {
     },
     profileChartWrapperId: 'profile_chart_wrapper',
     profileChartId: 'profile_chart',
-    resizeDone: function() {
+    resizeDone: function () {
         this.chart.options.width = '100%';
         this.chart.options.height = '100%';
         this.chart.chart.draw(this.chart.chartData, this.chart.options);
@@ -26,7 +28,7 @@ export const profile = {
         profileChart.id = this.profileChartId;
         profileChartWrapper.classList = 'chart';
         profileChart.style.maxHeight = '300px';
-        
+
         profileChartWrapper.appendChild(profileChart);
         wrapper.appendChild(sectionTitle);
         wrapper.appendChild(profileChartWrapper);
@@ -38,14 +40,12 @@ export const profile = {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            that.chart.chartData = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['New Features', data.newfeatures],
-                ['Client Support', data.clientsupport],
-                ['Documentation', data.documentation],
-                ['Maintenance', data.maintenance],
-                ['Meetings', data.meetings],
-            ]);
+            const chartData = [['Task', 'Hours per Day']];
+            Object.keys(data).forEach(key => {
+                chartData.push([keyToLabel(key), data[key]]);
+            });
+            that.chart.chartData = google.visualization.arrayToDataTable(chartData);
+
             that.chart.chart = new google.visualization.PieChart(document.getElementById(that.profileChartId));
             that.chart.chart.draw(that.chart.chartData, that.chart.options);
         }

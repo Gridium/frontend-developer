@@ -1,16 +1,5 @@
 # Gridium Developer Application
-
-Write some code that processes the data in `./public/js/index.js` into a cool web document. Get creative! We want to see what you can do.
-
-## Instructions
-
-Fork, Code, Submit a Pull Request
-Use the libraries or framework of your choice, show us what you know!
-
-## Getting Started (if using Node/NPM)
-We're polygots. You'll find Python, R, Java, Javascript, and a few other technologies in use at Gridium. Use whatever you feel most comfortable with.
-
-If you choose to go the JS route then the basic work is done. Use NPM to initialize things.
+I used React (15.x) and the React Router (v4) to create a Single Page Application base to display the data in the original provided JavaScript file.
 
 ### Prerequisites
 
@@ -33,8 +22,10 @@ Install project dependencies
 
 ### Running the Project
 
-[http-server](https://www.npmjs.com/package/http-server) has been included for convenience, run with the following script:
+```npm start``` will start the production build process and then serve the contents of ```./public'''
+
 ```
+> webpack -p
 > npm start
 Starting up http-server, serving ./public
 Available on:

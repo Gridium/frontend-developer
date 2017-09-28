@@ -148,6 +148,70 @@ const jobs = [
         ],
         "apply": "https://gridium.com/about/working-at-gridium/"
     },
+
+    {
+        "headline": "Gridium Fullstack Developer",
+        "essentials": {
+            "locations": "tokyo",
+            "position": "Fullstack Developer",
+            "employment": EmploymentType().Project,
+            "experience": [ExperienceLevels().GrayBeard],
+            "startdate": new Date("1, Jan 2018"),
+            "companysize": CompanySize().FiftyToTwoHundred,
+            "teamsize": { "min": 10, "max": 20 },
+        },
+        "methodology": {
+            "attractive_salary": true,
+            "free_lunch": true,
+            "office_pet": true,
+            "private_office": true,
+            "vcs": VersionControlSystem().Git,
+            "issue_tracker": IssueTrackers().Jira,
+            "build_servers": BuildServers().Jenkins,
+            "code_analysis_tools": CodeAnalysisTools().NotYetChosen,
+            "wiki": KnowledgeRepos().Confluence,
+            "travel_options": TravelOptions().Plentiful,
+        },
+        "specs": {
+            "workload": 1.0,
+            "workweek": "35",
+            "schedule": ScheduleOptions().Flexible,
+            "remote": RemoteWorking().Negotiable,
+            "pto": PTO().Unlimited
+        },
+        "profile": {
+            "coding": 25,
+            "documentation": 25,
+            "project_ownership": 25,
+            "people_management": 25,
+        },
+        "equipment": {
+            "operatingsystem": [OperationSystems().Ubuntu, OperationSystems().Windows],
+            "computer": MachineType().Laptop,
+        },
+        "technologies": {
+            "Learning": Level().Expert,
+            "Giving Feedback": Level().Expert,
+            "Managing Teams": Level().Expert,
+            "Proactive": Level().Expert,
+            "testing": {
+                "nested": true,
+                "Mocha": Level().Expert,
+                "JUnit": Level().Expert,
+                "Selenium": Level().Expert,
+            },
+            "framework": {
+                "nested": true,
+                "Angular": Level().Expert,
+                "Vue": Level().Expert,
+            },
+        },
+        "other": [
+            "we build awesome products",
+            "we care about our customers"
+        ],
+        "apply": "https://gridium.com/about/working-at-gridium/"
+    },
     {
         "headline": "Gridium Space-Time Traveller",
         "essentials": {
@@ -210,69 +274,6 @@ const jobs = [
         "other": [
             "we love getting lost in space",
             "you can work from anywhere and anywhen you want."
-        ],
-        "apply": "https://gridium.com/about/working-at-gridium/"
-    },
-    {
-        "headline": "Gridium Fullstack Developer",
-        "essentials": {
-            "locations": "tokyo",
-            "position": "Fullstack Developer",
-            "employment": EmploymentType().Project,
-            "experience": [ExperienceLevels().GrayBeard],
-            "startdate": new Date("1, Jan 2018"),
-            "companysize": CompanySize().FiftyToTwoHundred,
-            "teamsize": { "min": 10, "max": 20 },
-        },
-        "methodology": {
-            "attractive_salary": true,
-            "free_lunch": true,
-            "office_pet": true,
-            "private_office": true,
-            "vcs": VersionControlSystem().Git,
-            "issue_tracker": IssueTrackers().Jira,
-            "build_servers": BuildServers().Jenkins,
-            "code_analysis_tools": CodeAnalysisTools().NotYetChosen,
-            "wiki": KnowledgeRepos().Confluence,
-            "travel_options": TravelOptions().Plentiful,
-        },
-        "specs": {
-            "workload": 1.0,
-            "workweek": "35",
-            "schedule": ScheduleOptions().Flexible,
-            "remote": RemoteWorking().Negotiable,
-            "pto": PTO().Unlimited
-        },
-        "profile": {
-            "coding": 25,
-            "documentation": 25,
-            "project_ownership": 25,
-            "people_management": 25,
-        },
-        "equipment": {
-            "operatingsystem": [OperationSystems().Ubuntu, OperationSystems().Windows],
-            "computer": MachineType().Laptop,
-        },
-        "technologies": {
-            "Learning": Level().Expert,
-            "Giving Feedback": Level().Expert,
-            "Managing Teams": Level().Expert,
-            "Proactive": Level().Expert,
-            "testing": {
-                "nested": true,
-                "Mocha": Level().Expert,
-                "JUnit": Level().Expert,
-                "Selenium": Level().Expert,
-            },
-            "framework": {
-                "nested": true,
-                "Angular": Level().Expert,
-                "Vue": Level().Expert,
-            },
-        },
-        "other": [
-            "we build awesome products",
-            "we care about our customers"
         ],
         "apply": "https://gridium.com/about/working-at-gridium/"
     }
@@ -1138,9 +1139,12 @@ const jobsList = {
         const wrapper = document.createElement('div');
         const title = document.createElement('h1');
         const text = document.createElement('p');
+        const subText = document.createElement('p');
         this.container = document.createElement('ul');
-        title.textContent = 'Welcome to the Gridium developers job boards!';
+        title.textContent = 'Welcome to the Gridium developers job board!';
         text.textContent = 'Browse all new opportunities and find the job that match your skills.';
+        subText.textContent = `We have ${data.length} new openings!`;
+        subText.style.fontWeight = 'bold';
 
         (data.forEach((el, i) => {
             this.container.appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* createRow */])('', `<h2><a data-job=${i} href="#">${el} ›</a></h2>`))
@@ -1148,6 +1152,7 @@ const jobsList = {
 
         wrapper.appendChild(title);
         wrapper.appendChild(text);
+        wrapper.appendChild(subText);
         wrapper.appendChild(this.container);
         return wrapper;
     }

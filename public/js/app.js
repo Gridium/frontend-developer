@@ -53,8 +53,18 @@ Vue.component('jumbotron', {
 						</div>`
 });
 
+// Vue.component('essential', {
+// 	props: ['essential'],
+// 	template: `<h3>{{id}} <small>{{}}</small></h3>`
+// });
+
 let newApp = new Vue({
 	el: '#app',
 	data: job,
+	methods: {
+		loopInnerObj: innerObj => {
+			Object.keys(innerObj);
+		}
+	}
 });
 

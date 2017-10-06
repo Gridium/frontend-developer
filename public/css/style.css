@@ -10,8 +10,6 @@ body {
 .jumbotron {
 	height: 100vh;
 	background: none;
-	/* background-image: url('https://static.pexels.com/photos/248515/pexels-photo-248515.png');
-	background-attachment: fixed; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,7 +21,7 @@ body {
 }
 
 #jumbo-video {
-	position: fixed;
+	position: absolute;
 	right: 0;
 	bottom: 0;
 	min-width: 100%;

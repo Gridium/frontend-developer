@@ -10,13 +10,14 @@
 
 <body>
 	<div id="app">
-		<section class="container-fluid">
-			<!-- <div class="jumbotron">
-				<div class="container">
-					<h1>{{headline}}</h1>
+		<jumbotron v-bind:headline="headline"></jumbotron>
+		<section class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<h1>Essentials</h1>
+					<h3 v-for="key in Object.keys(essentials)">{{key}} <small>{{essentials[key]}}</small></h3>
 				</div>
-			</div> -->
-			<jumbotron v-bind:headline="headline"></jumbotron>
+			</div>
 		</section>
 	</div>
 	<script src="https://unpkg.com/vue"></script>

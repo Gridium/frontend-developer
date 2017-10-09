@@ -1,0 +1,238 @@
+/**
+ * @section
+ * @desc rules for sections
+ */
+
+section,
+.section {
+  padding: 15px;
+}
+/**
+ * @.closing
+ * @desc closing section - footerish
+ */
+
+.closing {
+  background: #202323;
+  border-top: 1px solid #080808;
+}
+/**
+ * @.group
+ * @desc - content block area
+ */
+
+.row.equal {
+  /* act as a normal row on mobile */
+  display: block;
+  border-bottom: 1px solid #ddd;
+  -webkit-box-align: normal;
+  -ms-flex-align: normal;
+  align-items: normal;
+}
+@media (min-width:768px) {
+  .row.equal {
+    /* vertical alignment for images not mobile */
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+.row.equal:last-child {
+  border-bottom: none;
+}
+.group,
+.img-group {
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+/**
+ * @.img-wrap
+ * @desc - alignment for images
+ */
+
+.img-wrap {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+.img-wrap>div {
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+.img-wrap img {
+  display: block;
+  /* horizontally aligns with dl above and below */
+  margin-left: 180px;
+}
+/**
+ * @loading
+ * @desc Rules for ensuring template data and background
+ * images  are loaded before they are visible.
+ * Prevents FOUT
+ */
+
+.loading.jumbotron {
+  opacity: 0;
+}
+.loading.row {
+  opacity: 0;
+}
+.row,
+.jumbotron {
+  /* default opacity is already 1.0 */
+  transition: opacity 500ms ease;
+}
+/**
+ * @typography
+ * @desc rules for typographic styling
+ */
+
+.fancy {
+  font-family: 'Berkshire Swash';
+}
+dd,
+dt {
+  text-transform: capitalize;
+}
+cite {
+  color: #e16527;
+  padding-left: 15px;
+}
+blockquote.well {
+  font-size: 22px;
+  border: 1px solid #e16527;
+}
+/** @.jumbotron
+    @desc adjustments to jumbotron */
+
+.jumbotron {
+  /* compensates for the 20px margin below the navbar  */
+  margin-top: -20px;
+  /* regularly 30, but we have section padding to consider */
+  margin-bottom: 15px;
+  /* so as to hold absolutely positioned child */
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 50vh;
+  /* preloading this */
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+.jumbotron h1 {
+  color: #fcf3c5;
+  text-shadow: 0 0 15px #f9e580, 0px -2px 1px #131001, 0 -10px 20px rgba(252, 243, 197, 0.75), 0 10px 20px rgba(252, 243, 197, 0.75);
+  text-align: center;
+  font-size: 63px;
+}
+@media (min-width:1200px) {
+  .jumbotron h1 {
+    font-size: 85px;
+  }
+}
+/* simple vertical alignment for text within jumbotron */
+
+.centerme {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* absolutely positioned element inside jumbotron */
+
+.tagline {
+  background-color: #202323;
+  bottom: 0;
+  color: #fcf3c5;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.tagline>h2 {
+  margin-top: 10px;
+}
+/**
+ * @brand-image
+ * @desc brand-image styling in navbar
+ */
+
+.brand-image-wrap {
+  float: left;
+  height: 50px;
+  width: 50%;
+}
+.brand-image-wrap>div {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  /* for hidden txt: override padding on mobile */
+  margin-left: -15PX;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width:768px) {
+  .brand-image-wrap>div {
+    /* txt not hidden on desktop */
+    margin-left: 0;
+    text-align: left;
+    width: auto;
+  }
+}
+.brand-image-wrap>div:first-child {
+  /* txt - hidden by default */
+  display: none;
+  padding-right: 0;
+}
+@media (min-width:768px) {
+  .brand-image-wrap>div:first-child {
+    display: block;
+    padding-right: 10px;
+  }
+}
+.brand-image-wrap a {
+  /* full high clicking surface */
+  display: block;
+}
+/**
+ * @dl-horizontal.nested
+ * @desc rules to accomplish nested dls with a title
+ */
+
+.dl-horizontal.nested {
+  /* cancels out default margin of 20px at bottom of prev sibling */
+  margin-top: -20px;
+}
+.dl-horizontal dt.dl-nested-label {
+  /* like a subheading for dl */
+  color: #3c87a4;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  overflow: visible;
+  padding: 5px 10px;
+  width: auto;
+}
+@media (min-width:768px) {
+  .dl-horizontal dt.dl-nested-label {
+    display: block;
+    margin-left: 90px;
+    text-align: center;
+  }
+}

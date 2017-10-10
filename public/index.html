@@ -10,231 +10,218 @@
 
 <body>
 	<div id="app">
-		<jumbotron v-bind:headline="headline"></jumbotron>
-		<section class="container">
-			<div class="card-columns">
+		<jumbotron v-bind:headline="headline" v-bind:other="other"></jumbotron>
+	</div>
+	<section class="container">
+		<div class="card-columns">
 
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Essentials</h1>
-							<h3>Locations
-								<br>
-								<small>{{essentials.locations.charAt(0).toUpperCase() + essentials.locations.slice(1)}}</small>
-							</h3>
-							<h3>Employment
-								<br>
-								<small>{{essentials.employment.charAt(0).toUpperCase() + essentials.employment.slice(1)}}</small>
-							</h3>
-							<h3>Experience
-								<br>
-								<small>{{essentials.experience[0]}}</small>
-							</h3>
-							<h3>Start Date
-								<br>
-								<small>{{Date(essentials.startdate)}}</small>
-							</h3>
-							<h3>Company Size
-								<br>
-								<small>{{essentials.companysize}}</small>
-							</h3>
-							<h3>Team Size
-								<br>
-								<small>min: {{essentials.teamsize.max}}</small>
-								<br>
-								<small>max: {{essentials.teamsize.min}}</small>
-							</h3>
-						</div>
-					</div>
-
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Methodology</h1>
-							<h3>Code Reviews
-								<br>
-								<small>{{methodology.codereviews}}</small>
-							</h3>
-							<h3>Prototyping
-								<br>
-								<small>{{methodology.prototyping}}</small>
-							</h3>
-							<h3>Fail Fast
-								<br>
-								<small>{{methodology.failfast}}</small>
-							</h3>
-							<h3>Unit Tests
-								<br>
-								<small>{{methodology.unittests}}</small>
-							</h3>
-							<h3>Integration Tests
-								<br>
-								<small>{{methodology.integrationtests}}</small>
-							</h3>
-							<h3>Build Server
-								<br>
-								<small>{{methodology.buildserver}}</small>
-							</h3>
-							<h3>Static Code Analysis
-								<br>
-								<small>{{methodology.staticcodeanalysis}}</small>
-							</h3>
-							<h3>Version Control
-								<br>
-								<small>{{methodology.versioncontrol}}</small>
-							</h3>
-							<h3>Issue Tracker
-								<br>
-								<small>{{methodology.issuetracker}}</small>
-							</h3>
-							<h3>Standups
-								<br>
-								<small>{{methodology.standups}}</small>
-							</h3>
-							<h3>Quick Start
-								<br>
-								<small>{{methodology.quickstart}}</small>
-							</h3>
-							<h3>Commit On Day One
-								<br>
-								<small>{{methodology.commitondayone}}</small>
-							</h3>
-						</div>
-					</div>
-
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Specs</h1>
-							<h3>Work Load
-								<br>
-								<small>{{specs.workload}}</small>
-							</h3>
-							<h3>Work Week
-								<br>
-								<small>{{specs.workweek}}</small>
-							</h3>
-							<h3>Schedule
-								<br>
-								<small>{{specs.schedule}}</small>
-							</h3>
-							<h3>Remote
-								<br>
-								<small>{{specs.remote}}</small>
-							</h3>
-							<h3>PTO
-								<br>
-								<small>{{specs.pto}}</small>
-							</h3>
-						</div>
-					</div>
-
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Profile</h1>
-							<h3>New Features
-								<br>
-								<small>{{profile.newfeatures}}</small>
-							</h3>
-							<h3>Client Support
-								<br>
-								<small>{{profile.clientsupport}}</small>
-							</h3>
-							<h3>Documentation
-								<br>
-								<small>{{profile.documentation}}</small>
-							</h3>
-							<h3>Maintenance
-								<br>
-								<small>{{profile.maintenance}}</small>
-							</h3>
-							<h3>Meetings
-								<br>
-								<small>{{profile.meetings}}</small>
-							</h3>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Equipment</h1>
-							<h3>Operating Systems
-								<br>
-								<small>{{equipment.operatingsystem[0]}}</small>
-								<br>
-								<small>{{equipment.operatingsystem[1]}}</small>
-							</h3>
-							<h3>Computer
-								<br>
-								<small>{{equipment.computer}}</small>
-							</h3>
-						</div>
-					</div>
-
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Technologies</h1>
-							<h3>CSS3
-								<br>
-								<small>{{technologies.css3}}</small>
-							</h3>
-							<h3>HTML5
-								<br>
-								<small>{{technologies.html5}}</small>
-							</h3>
-							<h3>JavaScript
-								<br>
-								<small>{{technologies.javascript}}</small>
-							</h3>
-							<h3>Node
-								<br>
-								<small>{{technologies.node}}</small>
-							</h3>
-							<h3>REST
-								<br>
-								<small>{{technologies.rest}}</small>
-							</h3>
-							<h3>UI / UX
-								<br>
-								<small>{{technologies.uiux}}</small>
-							</h3>
-							<h3>Testing
-								<br>
-								<small>JUnit: {{technologies.testing.oneof.junit}}</small>
-								<br>
-								<small>Mocha: {{technologies.testing.oneof.mocha}}</small>
-								<br>
-								<small>Jasmine: {{technologies.testing.oneof.jasmine}}</small>
-								<br>
-								<small>Selenium: {{technologies.testing.oneof.selenium}}</small>
-							</h3>
-							<h3>Framework
-								<br>
-								<small>React: {{technologies.framework.oneof.react}}</small>
-								<br>
-								<small>Vue: {{technologies.framework.oneof.vue}}</small>
-								<br>
-								<small>Angular: {{technologies.framework.oneof.angular}}</small>
-							</h3>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<h1 class="card-title">Other</h1>
-							<h3>
-								<br>
-								<small>{{other[0]}}</small>
-								<br>
-								<small>{{other[1]}}</small>
-							</h3>
-						</div>
-					</div>
+			<div id="essentials" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Essentials</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Locations</h3>
+					<p class="card-text">{{capitalizeMe(locations)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Employment</h3>
+					<p class="card-text">{{capitalizeMe(employment)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Experience</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="ex in experience">{{ex}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Start Date</h3>
+					<p class="card-text">{{Date(startdate)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Company Size</h3>
+					<p class="card-text">{{giveMeSpace(companysize, 'T')}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3>Team Size</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in teamsize">{{key}}: {{value}}</li>
+					</ul>
 				</div>
 			</div>
-		</section>
-	</div>
+
+
+			<div id="methodology" class="card">
+				<div class="card-header">
+					<h1>Methodology</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Code Reviews</h3>
+					<p class="card-text">{{codereviews}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Prototyping</h3>
+					<p class="card-text">{{prototyping}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Fail Fast</h3>
+					<p class="card-text">{{failfast}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Unit Tests</h3>
+					<p class="card-text">{{unittests}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Integration Tests</h3>
+					<p class="card-text">{{integrationtests}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Build Server</h3>
+					<p class="card-text">{{buildserver}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Static Code Analysis</h3>
+					<p class="card-text">{{staticcodeanalysis}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Version Control</h3>
+					<p class="card-text">{{versioncontrol}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Issue Tracker</h3>
+					<p class="card-text">{{issuetracker}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Standups</h3>
+					<p class="card-text">{{standups}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Quick Start</h3>
+					<p class="card-text">{{quickstart}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Commit On Day One</h3>
+					<p class="card-text">{{commitondayone}}</p>
+				</div>
+			</div>
+
+
+			<div id="specs" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Specs</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Work Load</h3>
+					<p class="card-text">{{workload}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Work Week</h3>
+					<p card="card-text">{{workweek}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Schedule</h3>
+					<p class="card-text">{{schedule}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Remote</h3>
+					<p class="card-text">{{remote}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">PTO</h3>
+					<p class="card-text">{{pto}}</p>
+				</div>
+			</div>
+
+
+			<div id="profile" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Profile</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">New Features</h3>
+					<p class="card-text">{{newfeatures}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Client Support</h3>
+					<p class="card-text">{{clientsupport}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Documentation</h3>
+					<p class="card-text">{{documentation}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Maintenance</h3>
+					<p class="card-text">{{maintenance}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Meetings</h3>
+					<p class="card-text">{{meetings}}</p>
+					</h3>
+				</div>
+			</div>
+
+			<div id="equipment" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Equipment</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Operating Systems</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="sys in operatingsystem">{{sys}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Computer</h3>
+					<p class="card-text">{{computer}}</p>
+				</div>
+			</div>
+
+
+			<div id="technologies" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Technologies</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">CSS3</h3>
+					<p class="card-text">{{css3}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">HTML5</h3>
+					<p class="card-text">{{html5}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">JavaScript</h3>
+					<p class="card-text">{{javascript}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Node</h3>
+					<p class="card-text">{{node}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">REST</h3>
+					<p class="card-text">{{rest}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">UI / UX</h3>
+					<p class="card-text">{{uiux}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Testing</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in testing.oneof">{{capitalizeMe(key)}}: {{value}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Framework</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in framework.oneof">{{capitalizeMe(key)}}: {{value}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 	<script src="https://unpkg.com/vue"></script>
 	<script type="text/javascript" src="./js/index.js"></script>
 	<script type="text/javascript" src="./js/app.js"></script>

@@ -1,9 +1,230 @@
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
+	<title>JB's Gridium Project</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <script type="text/javascript" src="./js/index.js"></script>
+	<div id="app">
+		<jumbotron v-bind:headline="headline" v-bind:other="other"></jumbotron>
+	</div>
+	<section class="container">
+		<div class="card-columns">
+
+			<div id="essentials" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Essentials</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Locations</h3>
+					<p class="card-text">{{capitalizeMe(locations)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Employment</h3>
+					<p class="card-text">{{capitalizeMe(employment)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Experience</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="ex in experience">{{ex}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Start Date</h3>
+					<p class="card-text">{{Date(startdate)}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Company Size</h3>
+					<p class="card-text">{{giveMeSpace(companysize, 'T')}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3>Team Size</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in teamsize">{{key}}: {{value}}</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div id="methodology" class="card">
+				<div class="card-header">
+					<h1>Methodology</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Code Reviews</h3>
+					<p class="card-text">{{codereviews}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Prototyping</h3>
+					<p class="card-text">{{prototyping}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Fail Fast</h3>
+					<p class="card-text">{{failfast}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Unit Tests</h3>
+					<p class="card-text">{{unittests}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Integration Tests</h3>
+					<p class="card-text">{{integrationtests}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Build Server</h3>
+					<p class="card-text">{{buildserver}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Static Code Analysis</h3>
+					<p class="card-text">{{staticcodeanalysis}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Version Control</h3>
+					<p class="card-text">{{versioncontrol}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Issue Tracker</h3>
+					<p class="card-text">{{issuetracker}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Standups</h3>
+					<p class="card-text">{{standups}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Quick Start</h3>
+					<p class="card-text">{{quickstart}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Commit On Day One</h3>
+					<p class="card-text">{{commitondayone}}</p>
+				</div>
+			</div>
+
+
+			<div id="specs" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Specs</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Work Load</h3>
+					<p class="card-text">{{workload}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Work Week</h3>
+					<p card="card-text">{{workweek}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Schedule</h3>
+					<p class="card-text">{{schedule}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Remote</h3>
+					<p class="card-text">{{remote}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">PTO</h3>
+					<p class="card-text">{{pto}}</p>
+				</div>
+			</div>
+
+
+			<div id="profile" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Profile</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">New Features</h3>
+					<p class="card-text">{{newfeatures}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Client Support</h3>
+					<p class="card-text">{{clientsupport}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Documentation</h3>
+					<p class="card-text">{{documentation}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Maintenance</h3>
+					<p class="card-text">{{maintenance}}</p>
+					</h3>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Meetings</h3>
+					<p class="card-text">{{meetings}}</p>
+					</h3>
+				</div>
+			</div>
+
+			<div id="equipment" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Equipment</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Operating Systems</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="sys in operatingsystem">{{sys}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Computer</h3>
+					<p class="card-text">{{computer}}</p>
+				</div>
+			</div>
+
+
+			<div id="technologies" class="card">
+				<div class="card-header">
+					<h1 class="card-title">Technologies</h1>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">CSS3</h3>
+					<p class="card-text">{{css3}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">HTML5</h3>
+					<p class="card-text">{{html5}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">JavaScript</h3>
+					<p class="card-text">{{javascript}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Node</h3>
+					<p class="card-text">{{node}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">REST</h3>
+					<p class="card-text">{{rest}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">UI / UX</h3>
+					<p class="card-text">{{uiux}}</p>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Testing</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in testing.oneof">{{capitalizeMe(key)}}: {{value}}</li>
+					</ul>
+				</div>
+				<div class="card-block card-body">
+					<h3 class="card-title">Framework</h3>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item" v-for="(value, key) in framework.oneof">{{capitalizeMe(key)}}: {{value}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
 </body>
+
 </html>

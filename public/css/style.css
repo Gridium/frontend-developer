@@ -31,3 +31,9 @@ body {
 	z-index: -100;
 
 }
+
+.card {
+	margin: 30px;
+	border: none;
+	border-radius: 0;
+}

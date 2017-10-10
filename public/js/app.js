@@ -10,10 +10,11 @@ Vue.component('jumbotron', {
 						</div>`
 });
 
-// Vue.component('essential', {
-// 	props: ['essential'],
-// 	template: `<h3>{{id}} <small>{{}}</small></h3>`
-// });
+Vue.component('v-testing', {
+	props: ['test', 'testValue'],
+	template: `<br>
+						<small>{{test}}: {{testValue}}</small>`
+});
 
 let newApp = new Vue({
 	el: '#app',
